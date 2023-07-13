@@ -1,7 +1,61 @@
 {
   "sections": {
+    "c0e615e1-a990-4ddc-bfb6-9ced9bb7f397": {
+      "type": "create-sign-product",
+      "blocks": {
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-0": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-2": {
+          "type": "price",
+          "settings": {}
+        },
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-3": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-4": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-5": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        }
+      },
+      "block_order": [
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-0",
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-1",
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-2",
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-3",
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-4",
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-5"
+      ],
+      "settings": {
+        "product": "elite-address-sign",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
     "46717f11-333b-49b2-a860-967e14229bf9": {
       "type": "image-with-text",
+      "disabled": true,
       "blocks": {
         "template--17712524296510__46717f11-333b-49b2-a860-967e14229bf9-167535767143c49ceb-0": {
           "type": "heading",
@@ -52,6 +106,7 @@
     }
   },
   "order": [
+    "c0e615e1-a990-4ddc-bfb6-9ced9bb7f397",
     "46717f11-333b-49b2-a860-967e14229bf9",
     "167548135556d65f77"
   ]
