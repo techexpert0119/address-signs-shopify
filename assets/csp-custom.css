@@ -45,7 +45,7 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
     overflow: hidden;
 }
 .design-box {
-    width: 70%;
+    width: 75%;
     height: 100%;
 }
 .design-box img {
@@ -55,4 +55,5 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
 }
 .csp-right-column {
     overflow-y: scroll;
+    width: 25%;
 }
