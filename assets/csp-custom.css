@@ -38,7 +38,12 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Font
 font-family: "font8";
 src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitFormalScript-Regular_ld2nf4.ttf");
 }
-
+.csp-text-input-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .csp-inner-cont {
     display: flex;
     height: 80vh;

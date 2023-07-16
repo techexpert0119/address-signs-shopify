@@ -25,7 +25,7 @@
 
 {%- assign product = section.settings.product -%}
 
-{%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
+{% comment %} {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
 {%- if first_3d_model -%}
   {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
   <link
@@ -42,7 +42,7 @@
     media="print"
     onload="this.media='all'"
   >
-{%- endif -%}
+{%- endif -%} {% endcomment %}
 
 <section>
   <div class="section-{{ section.id }}-padding">
@@ -53,7 +53,7 @@
       </div>
 
       <div class="featured-product product grid grid--1-col product--no-media csp-right-column">
-        <div class="grid__item product__media-wrapper">
+        {% comment %} <div class="grid__item product__media-wrapper">
           <media-gallery
             id="MediaGallery-{{ section.id }}"
             role="region"
@@ -96,9 +96,14 @@
               </button>
             {%- endif -%}
           </media-gallery>
-        </div>
+        </div> {% endcomment %}
         <div class="product__info-wrapper grid__item">
           <div id="ProductInfo-{{ section.id }}" class="product__info-container">
+            <div class="csp-text-input-box">
+              <input id="textInput" type="text" onkeyup="countValue()">
+              <p id="countDisplay">0</p>
+            </div>
+            
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
             {%- for block in section.blocks -%}
@@ -492,12 +497,12 @@
 </section>
 
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-{%- if first_3d_model -%}
+{% comment %} {%- if first_3d_model -%}
   <script type="application/json" id="ProductJSON-{{ product.id }}">
     {{ product.media | where: 'media_type', 'model' | json }}
   </script>
   <script src="{{ 'product-model.js' | asset_url }}" defer></script>
-{%- endif -%}
+{%- endif -%} {% endcomment %}
 
 {%- liquid
   if product.selected_or_first_available_variant.featured_media
@@ -579,6 +584,8 @@
   <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
 {% endif %}
+
+{{ 'create-sign-product.js' | asset_url | script_tag }}
 
 {% schema %}
 {
