@@ -1,4 +1,5 @@
 const LetterWidths = {
+    "\n": 0,
     "0": 6.1,
     "1": 5.2,
     "2": 7,
@@ -67,16 +68,7 @@ const LetterWidths = {
     "Z": 11.3,
     "z": 5.6
   };
-  
-// Create a mapping of letters to decimal values
-// var letterValues = {};
-// var letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-// for (var i = 0; i < letters.length; i++) {
-//     var letter = letters[i];
-//     var value = Math.random() * 2 + 1.5;  // random number between 1.5 and 3.5
-//     letterValues[letter] = value;
-// }
-console.log(LetterWidths);
+
 // Function to calculate the total value of a string
 function calculateValue(str) {
     var total = 0;
@@ -94,5 +86,23 @@ function countValue() {
     var textInput = document.getElementById('textInput');
     var countDisplay = document.getElementById('countDisplay');
     var total = calculateValue(textInput.value);
-    countDisplay.textContent = total.toFixed(2);  // display total to 2 decimal places
+        countDisplay.textContent = total.toFixed(2);  // display total to 2 decimal places
 }
+
+function filterInput() {
+    var textInput = document.getElementById('textInput');
+    var value = textInput.value;
+
+    var filteredValue = '';
+    for (var i = 0; i < value.length; i++) {
+        // Check for character in LetterWidths or newline
+        if (LetterWidths.hasOwnProperty(value[i]) || value[i] === '\n') {
+            filteredValue += value[i];
+        }
+    }
+    textInput.value = filteredValue;
+}
+
+// Add event listeners to the text input
+document.getElementById('textInput').addEventListener('input', filterInput);
+document.getElementById('textInput').addEventListener('keyup', countValue);

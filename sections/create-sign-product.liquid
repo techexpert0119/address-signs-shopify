@@ -1,5 +1,5 @@
 <!-- sections/create-sign-product.liquid -->
-{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+{{ 'section-create-sign-product.css' | asset_url | stylesheet_tag }}
 {{ 'section-featured-product.css' | asset_url | stylesheet_tag }}
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
@@ -100,7 +100,9 @@
         <div class="product__info-wrapper grid__item">
           <div id="ProductInfo-{{ section.id }}" class="product__info-container">
             <div class="csp-text-input-box">
-              <input id="textInput" type="text" onkeyup="countValue()">
+              <h3><span>1</span></h3>
+              <p>Click below to edit the text on your sign</p>
+              <textarea id="textInput" type="text" onkeyup="countValue()" row="5"></textarea>
               <p id="countDisplay">0</p>
             </div>
             

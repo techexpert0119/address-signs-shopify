@@ -44,6 +44,29 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
     align-items: center;
     flex-direction: column;
 }
+.csp-text-input-box h3 {
+    font-family: sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    width: 100%;
+}
+.csp-text-input-box h3 span {
+    padding: 2px 10px;
+    background-color:#353EAC;
+}
+.csp-text-input-box p {
+    font-size: 14px;
+    width: 100%;
+}
+.csp-text-input-box textarea {
+    padding: 10px;
+    height: 60px;
+    width: 100%;
+    border: 2px solid #353EAC;
+    border-radius: 20px;
+}
 .csp-inner-cont {
     display: flex;
     height: 80vh;
