@@ -50,8 +50,11 @@
 
       <div class="design-box">
 
+        <div class="csp-sign-text-overlay">
+          <h2 id="sign-text-overlay">This will be the text overlay</h2>
+        </div>
+
         <div class="csp-background-swatch-cont">
-        
           <div class="csp-swatch-box">
             <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/brick-light.jpg?v=1689283021" alt="Material Background" width="100" height="100" />
           </div>
@@ -74,57 +77,40 @@
       </div>
 
       <div class="featured-product product grid grid--1-col product--no-media csp-right-column">
-        {% comment %} <div class="grid__item product__media-wrapper">
-          <media-gallery
-            id="MediaGallery-{{ section.id }}"
-            role="region"
-            aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
-            data-desktop-layout="stacked"
-          >
-            <div id="GalleryViewer-{{ section.id }}" class="product__media-list">
-              {%- if product.selected_or_first_available_variant.featured_media != null -%}
-                {%- assign media = product.selected_or_first_available_variant.featured_media -%}
-                <div class="product__media-item" data-media-id="{{ section.id }}-{{ media.id }}">
-                  {% render 'product-thumbnail', media: media, position: 'featured', loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: false, media_width: 0.5 %}
-                </div>
-              {%- endif -%}
-              {%- liquid
-                assign media_to_render = product.featured_media.id
-                for variant in product.variants
-                  assign media_to_render = media_to_render | append: variant.featured_media.id | append: ' '
-                endfor
-              -%}
-              {%- for media in product.media -%}
-                {%- if media_to_render contains media.id and media.id != product.selected_or_first_available_variant.featured_media.id -%}
-                  <div class="product__media-item" data-media-id="{{ section.id }}-{{ media.id }}">
-                    {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: false, media_width: 0.5 %}
-                  </div>
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
-            {%- if first_3d_model -%}
-              <button
-                class="button button--full-width product__xr-button"
-                type="button"
-                aria-label="{{ 'products.product.xr_button_label' | t }}"
-                data-shopify-xr
-                data-shopify-model3d-id="{{ first_3d_model.id }}"
-                data-shopify-title="{{ product.title | escape }}"
-                data-shopify-xr-hidden
-              >
-                {% render 'icon-3d-model' %}
-                {{ 'products.product.xr_button' | t }}
-              </button>
-            {%- endif -%}
-          </media-gallery>
-        </div> {% endcomment %}
+       
         <div class="product__info-wrapper grid__item">
           <div id="ProductInfo-{{ section.id }}" class="product__info-container">
+            {%- assign product_form_id = 'product-form-' | append: section.id -%}
             <div class="csp-text-input-box">
-              <h3><span>1</span></h3>
+              <h3 class="csp-custom-h3"><span class="csp-form-label">1</span>CHOOSE YOUR TEXT</h3>
               <p>Click below to edit the text on your sign</p>
               <textarea id="textInput" type="text" onkeyup="countValue()" row="5"></textarea>
               <p id="countDisplay">0</p>
+            </div>
+
+            <div class="csp-font-selection-box">
+              <h3 class="csp-custom-h3">FONT SELECTION</h3>
+              <div class="csp-font-styling-box">
+
+                <select id="csp-font-option">
+                  <option>Ballantine</option>
+                  <option>Ballantine</option>
+                  <option>Ballantine</option>
+                </select>
+
+                <div class="csp-text-align-cont">
+                  <div class="csp-text-align-box">
+                  box 1
+                  </div>
+                  <div class="csp-text-align-box">
+                  box 2
+                  </div>
+                  <div class="csp-text-align-box">
+                  box 3
+                  </div>
+                </div>
+              </div>
+              
             </div>
             
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
