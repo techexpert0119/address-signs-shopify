@@ -157,32 +157,70 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
     overflow-y: scroll;
     width: 25%;
 }
-#countDisplay {
+.height-hr-box {
     position: absolute;
-    top: 5%;
-    right: 5%;
+    top: 16px;
+    left: -28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.height-hr {
+    border: 3px solid black;
+    height: 60px;
+}
+.height-measure-end {
+    width: 20px;
+    border: 3px solid black;
+    margin: 5px;
+}
+.measurement-text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    translate: -50% -50%;
+}
+.height-text-box {
+    display: flex;
+}
+.hr-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.measurement-endings {
+    border: 3px solid black;
+    margin: 10px 5px;
+    height: 25px;
 }
 #sign-text-overlay {
     width: max-content;
     font-size: 80px;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    translate: -50% -50%;
     display: flex;
     justify-content: center;
     padding: 0 20px;
+    margin: 0;
 }
 #csp-measure-hr {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50%;
-    /* width: 442px; */
     height: 5px;
     margin: 0 auto;
     background-color: black;
 }
-#csp-measure-hr::after {
-    content: '|';
+.count-display-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+#countDisplay {
+    margin: 10px 0 0 0;
+}
+.mearsurement-numbers {
+    font-size: 40px;
+    line-height: 15px;
+    font-weight: 600;
+    color: #000;
 }
