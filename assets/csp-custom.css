@@ -168,12 +168,17 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
 }
 .height-hr {
     border: 3px solid black;
-    height: 60px;
+    height: 100px;
 }
 .height-measure-end {
     width: 20px;
     border: 3px solid black;
     margin: 5px;
+}
+.height-measurement-count {
+    position: absolute;
+    left: -85px;
+    top: 70px;
 }
 .measurement-text-box {
     display: flex;

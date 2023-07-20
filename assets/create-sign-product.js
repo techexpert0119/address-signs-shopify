@@ -88,7 +88,7 @@ fontSelector.addEventListener('change', function(e) {
     } else if (fontFamily.includes('ballantines')) {
         displayDesignText.style.fontSize = '140px';
     } else if (fontFamily.includes('plaza')) {
-        displayDesignText.style.fontSize = '140px';
+        displayDesignText.style.fontSize = '110px';
     } else if (fontFamily.includes('seashore')) {
         displayDesignText.style.fontSize = '140px';
     } else if (fontFamily.includes('scriptmtbold')) {
