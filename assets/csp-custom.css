@@ -199,9 +199,11 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
 }
 #sign-text-overlay {
     width: max-content;
-    font-size: 80px;
+    min-height: 100px;
+    font-size: 120px;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 0 20px;
     margin: 0;
 }
