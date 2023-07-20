@@ -163,10 +163,26 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
     right: 5%;
 }
 #sign-text-overlay {
-    font-size: 40px;
+    width: max-content;
+    font-size: 80px;
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     translate: -50% -50%;
     display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+#csp-measure-hr {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50%;
+    /* width: 442px; */
+    height: 5px;
+    margin: 0 auto;
+    background-color: black;
+}
+#csp-measure-hr::after {
+    content: '|';
 }

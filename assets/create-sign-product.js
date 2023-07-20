@@ -3,6 +3,8 @@ const letterHeights = {"0": 6.5,"1": 6.4,"2": 6.5,"3": 6.5,"4": 6.6,"5": 6.7,"6"
 const displayDesignText = document.querySelector('#sign-text-overlay');
 const textInput = document.querySelector('#textInput');
 const fontSelector = document.querySelector('#csp-font-option');
+const widthMeasure = document.querySelector('#csp-measure-hr');
+console.log(widthMeasure);
 const breakTag = `<br>`;
 
 // Function to calculate the total value of a string
@@ -40,6 +42,8 @@ function filterInput() {
     //filteredValue = filteredValue.replace(/\n/g, breakTag);
     textInput.value = filteredValue;
     displayDesignText.innerHTML = filteredValue;
+    const calcWidth = displayDesignText.getBoundingClientRect().width;
+    widthMeasure.style.width = Math.round(calcWidth) + 'px';
 }
 
 // Add event listeners to the text input
