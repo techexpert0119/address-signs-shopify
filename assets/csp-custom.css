@@ -1,31 +1,31 @@
 
 @font-face {
-font-family: "font1";
+font-family: "plaza";
 src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/PlazaStd_obyh5l.otf");
 }
 
 @font-face {
-font-family: "font2";
+font-family: "ballantines";
 src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/Ballantines-Bold_yyysjp.ttf");
 }
 
 @font-face {
-font-family: "font3";
+font-family: "seashore";
 src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/FontsFree-Net-black-seashore_abg9sa.ttf");
 }
 
 @font-face {
-font-family: "font4";
+font-family: "scriptmtbold";
 src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/ScriptMTBold_owebd9.ttf");
 }
 
 @font-face {
-font-family: "font5";
+font-family: "commercial script";
 src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/Commercial_Script_Regular_baz9au.ttf");
 }
 
 @font-face {
-font-family: "font6";
+font-family: "parsley";
 src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/Parsley_Script_Regular_tfo2xl.ttf");
 }
 
@@ -35,8 +35,19 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Font
 }
 
 @font-face {
-font-family: "font8";
+font-family: "petit formal";
 src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitFormalScript-Regular_ld2nf4.ttf");
+}
+#my-element {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+.design-container {
+    padding: 20px 20px;
+}
+.address-text-form {
+    width: 100%;
 }
 .csp-text-input-box {
     display: flex;
@@ -45,11 +56,12 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
     flex-direction: column;
 }
 .csp-custom-h3 {
-    font-family: sans-serif;
+    font-family: 'fantasy', sans-serif;
     font-size: 16px;
-    font-weight: 600;
-    color: #353EAC;
-    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #353eac;
+    margin: 10px 0;
     width: 100%;
 }
 .csp-form-label {
@@ -144,6 +156,11 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
 .csp-right-column {
     overflow-y: scroll;
     width: 25%;
+}
+#countDisplay {
+    position: absolute;
+    top: 5%;
+    right: 5%;
 }
 #sign-text-overlay {
     font-size: 40px;

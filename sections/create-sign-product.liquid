@@ -6,7 +6,7 @@
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 {{ 'csp-custom.css' | asset_url | stylesheet_tag }}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -25,33 +25,14 @@
 
 {%- assign product = section.settings.product -%}
 
-{% comment %} {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
-{%- if first_3d_model -%}
-  {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
-  <link
-    id="ModelViewerStyle"
-    rel="stylesheet"
-    href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
-    media="print"
-    onload="this.media='all'"
-  >
-  <link
-    id="ModelViewerOverride"
-    rel="stylesheet"
-    href="{{ 'component-model-viewer-ui.css' | asset_url }}"
-    media="print"
-    onload="this.media='all'"
-  >
-{%- endif -%} {% endcomment %}
-
 <section>
   <div class="section-{{ section.id }}-padding">
     <div class="csp-inner-cont">
 
       <div class="design-box">
-
+        <p id="countDisplay">0</p>
         <div class="csp-sign-text-overlay">
-          <h2 id="sign-text-overlay">This will be the text overlay</h2>
+          <h2 id="sign-text-overlay" style="font-family:'ballantines',sans serif;"></h2>
         </div>
 
         <div class="csp-background-swatch-cont">
@@ -79,41 +60,47 @@
       <div class="featured-product product grid grid--1-col product--no-media csp-right-column">
        
         <div class="product__info-wrapper grid__item">
-          <div id="ProductInfo-{{ section.id }}" class="product__info-container">
+          <div id="ProductInfo-{{ section.id }}" class="design-container">
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
             <div class="csp-text-input-box">
               <h3 class="csp-custom-h3"><span class="csp-form-label">1</span>CHOOSE YOUR TEXT</h3>
               <p>Click below to edit the text on your sign</p>
-              <textarea id="textInput" type="text" onkeyup="countValue()" row="5"></textarea>
-              <p id="countDisplay">0</p>
+              {%- form 'product', product, class: 'address-text-form' -%}
+                <textarea form="{{ product_form_id }}" id="textInput" type="text" onkeyup="countValue()" row="5" name="properties[Address]" style="font-family:'ballantines',sans serif;"></textarea>
+                
+              {%- endform -%}
             </div>
 
             <div class="csp-font-selection-box">
               <h3 class="csp-custom-h3">FONT SELECTION</h3>
               <div class="csp-font-styling-box">
 
-                <select id="csp-font-option">
-                  <option>Ballantine</option>
-                  <option>Ballantine</option>
-                  <option>Ballantine</option>
+                <select form="{{ product_form_id }}" id="csp-font-option" name="properties[font]">
+                  <option style="font-family:'ballantines',sans serif;">Ballantines</option>
+                  <option style="font-family:'plaza',sans serif;">plaza</option>
+                  <option style="font-family:'seashore',sans serif;">seashore</option>
+                  <option style="font-family:'scriptmtbold',sans serif;">scriptmtbold</option>
+                  <option style="font-family:'commercial script',sans serif;">commercial script</option>
+                  <option style="font-family:'parsley',sans serif;">parsley</option>
+                  <option style="font-family:'font7',sans serif;">font7</option>
+                  <option style="font-family:'petit formal',sans serif;">petit formal</option>
                 </select>
 
                 <div class="csp-text-align-cont">
                   <div class="csp-text-align-box">
-                  box 1
+                  1
                   </div>
                   <div class="csp-text-align-box">
-                  box 2
+                  2
                   </div>
                   <div class="csp-text-align-box">
-                  box 3
+                  3
                   </div>
                 </div>
               </div>
               
             </div>
-            
-            {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
             {%- for block in section.blocks -%}
               {%- case block.type -%}
@@ -156,38 +143,7 @@
                       {%- endform -%}
                     </div>
                   {%- endif -%}
-                {%- when 'quantity_selector' -%}
-                  <div
-                    class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
-                    {{ block.shopify_attributes }}
-                  >
-                    <label class="form__label" for="Quantity-{{ section.id }}">
-                      {{ 'products.product.quantity.label' | t }}
-                    </label>
-                    <quantity-input class="quantity">
-                      <button class="quantity__button no-js-hidden" name="minus" type="button">
-                        <span class="visually-hidden">
-                          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
-                        </span>
-                        {% render 'icon-minus' %}
-                      </button>
-                      <input
-                        class="quantity__input"
-                        type="number"
-                        name="quantity"
-                        id="Quantity-{{ section.id }}"
-                        min="1"
-                        value="1"
-                        form="{{ product_form_id }}"
-                      >
-                      <button class="quantity__button no-js-hidden" name="plus" type="button">
-                        <span class="visually-hidden">
-                          {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
-                        </span>
-                        {% render 'icon-plus' %}
-                      </button>
-                    </quantity-input>
-                  </div>
+                
                 {%- when 'share' -%}
                   <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
                   <share-button id="Share-{{ section.id }}" class="share-button" {{ block.shopify_attributes }}>
@@ -505,13 +461,35 @@
   </div>
 </section>
 
+    <button onclick="saveElementToLocalStorage()">Save Element to LocalStorage</button>
+    <button onclick="showPopup()">Show Image Popup</button>
+    <script>
+        function saveElementToLocalStorage() {
+            html2canvas(document.querySelector("#textInput").value, {
+                onrendered: function(canvas) {
+                    // Convert canvas to data URL
+                    let dataURL = canvas.toDataURL();
+
+                    // Store data URL in local storage
+                    localStorage.setItem('my-element-image', dataURL);
+                }
+            });
+        }
+
+        function showPopup() {
+            // Get data URL from local storage
+            let dataURL = localStorage.getItem('my-element-image');
+
+            // Create new window and add image to it
+            let newWindow = window.open("", "_blank");
+            let img = newWindow.document.createElement("img");
+            img.src = dataURL;
+            newWindow.document.body.appendChild(img);
+        }
+    </script>
+
+
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-{% comment %} {%- if first_3d_model -%}
-  <script type="application/json" id="ProductJSON-{{ product.id }}">
-    {{ product.media | where: 'media_type', 'model' | json }}
-  </script>
-  <script src="{{ 'product-model.js' | asset_url }}" defer></script>
-{%- endif -%} {% endcomment %}
 
 {%- liquid
   if product.selected_or_first_available_variant.featured_media
@@ -670,11 +648,6 @@
       "limit": 1
     },
     {
-      "type": "quantity_selector",
-      "name": "t:sections.featured-product.blocks.quantity_selector.name",
-      "limit": 1
-    },
-    {
       "type": "variant_picker",
       "name": "t:sections.featured-product.blocks.variant_picker.name",
       "limit": 1,
@@ -822,9 +795,6 @@
         },
         {
           "type": "variant_picker"
-        },
-        {
-          "type": "quantity_selector"
         },
         {
           "type": "buy_buttons"
