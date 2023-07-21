@@ -1,5 +1,9 @@
 
 @font-face {
+font-family: "plaza2";
+src: url("/assets/black-seashore.ttf");
+}
+@font-face {
 font-family: "plaza";
 src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/PlazaStd_obyh5l.otf");
 }
@@ -45,6 +49,19 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
 }
 .design-container {
     padding: 20px 20px;
+}
+#csp-background-img {
+    display: block !important;
+    width: 100%;
+    height: 100%;
+    background-size: 600px;
+}
+.csp-color-selection-box {
+    padding-top: 20px;
+}
+.csp-color-selection-box p {
+    font-size: 14px;
+    width: 100%;
 }
 .address-text-form {
     width: 100%;
@@ -103,9 +120,9 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
     border-radius: 5px;
 }
 .csp-text-input-box textarea {
-    font-size: 16px;
+    font-size: 24px;
     padding: 10px;
-    height: 60px;
+    height: 80px;
     width: 100%;
     border: 2px solid #353EAC;
     border-radius: 10px;
@@ -132,8 +149,8 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
 .csp-swatch-box {
     border: 4px solid white;
     border-radius: 17px;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     transition: all 200ms ease-out;
     cursor: pointer;
     box-shadow: 3px 3px 10px 1px #000;
@@ -156,6 +173,7 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
 .csp-right-column {
     overflow-y: scroll;
     width: 25%;
+    min-width: 300px;
 }
 .height-hr-box {
     position: absolute;
@@ -206,11 +224,15 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
     width: max-content;
     min-height: 100px;
     font-size: 120px;
+    overflow-wrap: break-word;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 20px;
     margin: 0;
+    text-shadow: 5px 5px 3px #0000004d;
+    font-weight: bold;
+    line-height: normal;
 }
 #csp-measure-hr {
     height: 5px;
@@ -230,4 +252,64 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
     line-height: 15px;
     font-weight: 600;
     color: #000;
+}
+.csp-color-btns {
+    width: 50%;
+}
+.csp-color-btns label {
+    display: flex !important;
+    align-items: center;
+    height: 50px;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 7px !important;
+}
+.csp-color-btns label:nth-child(2), .csp-variant-btns label:nth-child(2) {
+    margin-right: 10px !important;
+}
+.csp-color-btns input[type="radio"]:checked + label, .csp-variant-btns input[type="radio"]:checked + label {
+    background-color: #353eac !important;
+    color: #68ffa8;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+.csp-color-btns input[type="radio"]:not(:checked) + label {
+    color: #353eac;
+    background-color: white;
+    font-weight: 600;
+}
+.cust-var-input {
+    flex-wrap: nowrap !important;
+    justify-content: unset !important;
+}
+.black-variant {
+    background-color: black;
+    display: block;
+    width: 40%;
+    height: 30px;
+    border-radius: 7px;
+    margin: 10px;
+    font-weight: bold;
+}
+.white-variant {
+    background-color: white;
+    border: 1px solid black;
+    display: block;
+    width: 40%;
+    height: 30px;
+    border-radius: 7px;
+    margin: 10px;
+    font-weight: bold;
+} 
+.csp-variant-btns {
+    width: 50%;
+}
+.csp-variant-btns label {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 7px !important;
 }

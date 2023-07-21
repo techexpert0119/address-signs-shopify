@@ -30,6 +30,7 @@
     <div class="csp-inner-cont">
 
       <div class="design-box">
+        <div id="csp-background-img" style="background-image: url(https://cdn.shopify.com/s/files/1/0711/9650/8478/files/brick-light.jpg?v=1689283021);"></div>
         <div class="csp-sign-text-overlay">
 
           <div class="measurement-text-box">
@@ -78,7 +79,7 @@
           </div>
         </div>
         
-        <img id="csp-material-background" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/brick-light.jpg?v=1689283021" width="800" height="800" alt="{{shop.name}}-brick-background" />
+        {% comment %} <img id="csp-material-background" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/brick-light.jpg?v=1689283021" width="800" height="800" alt="{{shop.name}}-brick-background" /> {% endcomment %}
 
       </div>
 
@@ -92,7 +93,7 @@
               <h3 class="csp-custom-h3"><span class="csp-form-label">1</span>CHOOSE YOUR TEXT</h3>
               <p>Click below to edit the text on your sign</p>
               {%- form 'product', product, class: 'address-text-form' -%}
-                <textarea form="{{ product_form_id }}" id="textInput" type="text" onkeyup="countValue()" row="5" name="properties[Address]" style="font-family:'ballantines',sans serif;"></textarea>
+                <textarea form="{{ product_form_id }}" id="textInput" type="text" onkeyup="countValue()" row="5" col="2" name="properties[Address]"></textarea>
                 
               {%- endform -%}
             </div>
@@ -102,17 +103,17 @@
               <div class="csp-font-styling-box">
 
                 <select form="{{ product_form_id }}" id="csp-font-option" name="properties[font]">
-                  <option style="font-family:'ballantines',sans serif;">Ballantines</option>
-                  <option style="font-family:'plaza',sans serif;">plaza</option>
-                  <option style="font-family:'seashore',sans serif;">seashore</option>
-                  <option style="font-family:'scriptmtbold',sans serif;">scriptmtbold</option>
-                  <option style="font-family:'commercial script',sans serif;">commercial script</option>
-                  <option style="font-family:'parsley',sans serif;">parsley</option>
-                  <option style="font-family:'font7',sans serif;">font7</option>
-                  <option style="font-family:'petit formal',sans serif;">petit formal</option>
+                  <option value="ballantines" >Ballantines</option>
+                  <option value="plaza" >Plaza</option>
+                  <option value="seashore" >Seashore</option>
+                  <option value="scriptmtbold" >Scriptmtbold</option>
+                  <option value="commercial script" >Commercial script</option>
+                  <option value="parsley" >Parsley</option>
+                  <option value="font7" >Font7</option>
+                  <option value="petit formal" >Petit formal</option>
                 </select>
 
-                <div class="csp-text-align-cont">
+                {% comment %} <div class="csp-text-align-cont">
                   <div class="csp-text-align-box">
                   1
                   </div>
@@ -122,9 +123,15 @@
                   <div class="csp-text-align-box">
                   3
                   </div>
-                </div>
+                </div> {% endcomment %}
+
               </div>
               
+            </div>
+
+            <div class="csp-color-selection-box">
+              <h3 class="csp-custom-h3"><span class="csp-form-label">2</span>CHOOSE YOUR COLOR</h3>
+              <p>Which color do you want your sign to be?</p>
             </div>
 
             {%- for block in section.blocks -%}
@@ -218,25 +225,82 @@
                         {{ block.shopify_attributes }}
                       >
                         {%- for option in product.options_with_values -%}
-                          <fieldset class="js product-form__input">
-                            <legend class="form__label">{{ option.name }}</legend>
-                            {%- for value in option.values -%}
-                              <input
-                                type="radio"
-                                id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-                                name="{{ option.name }}"
-                                value="{{ value | escape }}"
-                                form="{{ product_form_id }}"
-                                {% if option.selected_value == value %}
-                                  checked
-                                {% endif %}
-                              >
-                              <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                                {{ value }}
-                              </label>
-                            {%- endfor -%}
-                          </fieldset>
+                        {% assign option_downcase = option.name | downcase %}
+                          {% comment %} COLOR OPTION {% endcomment %}
+                          {% if option_downcase == 'color' %}
+                            <fieldset class="js product-form__input cust-var-input">
+                              {%- for value in option.values -%}
+                               {% assign value_downcase = value | downcase %}
+                                <div class="csp-color-btns">
+                                  <input
+                                    class="csp-color-input"
+                                    type="radio"
+                                    id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                    name="{{ option.name }}"
+                                    value="{{ value | escape }}"
+                                    form="{{ product_form_id }}"
+                                    {% if option.selected_value == value %}
+                                      checked
+                                    {% endif %}
+                                  >
+                                  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                    <span class="{% if value_downcase == 'black' %}black-variant{% elsif value_downcase == 'white' %}white-variant{% endif %}"></span>
+                                    <span>{{ value }}</span>
+                                  </label>
+                                </div>
+                              {%- endfor -%}
+                            </fieldset>
+                            {% comment %} MATERIAL OPTION {% endcomment %}
+                          {% elsif option_downcase == 'material' %}
+                            <div class="csp-color-selection-box">
+                              <h3 class="csp-custom-h3">MATERIAL MATERIAL</h3>
+                              <p>Which color do you want your sign to be?</p>
+                            </div>
+                            <fieldset class="js product-form__input cust-var-input">
+                              {%- for value in option.values -%}
+                                <div class="csp-variant-btns">
+                                  <input
+                                    type="radio"
+                                    id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                    name="{{ option.name }}"
+                                    value="{{ value | escape }}"
+                                    form="{{ product_form_id }}"
+                                    {% if option.selected_value == value %}
+                                      checked
+                                    {% endif %}
+                                  >
+                                  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                    {{ value }}
+                                  </label>
+                                </div>
+                              {%- endfor -%}
+                            </fieldset>
+                          {% else %}
+                          {% comment %} OTHER OPTION {% endcomment %}
+                          {{option.name}}
+                            <fieldset class="js product-form__input cust-var-input">
+                              <legend class="form__label"></legend>
+                              {%- for value in option.values -%}
+                                <div class="csp-variant-btns">
+                                  <input
+                                    type="radio"
+                                    id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                    name="{{ option.name }}"
+                                    value="{{ value | escape }}"
+                                    form="{{ product_form_id }}"
+                                    {% if option.selected_value == value %}
+                                      checked
+                                    {% endif %}
+                                  >
+                                  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                    {{ value }}
+                                  </label>
+                                </div>
+                              {%- endfor -%}
+                            </fieldset>
+                          {% endif %}
                         {%- endfor -%}
+
                         <script type="application/json">
                           {{ product.variants | json }}
                         </script>
