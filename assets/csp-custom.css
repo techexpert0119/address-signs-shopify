@@ -9,7 +9,7 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Font
 }
 
 @font-face {
-font-family: "ballantines";
+font-family: "ballantine";
 src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/Ballantines-Bold_yyysjp.ttf");
 }
 
@@ -75,7 +75,7 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
 .csp-custom-h3 {
     font-family: 'fantasy', sans-serif;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.5px;
     color: #353eac;
     margin: 10px 0;
@@ -177,8 +177,8 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
 }
 .height-hr-box {
     position: absolute;
-    top: 16px;
-    left: -28px;
+    top: 40px;
+    left: -35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -186,7 +186,7 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
 }
 .height-hr {
     border: 3px solid black;
-    height: 100px;
+    height: 150px;
 }
 .height-measure-end {
     width: 20px;
@@ -196,7 +196,7 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
 .height-measurement-count {
     position: absolute;
     left: -85px;
-    top: 70px;
+    top: 120px;
 }
 .measurement-text-box {
     display: flex;
@@ -209,6 +209,7 @@ src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitForma
 }
 .height-text-box {
     display: flex;
+    min-height: 250px;
 }
 .hr-box {
     display: flex;

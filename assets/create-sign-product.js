@@ -7,6 +7,44 @@ const textInput = document.querySelector('#textInput');
 const fontSelector = document.querySelector('#csp-font-option');
 const widthMeasure = document.querySelector('#csp-measure-hr');
 const colorVariant = document.querySelectorAll('.csp-color-input');
+let calcWidth;
+let fontSizes = {"font7": 140, "ballantine": 140, "plaza": 110, "seashore": 80, "scriptmtbold": 90, "commercial script": 80, "parsley": 80, "petit formal": 80};
+console.log(fontSizes);
+if(window.innerWidth >= 1440) {
+    for(let key in fontSizes) {
+        fontSizes[key] = fontSizes[key] * 1.2; // or whatever modification you need
+    }
+      
+} else if(window.innerWidth >= 1200 && window.innerWidth <= 1439) {
+    for(let key in fontSizes) {
+        fontSizes[key] = fontSizes[key] * .75;
+      }
+} else if(window.innerWidth >= 1000 && window.innerWidth <= 1199) {
+    for(let key in fontSizes) {
+        fontSizes[key] = fontSizes[key] * .5;
+      }
+} 
+console.log("----------------------------------");
+window.addEventListener('DOMContentLoaded', function() {
+    console.log(fontSizes);
+});
+
+window.addEventListener("resize", function(){
+    if(window.innerWidth >= 1440) {
+        for(let key in fontSizes) {
+            fontSizes[key] = fontSizes[key] * 1.2; // or whatever modification you need
+        }
+    } else if(window.innerWidth >= 1200 && window.innerWidth <= 1439) {
+        for(let key in fontSizes) {
+            fontSizes[key] = fontSizes[key] * .75;
+          }
+    } else if(window.innerWidth >= 1000 && window.innerWidth <= 1199) {
+        for(let key in fontSizes) {
+            fontSizes[key] = fontSizes[key] * .5;
+          }
+    } 
+});
+
 const breakTag = `<br>`;
 
 // Function to calculate the total value of a string
@@ -48,9 +86,12 @@ function filterInput() {
         measurementTexBox.style.display = 'flex';
         textInput.value = filteredValue;
         displayDesignText.innerHTML = filteredValue;
-        const calcWidth = displayDesignText.getBoundingClientRect().width;
-        widthMeasure.style.width = Math.round(calcWidth) + 'px';
+        calcWidth = displayDesignText.offsetWidth;
+        // widthMeasure.style.width = Math.round(calcWidth) + 'px';
+        widthMeasure.style.width = calcWidth + 'px';
+        checkScreenPercentage(calcWidth, 50);
     }
+    
 }
 
 // Add event listeners to the text input
@@ -73,21 +114,21 @@ fontSelector.addEventListener('change', function(e) {
     var fontStyle = selectedOption.getAttribute('value');
     console.log('Selected font:', fontStyle);
     if (fontStyle.includes('font7') ) {
-        displayDesignText.style.fontSize = '140px';
-    } else if (fontStyle.includes('ballantines')) {
-        displayDesignText.style.fontSize = '140px';
+        displayDesignText.style.fontSize = '100px';
+    } else if (fontStyle.includes('ballantine')) {
+        displayDesignText.style.fontSize = '130px';
     } else if (fontStyle.includes('plaza')) {
         displayDesignText.style.fontSize = '110px';
     } else if (fontStyle.includes('seashore')) {
         displayDesignText.style.fontSize = '80px';
     } else if (fontStyle.includes('scriptmtbold')) {
-        displayDesignText.style.fontSize = '140px';
+        displayDesignText.style.fontSize = '100px';
     } else if (fontStyle.includes('commercial script')) {
-        displayDesignText.style.fontSize = '140px';
+        displayDesignText.style.fontSize = '110px';
     } else if (fontStyle.includes('parsley')) {
-        displayDesignText.style.fontSize = '140px';
+        displayDesignText.style.fontSize = '100px';
     } else if (fontStyle.includes('petit formal')) {
-        displayDesignText.style.fontSize = '140px';
+        displayDesignText.style.fontSize = '80px';
     }
     
     displayDesignText.style.fontFamily = "'" + fontStyle + "'";
@@ -103,3 +144,17 @@ colorVariant.forEach(color => {
     });
     
 });
+
+// FUNCTION DETECTS WHEN A NUMBER IS 60% OF SCREEN WIDTH
+function checkScreenPercentage(num, percent) {
+    let screenWidth = window.innerWidth;
+    let decimalPercent = percent / 100;
+    let limit = screenWidth * decimalPercent;
+    if (num >= limit) {
+        // Execute your code here
+        console.log(num + " has reached " + percent + "% of the screen width.");
+    } else {
+        console.log(num + " has NOT reached " + percent + "% of the screen width.");
+    }
+}
+
