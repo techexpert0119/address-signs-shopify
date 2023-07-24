@@ -1,3 +1,67 @@
+@font-face {
+  font-family: "ballantine";
+  src: url("Ballantines-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "seashore";
+  src: url("black-seashore.woff") format("woff");
+}
+@font-face {
+  font-family: "brush-script";
+  src: url("Brush-Script.woff") format("woff");
+}
+@font-face {
+  font-family: "commercial-script";
+  src: url("Commercial-Script-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "parsley";
+  src: url("Parsley-Script-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "petit-formal";
+  src: url("PetitFormalScript.woff") format("woff");
+}
+@font-face {
+  font-family: "vivace";
+  src: url("Vivace.woff") format("woff");
+}
+
+  @font-face {
+  font-family: "plaza";
+  src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/PlazaStd_obyh5l.otf");
+  }
+  
+  @font-face {
+  font-family: "seashore";
+  src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/FontsFree-Net-black-seashore_abg9sa.ttf");
+  }
+  
+  @font-face {
+  font-family: "scriptmtbold";
+  src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/ScriptMTBold_owebd9.ttf");
+  }
+  
+  @font-face {
+  font-family: "commercial script";
+  src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/Commercial_Script_Regular_baz9au.ttf");
+  }
+  
+  @font-face {
+  font-family: "parsley";
+  src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/Parsley_Script_Regular_tfo2xl.ttf");
+  }
+  
+  @font-face {
+  font-family: "font7";
+  src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/brtswfte_wb0fj9.ttf");
+  }
+  
+  @font-face {
+  font-family: "petit formal";
+  src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitFormalScript-Regular_ld2nf4.ttf");
+  }
+
 /* Color custom properties */
 
 :root,
