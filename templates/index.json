@@ -3,13 +3,6 @@
     "c0e615e1-a990-4ddc-bfb6-9ced9bb7f397": {
       "type": "create-sign-product",
       "blocks": {
-        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-0": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-2": {
           "type": "price",
           "disabled": true,
@@ -30,7 +23,6 @@
         }
       },
       "block_order": [
-        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-0",
         "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-2",
         "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-3",
         "0267ec2e-a247-4168-a7b3-463b105c4223"
