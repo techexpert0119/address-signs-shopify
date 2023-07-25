@@ -26,16 +26,6 @@
   font-family: "vivace";
   src: url("Vivace.woff") format("woff");
 }
-
-  @font-face {
-  font-family: "plaza";
-  src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/PlazaStd_obyh5l.otf");
-  }
-  
-  @font-face {
-  font-family: "seashore";
-  src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/FontsFree-Net-black-seashore_abg9sa.ttf");
-  }
   
   @font-face {
   font-family: "scriptmtbold";
@@ -47,10 +37,6 @@
   src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/Commercial_Script_Regular_baz9au.ttf");
   }
   
-  @font-face {
-  font-family: "parsley";
-  src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/Parsley_Script_Regular_tfo2xl.ttf");
-  }
   
   @font-face {
   font-family: "font7";

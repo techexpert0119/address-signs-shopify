@@ -6,6 +6,10 @@ const displayDesignText = document.querySelector('#sign-text-overlay');
 const measurementTexBox = document.querySelector('.measurement-text-box');
 const textInput = document.querySelector('#textInput');
 const fontSelector = document.querySelector('#csp-font-option');
+const iconCarat = document.querySelector('.icon-carat-box');
+const fontDropdownGrid = document.querySelector('.csp-grid-dropdown');
+const fontGrid = document.querySelector('.csp-font-grid');
+const fontGridItem = document.querySelectorAll('.csp-font-item');
 //const widthMeasure = document.querySelector('#csp-measure-hr');
 const colorVariant = document.querySelectorAll('.csp-color-input');
 let calcWidth;
@@ -80,13 +84,45 @@ backgroundSwatches.forEach( swatch => {
         currentBackgroundImage.style.backgroundImage = 'url(' + e.currentTarget.querySelector('.csp-swatch-img').src + ')';
     });
 });
+fontGrid.style.display = 'none';
+fontSelector.addEventListener('click', function() {
+    console.log('font selector clicked!');
+    if (fontDropdownGrid.style.gridTemplateRows === '0fr') {
+        fontGrid.style.display = 'grid';
+        fontDropdownGrid.style.gridTemplateRows = '1fr';
+        iconCarat.style.transform = 'rotate(180deg)';
+        for (let i = 0; i < fontGridItem.length; i++) {
+            fontGridItem[i].addEventListener('click', function(e) {
+                let fontStr = e.currentTarget.style.fontFamily;
+                let modifiedStr = fontStr.split(',')[0].split('').slice(0,10).join('');
+                fontSelector.textContent = modifiedStr.charAt(0).toUpperCase() + modifiedStr.slice(1);
+
+                displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
+
+                iconCarat.style.transform = 'rotate(0deg)';
+                fontGrid.style.overflow = 'hidden';
+                fontDropdownGrid.style.gridTemplateRows = '0fr';
+                fontGrid.style.display = 'none';
+
+            });
+        }
+    } else {
+        iconCarat.style.transform = 'rotate(0deg)';
+        fontGrid.style.overflow = 'hidden';
+        fontDropdownGrid.style.gridTemplateRows = '0fr';
+        fontGrid.style.display = 'none';
+    }
+    
+});
+
+
 
 // CHANGES THE FONT ON THE TEXT DISPLAYED OVER BACKGROUND MATERIAL
- fontSelector.addEventListener('change', function(e) {
-     console.log('Font Changed!');
-     var selectedOption = e.target.options[e.target.selectedIndex];
-     var fontStyle = selectedOption.getAttribute('value');
-     console.log('Selected font:', fontStyle);
+//  fontSelector.addEventListener('change', function(e) {
+//      console.log('Font Changed!');
+//      var selectedOption = e.target.options[e.target.selectedIndex];
+//      var fontStyle = selectedOption.getAttribute('value');
+//      console.log('Selected font:', fontStyle);
 
 //     if (fontStyle.includes('font7') ) {
 //         displayDesignText.style.fontSize = fontSizes.font7 + 'px';
@@ -106,12 +142,12 @@ backgroundSwatches.forEach( swatch => {
 //         displayDesignText.style.fontSize = fontSizes["petit formal"] + 'px';
 //     }
     
-     displayDesignText.style.fontFamily = "'" + fontStyle + "'";
+//     displayDesignText.style.fontFamily = "'" + fontStyle + "'";
 //     // textInput.style.fontFamily = fontStyle;
 
- });
+// });
 
-// Listen for color variant change
+// LISTEN FOR COLOR VARIANT CHANGE
 colorVariant.forEach(color => {
     color.addEventListener('click', function(e) {
         const valueLowCase = color.value.toLowerCase();

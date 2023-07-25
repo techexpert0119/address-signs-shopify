@@ -98,7 +98,7 @@
               <h3 class="csp-custom-h3"><span class="csp-form-label">1</span>CHOOSE YOUR TEXT</h3>
               <p>Click below to edit the text on your sign</p>
               {%- form 'product', product, class: 'address-text-form' -%}
-                <textarea form="{{ product_form_id }}" id="textInput" type="text" onkeyup="countValue()" row="5" col="2" maxlength="18" name="properties[Address]"></textarea>
+                <textarea form="{{ product_form_id }}" id="textInput" type="text" onkeyup="countValue()" row="5" col="2" maxlength="40" name="properties[Address]"></textarea>
                 
               {%- endform -%}
             </div>
@@ -107,16 +107,17 @@
               <h3 class="csp-custom-h3">FONT SELECTION</h3>
               <div class="csp-font-styling-box">
 
-                <select form="{{ product_form_id }}" id="csp-font-option" name="properties[font]">
-                  <option value="ballantine" >Ballantine</option>
-                  <option value="plaza" >Plaza</option>
-                  <option value="seashore" >Seashore</option>
-                  <option value="scriptmtbold" >Scriptmtbold</option>
-                  <option value="commercial script" >Commercial script</option>
-                  <option value="parsley" >Parsley</option>
-                  <option value="font7" >Font7</option>
-                  <option value="petit formal" >Petit formal</option>
-                </select>
+                <div class="font-selector-cont">
+
+                  <button type="button"id="csp-font-option" value="ballantines">Ballantines</button>
+                  <input type="hidden" form="{{ product_form_id }}"  name="properties[font]"  value="ballantines">
+
+                  <div class="icon-carat-box">
+                    {% render 'icon-caret-2' %}
+                  </div>
+                   
+                </div>
+               
 
                 {% comment %} <div class="csp-text-align-cont">
                   <div class="csp-text-align-box">
@@ -130,6 +131,17 @@
                   </div>
                 </div> {% endcomment %}
 
+              </div>
+              <div style="grid-template-rows: 0fr;" class="csp-grid-dropdown">
+                <div class="csp-font-grid">
+                  <div style="font-family:'ballantine',sans serif;font-size:30px;line-height:35px;" class="csp-font-item">Ballantine</div>
+                  <div style="font-family:'seashore',sans serif;font-size: 14px;line-height:43px;" class="csp-font-item">Black Seashore</div>
+                  <div style="font-family:'brush-script',sans serif;font-size:20px;line-height:45px;" class="csp-font-item">Brush Script</div>
+                  <div style="font-family:'commercial-script',sans serif;font-size:14px;line-height:45px;" class="csp-font-item">Commercial Script</div>
+                  <div style="font-family:'parsley',sans serif;font-size:24px;line-height:45px;" class="csp-font-item">Parsley</div>
+                  <div style="font-family:'petit-formal',sans serif;font-size: 16px;line-height:45px;" class="csp-font-item">Petit Formal</div>
+                  <div style="font-family:'vivace',sans serif;font-size:22px;line-height:40px;" class="csp-font-item">Vivace</div>
+                </div>
               </div>
               
             </div>
@@ -554,34 +566,6 @@
     </product-modal>
   </div>
 </section>
-
-    <button onclick="saveElementToLocalStorage()">Save Element to LocalStorage</button>
-    <button onclick="showPopup()">Show Image Popup</button>
-    <script>
-        function saveElementToLocalStorage() {
-            html2canvas(document.querySelector("#textInput").value, {
-                onrendered: function(canvas) {
-                    // Convert canvas to data URL
-                    let dataURL = canvas.toDataURL();
-
-                    // Store data URL in local storage
-                    localStorage.setItem('my-element-image', dataURL);
-                }
-            });
-        }
-
-        function showPopup() {
-            // Get data URL from local storage
-            let dataURL = localStorage.getItem('my-element-image');
-
-            // Create new window and add image to it
-            let newWindow = window.open("", "_blank");
-            let img = newWindow.document.createElement("img");
-            img.src = dataURL;
-            newWindow.document.body.appendChild(img);
-        }
-    </script>
-
 
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
