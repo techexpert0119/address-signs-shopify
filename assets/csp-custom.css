@@ -228,7 +228,7 @@
 .icon-carat-box {
     position: absolute;
     top: 2px;
-    left: 114px;
+    right: 10px;
     pointer-events: none;
     transition: all 100ms ease;
 }

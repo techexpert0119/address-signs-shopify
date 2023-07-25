@@ -20,9 +20,9 @@ let fontSizes = {
   "plaza": 110,
   "seashore": 80,
   "scriptmtbold": 100,
-  "commercial script": 110,
+  "commercial": 110,
   "parsley": 100,
-  "petit formal": 80
+  "petit-formal": 80
 };
 
 // Function to calculate the total value of a string
@@ -84,6 +84,7 @@ backgroundSwatches.forEach( swatch => {
         currentBackgroundImage.style.backgroundImage = 'url(' + e.currentTarget.querySelector('.csp-swatch-img').src + ')';
     });
 });
+console.log(fontSizes);
 fontGrid.style.display = 'none';
 fontSelector.addEventListener('click', function() {
     console.log('font selector clicked!');
@@ -98,6 +99,10 @@ fontSelector.addEventListener('click', function() {
                 fontSelector.textContent = modifiedStr.charAt(0).toUpperCase() + modifiedStr.slice(1);
 
                 displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
+                displayDesignText.style.fontSize = fontSizes[modifiedStr] + 'px';
+                // THIS WORKS BUT NEED THE fontSizes TO BE THE CORRECT NAMES
+                console.log('Modified String: ' + modifiedStr);
+                console.log(fontSizes[modifiedStr]);
 
                 iconCarat.style.transform = 'rotate(0deg)';
                 fontGrid.style.overflow = 'hidden';
