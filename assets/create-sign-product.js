@@ -10,6 +10,14 @@ const iconCarat = document.querySelector('.icon-carat-box');
 const fontDropdownGrid = document.querySelector('.csp-grid-dropdown');
 const fontGrid = document.querySelector('.csp-font-grid');
 const fontGridItem = document.querySelectorAll('.csp-font-item');
+const iconLeftA = document.querySelector('.icon-left-align');
+const iconCenterA = document.querySelector('.icon-center-align');
+const iconRightA = document.querySelector('.icon-right-align');
+const alignIcons = document.querySelectorAll('.align-icon');
+
+iconCenterA.parentNode.parentNode.style.backgroundColor = '#353eac';
+iconCenterA.style.fill = '#68ffa8';
+
 //const widthMeasure = document.querySelector('#csp-measure-hr');
 const colorVariant = document.querySelectorAll('.csp-color-input');
 let calcWidth;
@@ -84,10 +92,10 @@ backgroundSwatches.forEach( swatch => {
         currentBackgroundImage.style.backgroundImage = 'url(' + e.currentTarget.querySelector('.csp-swatch-img').src + ')';
     });
 });
-console.log(fontSizes);
+
 fontGrid.style.display = 'none';
 fontSelector.addEventListener('click', function() {
-    console.log('font selector clicked!');
+   
     if (fontDropdownGrid.style.gridTemplateRows === '0fr') {
         fontGrid.style.display = 'grid';
         fontDropdownGrid.style.gridTemplateRows = '1fr';
@@ -101,8 +109,8 @@ fontSelector.addEventListener('click', function() {
                 displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
                 displayDesignText.style.fontSize = fontSizes[modifiedStr] + 'px';
                 // THIS WORKS BUT NEED THE fontSizes TO BE THE CORRECT NAMES
-                console.log('Modified String: ' + modifiedStr);
-                console.log(fontSizes[modifiedStr]);
+                //console.log('Modified String: ' + modifiedStr);
+                //console.log(fontSizes[modifiedStr]);
 
                 iconCarat.style.transform = 'rotate(0deg)';
                 fontGrid.style.overflow = 'hidden';

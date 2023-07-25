@@ -48,7 +48,6 @@
 .csp-font-styling-box {
     width: 100%;
     display: flex;
-    justify-content: space-between;
 }
 #csp-font-option {
     width: 100%;
@@ -66,17 +65,18 @@
 }
 .csp-text-align-cont {
     display: flex;
+    justify-content: space-between;
     width: 50%;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 .csp-text-input-box p {
     font-size: 14px;
     width: 100%;
 }
 .csp-text-align-box {
+    padding: 8px;
     width: 40px;
     height: 40px;
-    background-color: azure;
     border: 2px solid #353eac;
     border-radius: 5px;
 }
