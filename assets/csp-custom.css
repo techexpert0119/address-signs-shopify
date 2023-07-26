@@ -1,4 +1,4 @@
-
+/* theme copy */
 #my-element {
     width: 200px;
     height: 200px;
@@ -16,9 +16,12 @@
 .csp-color-selection-box {
     padding-top: 20px;
 }
-.csp-color-selection-box p {
+.csp-color-selection-box p, .csp-size-selection-box p  {
     font-size: 14px;
     width: 100%;
+}
+.csp-size-selection-box {
+    padding-top: 10px;
 }
 .address-text-form {
     width: 100%;
@@ -52,7 +55,7 @@
 #csp-font-option {
     width: 100%;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 0;
     background-color: #353eac;
     color: #68ffa8;
@@ -65,7 +68,7 @@
 }
 .csp-text-align-cont {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 50%;
     margin-left: 10px;
 }
@@ -74,11 +77,15 @@
     width: 100%;
 }
 .csp-text-align-box {
-    padding: 8px;
+    padding: 5px;
     width: 40px;
     height: 40px;
     border: 2px solid #353eac;
     border-radius: 5px;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .csp-text-input-box textarea {
     font-size: 24px;
@@ -325,7 +332,29 @@ user-select: none; /* Standard syntax */
     margin: 0 !important;
     border-radius: 7px !important;
 }
+.csp-cta-btn {
+    width: 100%;
+    height: 60px;
+    background-color: #353eac;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+.csp-cta-btn:hover {
+    color:#68ffa8;
+}
+.csp-value-box {
+    display: flex;
+    flex-direction: column;
+}
+.csp-value-box span {
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: 600;
 
+} 
 @media screen and (max-width: 1000px) {
     #sign-text-overlay {
         font-size: 5.5vw;

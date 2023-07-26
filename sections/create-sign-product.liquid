@@ -1,4 +1,5 @@
 <!-- sections/create-sign-product.liquid -->
+<!-- theme copy -->
 {{ 'section-create-sign-product.css' | asset_url | stylesheet_tag }}
 {{ 'section-featured-product.css' | asset_url | stylesheet_tag }}
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
@@ -6,7 +7,7 @@
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 {{ 'csp-custom.css' | asset_url | stylesheet_tag }}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -83,8 +84,6 @@
             <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_5.jpg?v=1689283020" alt="Material Background" width="100" height="100" />
           </div>
         </div>
-        
-        {% comment %} <img id="csp-material-background" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/brick-light.jpg?v=1689283021" width="800" height="800" alt="{{shop.name}}-brick-background" /> {% endcomment %}
 
       </div>
 
@@ -117,9 +116,9 @@
                   </div>
                    
                 </div>
-               
 
                 <div class="csp-text-align-cont">
+                  <input type="hidden" form="{{ product_form_id }}"  name="properties[font]"  value="ballantines">
                   <div class="csp-text-align-box">
                     {% render 'icon-left-align' %}
                   </div>
@@ -270,8 +269,8 @@
                             {% comment %} MATERIAL OPTION {% endcomment %}
                           {% elsif option_downcase == 'material' %}
                             <div class="csp-color-selection-box">
-                              <h3 class="csp-custom-h3">MATERIAL MATERIAL</h3>
-                              <p>Which color do you want your sign to be?</p>
+                              <h3 class="csp-custom-h3">MATERIAL FINISH</h3>
+                              <p>Choose what finish your sign will have</p>
                             </div>
                             <fieldset class="js product-form__input cust-var-input">
                               {%- for value in option.values -%}
@@ -292,9 +291,48 @@
                                 </div>
                               {%- endfor -%}
                             </fieldset>
-                          {% else %}
+                          {% elsif option_downcase == 'size' %}
                           {% comment %} OTHER OPTION {% endcomment %}
-                          {{option.name}}
+                            <div class="csp-size-selection-box">
+                              <h3 class="csp-custom-h3"><span class="csp-form-label">3</span>SIZE</h3>
+                              <p>Choose what finish your sign will have</p>
+                            </div>
+                            <fieldset class="js product-form__input cust-var-input">
+                              <legend class="form__label"></legend>
+                              {%- for value in option.values -%}
+                                {%- capture measurements -%}
+                                  {% assign value_lowcase = value | downcase %}
+                                  {%- case value_lowcase -%}
+                                    {% when 's' %}
+                                      8X72in
+                                    {% when 'm' %}
+                                      9X84in
+                                    {% when 'l' %}
+                                      10X96in
+                                  {%- endcase -%}
+                                {%- endcapture -%}
+                                <div class="csp-variant-btns">
+                                  <input
+                                    type="radio"
+                                    id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                    name="{{ option.name }}"
+                                    value="{{ value | escape }}"
+                                    form="{{ product_form_id }}"
+                                    {% if option.selected_value == value %}
+                                      checked
+                                    {% endif %}
+                                  >
+                                  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                    <div class="csp-value-box">
+                                      {{ value }}
+                                      <span>{{measurements}}</span>
+                                    </div>
+                                   
+                                  </label>
+                                </div>
+                              {%- endfor -%}
+                            </fieldset>
+                          {% else %}
                             <fieldset class="js product-form__input cust-var-input">
                               <legend class="form__label"></legend>
                               {%- for value in option.values -%}
@@ -428,18 +466,13 @@
                             <button
                               type="submit"
                               name="add"
-                              class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+                              class="csp-cta-btn"
                               {% if product.selected_or_first_available_variant.available == false %}
                                 disabled
                               {% endif %}
                             >
-                              <span>
-                                {%- if product.selected_or_first_available_variant.available -%}
-                                  {{ 'products.product.add_to_cart' | t }}
-                                {%- else -%}
-                                  {{ 'products.product.sold_out' | t }}
-                                {%- endif -%}
-                              </span>
+                              <div>DONE</div>
+                              
                               <div class="loading-overlay__spinner hidden">
                                 <svg
                                   aria-hidden="true"
@@ -453,9 +486,9 @@
                                 </svg>
                               </div>
                             </button>
-                            {%- if block.settings.show_dynamic_checkout -%}
+                            {% comment %} {%- if block.settings.show_dynamic_checkout -%}
                               {{ form | payment_button }}
-                            {%- endif -%}
+                            {%- endif -%} {% endcomment %}
                           </div>
                         {%- endform -%}
                       </product-form>
@@ -752,15 +785,7 @@
       "type": "buy_buttons",
       "name": "t:sections.featured-product.blocks.buy_buttons.name",
       "limit": 1,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_dynamic_checkout",
-          "default": true,
-          "label": "t:sections.featured-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
-          "info": "t:sections.featured-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
-        }
-      ]
+      "settings": []
     },
     {
       "type": "share",
