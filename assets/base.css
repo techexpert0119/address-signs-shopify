@@ -343,6 +343,34 @@ html.no-js .no-js-hidden {
   margin-top: var(--spacing-sections-mobile);
 }
 
+/**********************ROMEO'S WORK*************************/
+@media only screen and (max-width: 960px) {
+  .height-text-box {
+    width: 400px;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .height-text-box {
+    width: 600px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .height-text-box {
+    width: 800px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .height-text-box {
+    width: 960px;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  .height-text-box {
+    width: 1200px;
+  }
+}
+/***********************************************************/
+
 @media screen and (min-width: 750px) {
   .section + .section {
     margin-top: var(--spacing-sections-desktop);
