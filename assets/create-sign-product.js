@@ -146,7 +146,7 @@ const displayDesignText = document.querySelector("#sign-text-overlay");
 const measurementTexBox = document.querySelector(".measurement-text-box");
 const textInput = document.querySelector("#textInput");
 const fontSelector = document.querySelector("#csp-font-option");
-const fontInput = document.querySelector('.csp-font-input');
+const fontInput = document.querySelector(".csp-font-input");
 const iconCarat = document.querySelector(".icon-carat-box");
 const fontDropdownGrid = document.querySelector(".csp-grid-dropdown");
 const fontGrid = document.querySelector(".csp-font-grid");
@@ -159,6 +159,8 @@ const leftAlignBox = document.querySelector(".left-align-box");
 const centerAlignBox = document.querySelector(".center-align-box");
 const rightAlignBox = document.querySelector(".right-align-box");
 const alignBoxes = document.querySelectorAll(".csp-text-align-box");
+const rulerBtn = document.querySelector("#csp-ruler-btn");
+const rateBox = document.querySelector("#rate");
 
 iconCenterA.parentNode.parentNode.style.backgroundColor = "#353eac";
 iconCenterA.style.fill = "#68ffa8";
@@ -190,15 +192,27 @@ function calculateValue(str) {
   return total;
 }
 
-/**********************ROMEO'S WORK*************************/
+/*********************************ROMEO'S WORK**********************************/
+rulerBtn.addEventListener("click", (event) => {
+  const horizontalRuler = document.querySelector(".measure-height-cont");
+  const verticalRuler = document.querySelector(".measure-width-cont");
+  const viewStatus = horizontalRuler.style.display;
+
+  if (viewStatus !== "none") {
+    horizontalRuler.style.display = "none";
+    verticalRuler.style.display = "none";
+  } else {
+    horizontalRuler.style.display = "flex";
+    verticalRuler.style.display = "block";
+  }
+});
+
 window.addEventListener("resize", function () {
   countValue();
 });
-/***********************************************************/
 
 // Function to handle keyup events
 function countValue() {
-  /**********************ROMEO'S WORK*************************/
   var textInput = document.getElementById("textInput");
   var inlineStrings = textInput.value.split("\n");
   var maxWidth = Math.max(
@@ -216,14 +230,15 @@ function countValue() {
     if (item !== -Infinity) return save + item;
     return save;
   }, 0.0);
-  maxHeight +=
-    (maxEachHeights.filter((height) => height !== -Infinity).length - 1 || 0) *
-    3;
+  var lineCnt = maxEachHeights.filter((height) => height !== -Infinity).length;
+  maxHeight += lineCnt ? (lineCnt - 1) * 3 : 0;
 
   var textWidthDislay = document.getElementById("widthDisplay");
   var textHeightDislay = document.getElementById("heightDisplay");
-  textWidthDislay.textContent = maxWidth.toFixed(1); // display total to 2 decimal places
-  textHeightDislay.textContent = maxHeight.toFixed(1); // display total to 2 decimal places
+
+  var rate = +rateBox.innerHTML;
+  textWidthDislay.textContent = (maxWidth * rate).toFixed(1); // display total to 2 decimal places
+  textHeightDislay.textContent = (maxHeight * rate).toFixed(1); // display total to 2 decimal places
 
   var container = document.getElementsByClassName("height-text-box")[0];
   var fontStr = displayDesignText.style.fontFamily;
@@ -242,9 +257,8 @@ function countValue() {
     fontSize = fontSizes[modifiedStr];
     displayDesignText.style.fontSize = fontSize + "px";
   }
-
-  /***********************************************************/
 }
+/*******************************************************************************/
 
 function filterInput() {
   var textInput = document.getElementById("textInput");
@@ -297,7 +311,7 @@ fontSelector.addEventListener("click", function () {
         let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
         fontSelector.textContent =
           modifiedStr.charAt(0).toUpperCase() + modifiedStr.slice(1);
-        fontInput.setAttribute('value', modifiedStr);
+        fontInput.setAttribute("value", modifiedStr);
         displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
         displayDesignText.style.fontSize = fontSizes[modifiedStr] + "px";
 
@@ -375,33 +389,32 @@ colorVariant.forEach((color) => {
 // }
 
 // SELECT ALIGNMENT FUNCTIONALITY
-leftAlignBox.addEventListener('click', function() {
-    removeAlignBoxStyle(alignBoxes);
-    displayDesignText.style.textAlign = 'left';
-    alignBoxes[0].style.backgroundColor = '#353eac';
-    iconLeftA.style.fill = '#68ffa8';
-    console.log("box clicked");
+leftAlignBox.addEventListener("click", function () {
+  removeAlignBoxStyle(alignBoxes);
+  displayDesignText.style.textAlign = "left";
+  alignBoxes[0].style.backgroundColor = "#353eac";
+  iconLeftA.style.fill = "#68ffa8";
+  console.log("box clicked");
 });
-centerAlignBox.addEventListener('click', function() {
-    removeAlignBoxStyle(alignBoxes);
-    displayDesignText.style.textAlign = 'center';
-    alignBoxes[1].style.backgroundColor = '#353eac';
-    iconCenterA.style.fill = '#68ffa8';
-    console.log("box clicked");
+centerAlignBox.addEventListener("click", function () {
+  removeAlignBoxStyle(alignBoxes);
+  displayDesignText.style.textAlign = "center";
+  alignBoxes[1].style.backgroundColor = "#353eac";
+  iconCenterA.style.fill = "#68ffa8";
+  console.log("box clicked");
 });
-rightAlignBox.addEventListener('click', function() {
-    removeAlignBoxStyle(alignBoxes);
-    displayDesignText.style.textAlign = 'right';
-    alignBoxes[2].style.backgroundColor = '#353eac';
-    iconRightA.style.fill = '#68ffa8';
-    console.log("box clicked");
+rightAlignBox.addEventListener("click", function () {
+  removeAlignBoxStyle(alignBoxes);
+  displayDesignText.style.textAlign = "right";
+  alignBoxes[2].style.backgroundColor = "#353eac";
+  iconRightA.style.fill = "#68ffa8";
+  console.log("box clicked");
 });
 
 const removeAlignBoxStyle = function (alignBoxes) {
-    alignBoxes.forEach(box => {
-        box.style.backgroundColor = 'transparent';
-        //box.style.color = '#353eac';
-        box.querySelector('.align-icon').style.fill = '#353eac';
-    });
-}
-
+  alignBoxes.forEach((box) => {
+    box.style.backgroundColor = "transparent";
+    //box.style.color = '#353eac';
+    box.querySelector(".align-icon").style.fill = "#353eac";
+  });
+};
