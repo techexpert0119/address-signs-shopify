@@ -93,7 +93,7 @@
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
 {% comment %} QUANTITY {% endcomment %}
-          {% comment %} <label class="form__label" for="Quantity-{{ section.id }}">
+          <label class="form__label" for="Quantity-{{ section.id }}">
                       {{ 'products.product.quantity.label' | t }}
                     </label>
                     <quantity-input class="quantity">
@@ -118,7 +118,7 @@
                         </span>
                         {% render 'icon-plus' %}
                       </button>
-                    </quantity-input> {% endcomment %}
+                    </quantity-input>
 
             <div class="csp-text-input-box">
               <h3 class="csp-custom-h3"><span class="csp-form-label">1</span>CHOOSE YOUR TEXT</h3>
