@@ -131,7 +131,7 @@ cart-remove-button .button {
 }
 
 cart-remove-button .button:before,
-cart-remove-button .button:after {
+cart-remove-button .button:after  {
   content: none;
 }
 
@@ -199,7 +199,6 @@ cart-remove-button .icon-remove {
 .product-option * {
   display: inline;
   margin: 0;
-  white-space: break-spaces;
 }
 
 .cart-items thead th {
