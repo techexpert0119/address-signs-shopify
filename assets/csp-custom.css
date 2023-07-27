@@ -88,6 +88,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .csp-text-input-box textarea {
   font-size: 24px;
@@ -374,7 +375,7 @@ input.prevent-highlight {
         width: 100%;
         position: sticky;
         top: 0;
-        z-index: 10;
+        z-index: 1;
         height: 45vh;
     }
     .csp-right-column {

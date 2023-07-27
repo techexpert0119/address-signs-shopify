@@ -92,6 +92,34 @@
           <div id="ProductInfo-{{ section.id }}" class="design-container">
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
+{% comment %} QUANTITY {% endcomment %}
+          {% comment %} <label class="form__label" for="Quantity-{{ section.id }}">
+                      {{ 'products.product.quantity.label' | t }}
+                    </label>
+                    <quantity-input class="quantity">
+                      <button class="quantity__button no-js-hidden" name="minus" type="button">
+                        <span class="visually-hidden">
+                          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                        </span>
+                        {% render 'icon-minus' %}
+                      </button>
+                      <input
+                        class="quantity__input"
+                        type="number"
+                        name="quantity"
+                        id="Quantity-{{ section.id }}"
+                        min="1"
+                        value="1"
+                        form="{{ product_form_id }}"
+                      >
+                      <button class="quantity__button no-js-hidden" name="plus" type="button">
+                        <span class="visually-hidden">
+                          {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                        </span>
+                        {% render 'icon-plus' %}
+                      </button>
+                    </quantity-input> {% endcomment %}
+
             <div class="csp-text-input-box">
               <h3 class="csp-custom-h3"><span class="csp-form-label">1</span>CHOOSE YOUR TEXT</h3>
               <p>Click below to edit the text on your sign</p>
@@ -118,13 +146,13 @@
 
                 <div class="csp-text-align-cont">
                   <input type="hidden" form="{{ product_form_id }}"  name="properties[alignment]"  value="center">
-                  <div class="csp-text-align-box">
+                  <div class="csp-text-align-box left-align-box">
                     {% render 'icon-left-align' %}
                   </div>
-                  <div class="csp-text-align-box">
+                  <div class="csp-text-align-box center-align-box">
                     {% render 'icon-center-align' %}
                   </div>
-                  <div class="csp-text-align-box">
+                  <div class="csp-text-align-box right-align-box">
                     {% render 'icon-right-align' %}
                   </div>
                 </div>
@@ -190,7 +218,39 @@
                       {%- endform -%}
                     </div>
                   {%- endif -%}
-                
+                {%- when 'quantity_selector' -%}
+                  <div
+                    class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+                    {{ block.shopify_attributes }}
+                  >
+                    <label class="form__label" for="Quantity-{{ section.id }}">
+                      {{ 'products.product.quantity.label' | t }}
+                    </label>
+                    <quantity-input class="quantity">
+                      <button class="quantity__button no-js-hidden" name="minus" type="button">
+                        <span class="visually-hidden">
+                          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                        </span>
+                        {% render 'icon-minus' %}
+                      </button>
+                      <input
+                        class="quantity__input"
+                        type="number"
+                        name="quantity"
+                        id="Quantity-{{ section.id }}"
+                        min="1"
+                        value="1"
+                        form="{{ product_form_id }}"
+                      >
+                      <button class="quantity__button no-js-hidden" name="plus" type="button">
+                        <span class="visually-hidden">
+                          {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                        </span>
+                        {% render 'icon-plus' %}
+                      </button>
+                    </quantity-input>
+                  </div>
+
                 {%- when 'share' -%}
                   <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
                   <share-button id="Share-{{ section.id }}" class="share-button" {{ block.shopify_attributes }}>
@@ -506,44 +566,6 @@
                       </div>
                     {%- endif -%}
                   </div>
-                {%- when 'custom_liquid' -%}
-                  {{ block.settings.custom_liquid }}
-                {%- when 'rating' -%}
-                  {%- if product.metafields.reviews.rating.value != blank -%}
-                    {% liquid
-                      assign rating_decimal = 0
-                        assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
-                        if decimal >= 0.3 and decimal <= 0.7
-                        assign rating_decimal = 0.5
-                      elsif decimal > 0.7
-                        assign rating_decimal = 1
-                        endif
-                    %}
-                    <div
-                      class="rating"
-                      role="img"
-                      aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}"
-                    >
-                      <span
-                        aria-hidden="true"
-                        class="rating-star color-icon-{{ settings.accent_icons }}"
-                        style="--rating: {{ product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
-                      ></span>
-                    </div>
-                    <p class="rating-text caption">
-                      <span aria-hidden="true">
-                        {{- product.metafields.reviews.rating.value }} /
-                        {{ product.metafields.reviews.rating.value.scale_max -}}
-                      </span>
-                    </p>
-                    <p class="rating-count caption">
-                      <span aria-hidden="true">({{ product.metafields.reviews.rating_count }})</span>
-                      <span class="visually-hidden">
-                        {{- product.metafields.reviews.rating_count }}
-                        {{ "accessibility.total_reviews" | t -}}
-                      </span>
-                    </p>
-                  {%- endif -%}
               {%- endcase -%}
             {%- endfor -%}
           </div>
@@ -804,28 +826,6 @@
         {
           "type": "paragraph",
           "content": "t:sections.featured-product.blocks.share.settings.title_info.content"
-        }
-      ]
-    },
-    {
-      "type": "custom_liquid",
-      "name": "t:sections.featured-product.blocks.custom_liquid.name",
-      "settings": [
-        {
-          "type": "liquid",
-          "id": "custom_liquid",
-          "label": "t:sections.featured-product.blocks.custom_liquid.settings.custom_liquid.label"
-        }
-      ]
-    },
-    {
-      "type": "rating",
-      "name": "t:sections.featured-product.blocks.rating.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "t:sections.featured-product.blocks.rating.settings.paragraph.content"
         }
       ]
     }
