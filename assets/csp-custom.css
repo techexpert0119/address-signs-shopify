@@ -88,6 +88,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .csp-text-input-box textarea {
   font-size: 24px;
@@ -114,6 +115,7 @@
   translate: -50%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 600px;
 }
 .csp-swatch-box {
@@ -129,7 +131,7 @@
   transform: scale(1.05);
   transition: all 150ms ease-in;
 }
-.csp-swatch-box img {
+.csp-swatch-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -363,8 +365,37 @@ input.prevent-highlight {
   font-size: 10px;
   font-weight: 600;
 }
-@media screen and (max-width: 1000px) {
-  #sign-text-overlay {
-    font-size: 5.5vw;
-  }
+@media screen and (max-width: 990px) {
+    .csp-inner-cont {
+        flex-direction: column;
+        height: auto;
+        overflow: visible;
+    }
+    .design-box {
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        height: 45vh;
+    }
+    .csp-right-column {
+        width: 100%;
+    }
+    .csp-swatch-box {
+        width: 20%;
+        height: 100%;
+        border-radius: 100%;
+        margin: 0 5px;
+    }
+    .csp-swatch-img {
+        border-radius: 100%;
+    }
+    .csp-background-swatch-cont {
+        width: 85vw;
+        height: 11vw;
+        min-height: 60px;
+        max-height: 65px;
+        max-width: 500px;
+    }
+
 }

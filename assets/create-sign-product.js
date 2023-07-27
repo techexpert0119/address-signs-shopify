@@ -146,6 +146,7 @@ const displayDesignText = document.querySelector("#sign-text-overlay");
 const measurementTexBox = document.querySelector(".measurement-text-box");
 const textInput = document.querySelector("#textInput");
 const fontSelector = document.querySelector("#csp-font-option");
+const fontInput = document.querySelector('.csp-font-input');
 const iconCarat = document.querySelector(".icon-carat-box");
 const fontDropdownGrid = document.querySelector(".csp-grid-dropdown");
 const fontGrid = document.querySelector(".csp-font-grid");
@@ -154,13 +155,17 @@ const iconLeftA = document.querySelector(".icon-left-align");
 const iconCenterA = document.querySelector(".icon-center-align");
 const iconRightA = document.querySelector(".icon-right-align");
 const alignIcons = document.querySelectorAll(".align-icon");
+const leftAlignBox = document.querySelector(".left-align-box");
+const centerAlignBox = document.querySelector(".center-align-box");
+const rightAlignBox = document.querySelector(".right-align-box");
+const alignBoxes = document.querySelectorAll(".csp-text-align-box");
 
 iconCenterA.parentNode.parentNode.style.backgroundColor = "#353eac";
 iconCenterA.style.fill = "#68ffa8";
 
 //const widthMeasure = document.querySelector('#csp-measure-hr');
 const colorVariant = document.querySelectorAll(".csp-color-input");
-let calcWidth;
+//let calcWidth;
 const breakTag = `<br>`;
 
 let fontSizes = {
@@ -260,9 +265,7 @@ function filterInput() {
     measurementTexBox.style.display = "flex";
     textInput.value = filteredValue;
     displayDesignText.innerHTML = filteredValue;
-    calcWidth = displayDesignText.offsetWidth;
-    //widthMeasure.style.width = calcWidth + 'px';
-    checkScreenPercentage(calcWidth, 50);
+    //calcWidth = displayDesignText.offsetWidth;
   }
 }
 
@@ -294,7 +297,7 @@ fontSelector.addEventListener("click", function () {
         let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
         fontSelector.textContent =
           modifiedStr.charAt(0).toUpperCase() + modifiedStr.slice(1);
-
+        fontInput.setAttribute('value', modifiedStr);
         displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
         displayDesignText.style.fontSize = fontSizes[modifiedStr] + "px";
 
@@ -359,14 +362,46 @@ colorVariant.forEach((color) => {
 });
 
 // FUNCTION DETECTS WHEN A NUMBER IS 60% OF SCREEN WIDTH
-function checkScreenPercentage(num, percent) {
-  let screenWidth = designBox.offsetWidth;
-  let decimalPercent = percent / 100;
-  let limit = screenWidth * decimalPercent;
-  if (num >= limit) {
-    // Execute your code here
-    console.log(num + " has reached " + percent + "% of the design width.");
-  } else {
-    console.log(num + " has NOT reached " + percent + "% of the design width.");
-  }
+// function checkScreenPercentage(num, percent) {
+//   let screenWidth = designBox.offsetWidth;
+//   let decimalPercent = percent / 100;
+//   let limit = screenWidth * decimalPercent;
+//   if (num >= limit) {
+//     // Execute your code here
+//     console.log(num + " has reached " + percent + "% of the design width.");
+//   } else {
+//     console.log(num + " has NOT reached " + percent + "% of the design width.");
+//   }
+// }
+
+// SELECT ALIGNMENT FUNCTIONALITY
+leftAlignBox.addEventListener('click', function() {
+    removeAlignBoxStyle(alignBoxes);
+    displayDesignText.style.textAlign = 'left';
+    alignBoxes[0].style.backgroundColor = '#353eac';
+    iconLeftA.style.fill = '#68ffa8';
+    console.log("box clicked");
+});
+centerAlignBox.addEventListener('click', function() {
+    removeAlignBoxStyle(alignBoxes);
+    displayDesignText.style.textAlign = 'center';
+    alignBoxes[1].style.backgroundColor = '#353eac';
+    iconCenterA.style.fill = '#68ffa8';
+    console.log("box clicked");
+});
+rightAlignBox.addEventListener('click', function() {
+    removeAlignBoxStyle(alignBoxes);
+    displayDesignText.style.textAlign = 'right';
+    alignBoxes[2].style.backgroundColor = '#353eac';
+    iconRightA.style.fill = '#68ffa8';
+    console.log("box clicked");
+});
+
+const removeAlignBoxStyle = function (alignBoxes) {
+    alignBoxes.forEach(box => {
+        box.style.backgroundColor = 'transparent';
+        //box.style.color = '#353eac';
+        box.querySelector('.align-icon').style.fill = '#353eac';
+    });
 }
+
