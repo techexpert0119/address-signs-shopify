@@ -6,8 +6,7 @@
         "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-2": {
           "type": "price",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         },
         "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-3": {
           "type": "variant_picker",
@@ -17,9 +16,7 @@
         },
         "0267ec2e-a247-4168-a7b3-463b105c4223": {
           "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -35,50 +32,6 @@
         "padding_bottom": 36
       }
     },
-    "46717f11-333b-49b2-a860-967e14229bf9": {
-      "type": "image-with-text",
-      "disabled": true,
-      "blocks": {
-        "template--17712524296510__46717f11-333b-49b2-a860-967e14229bf9-167535767143c49ceb-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Design Your Sign",
-            "heading_size": "h0"
-          }
-        },
-        "template--17712524296510__46717f11-333b-49b2-a860-967e14229bf9-167535767143c49ceb-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_style": "body"
-          }
-        },
-        "template--17712524296510__46717f11-333b-49b2-a860-967e14229bf9-167535767143c49ceb-2": {
-          "type": "button",
-          "settings": {
-            "button_label": "Order now",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--17712524296510__46717f11-333b-49b2-a860-967e14229bf9-167535767143c49ceb-0",
-        "template--17712524296510__46717f11-333b-49b2-a860-967e14229bf9-167535767143c49ceb-1",
-        "template--17712524296510__46717f11-333b-49b2-a860-967e14229bf9-167535767143c49ceb-2"
-      ],
-      "settings": {
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "167548135556d65f77": {
       "type": "apps",
       "settings": {
@@ -88,7 +41,6 @@
   },
   "order": [
     "c0e615e1-a990-4ddc-bfb6-9ced9bb7f397",
-    "46717f11-333b-49b2-a860-967e14229bf9",
     "167548135556d65f77"
   ]
 }

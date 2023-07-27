@@ -146,6 +146,7 @@ const displayDesignText = document.querySelector("#sign-text-overlay");
 const measurementTexBox = document.querySelector(".measurement-text-box");
 const textInput = document.querySelector("#textInput");
 const fontSelector = document.querySelector("#csp-font-option");
+const fontInput = document.querySelector('.csp-font-input');
 const iconCarat = document.querySelector(".icon-carat-box");
 const fontDropdownGrid = document.querySelector(".csp-grid-dropdown");
 const fontGrid = document.querySelector(".csp-font-grid");
@@ -289,7 +290,7 @@ fontSelector.addEventListener("click", function () {
         let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
         fontSelector.textContent =
           modifiedStr.charAt(0).toUpperCase() + modifiedStr.slice(1);
-
+        fontInput.setAttribute('value', modifiedStr);
         displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
         displayDesignText.style.fontSize = fontSizes[modifiedStr] + "px";
 
