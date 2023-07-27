@@ -167,10 +167,10 @@ const breakTag = `<br>`;
 let fontSizes = {
   ballantine: 130,
   seashore: 80,
-  "brush-script": 100,
-  "commercial-script": 110,
+  "brush-scri": 100,
+  commercial: 110,
   parsley: 100,
-  "petit-formal": 80,
+  "petit-form": 80,
   vivace: 110,
 };
 
@@ -204,12 +204,17 @@ function countValue() {
       }, 0)
     )
   );
-  var maxHeight = inlineStrings
-    .map((s) => Math.max(...s.split("").map((val) => letterHeights[val])))
-    .reduce((save, item) => {
-      if (item !== -Infinity) return save + item;
-      return save;
-    }, 0.0);
+
+  var maxEachHeights = inlineStrings.map((s) =>
+    Math.max(...s.split("").map((val) => letterHeights[val]))
+  );
+  var maxHeight = maxEachHeights.reduce((save, item) => {
+    if (item !== -Infinity) return save + item;
+    return save;
+  }, 0.0);
+  maxHeight +=
+    (maxEachHeights.filter((height) => height !== -Infinity).length - 1 || 0) *
+    3;
 
   var textWidthDislay = document.getElementById("widthDisplay");
   var textHeightDislay = document.getElementById("heightDisplay");
