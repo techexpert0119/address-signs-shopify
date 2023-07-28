@@ -161,6 +161,7 @@ const rightAlignBox = document.querySelector(".right-align-box");
 const alignBoxes = document.querySelectorAll(".csp-text-align-box");
 const rulerBtn = document.querySelector("#csp-ruler-btn");
 const rateBox = document.querySelector("#rate");
+const currencyBox = document.querySelector("#currency");
 
 iconCenterA.parentNode.parentNode.style.backgroundColor = "#353eac";
 iconCenterA.style.fill = "#68ffa8";
@@ -244,6 +245,12 @@ function countValue() {
   var fontStr = displayDesignText.style.fontFamily;
   let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
   let fontSize = fontSizes[modifiedStr];
+
+  var totalPrice = document.querySelector("#csp-design-static-currency");
+  var strlength = textInput.value
+    .split("")
+    .filter((str) => str !== "\n" && str !== " ").length;
+  totalPrice.textContent = (strlength * +currencyBox.innerHTML).toFixed(1);
 
   displayDesignText.style.fontSize = fontSize + "px";
   while (

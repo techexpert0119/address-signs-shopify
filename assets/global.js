@@ -1008,14 +1008,18 @@ class VariantSelects extends HTMLElement {
       input.value = this.currentVariant.id;
 
       var rateContainer = document.querySelector("#rate");
+      var currencyContainer = document.querySelector("#currency");
       if (this.currentVariant.id === 45891538452760) {
         rateContainer.innerHTML = 0.8;
+        currencyContainer.innerHTML = 18.75;
       }
       if (this.currentVariant.id === 45891538485528) {
         rateContainer.innerHTML = 1.0;
+        currencyContainer.innerHTML = 25;
       }
       if (this.currentVariant.id === 45891538518296) {
         rateContainer.innerHTML = 1.25;
+        currencyContainer.innerHTML = 31.25;
       }
       countValue();
       input.dispatchEvent(new Event("change", { bubbles: true }));
