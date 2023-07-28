@@ -161,7 +161,6 @@ const rightAlignBox = document.querySelector(".right-align-box");
 const alignBoxes = document.querySelectorAll(".csp-text-align-box");
 const rulerBtn = document.querySelector("#csp-ruler-btn");
 const rateBox = document.querySelector("#rate");
-const currencyBox = document.querySelector("#currency");
 
 iconLeftA.parentNode.parentNode.style.backgroundColor = "#353eac";
 iconLeftA.style.fill = "#68ffa8";
@@ -180,20 +179,16 @@ let fontSizes = {
   "petit-form": 80,
   vivace: 110,
 };
-
-// Function to calculate the total value of a string
-function calculateValue(str) {
-  var total = 0;
-  for (var i = 0; i < str.length; i++) {
-    var letter = str[i];
-    if (LetterWidths.hasOwnProperty(letter)) {
-      total += LetterWidths[letter];
-    }
-  }
-  return total;
-}
+let currencyStatus = 0;
 
 /*********************************ROMEO'S WORK**********************************/
+setInterval(function () {
+  let currency = document.querySelector("#currency_status");
+  let priceStr = currency.textContent.trim();
+  currencyStatus = priceStr.slice(1, priceStr.length - 4);
+  countValue();
+}, 100);
+
 rulerBtn.addEventListener("click", (event) => {
   const horizontalRuler = document.querySelector(".measure-height-cont");
   const verticalRuler = document.querySelector(".measure-width-cont");
@@ -250,13 +245,13 @@ function countValue() {
   var strlength = textInput.value
     .split("")
     .filter((str) => str !== "\n" && str !== " ").length;
-  var currentCurrency = +currencyBox.innerHTML;
+
   if (strlength > 4)
     totalPrice.textContent = (
-      4 * currentCurrency +
-      (strlength - 4) * 0.7 * currentCurrency
+      4 * currencyStatus +
+      (strlength - 4) * 0.7 * currencyStatus
     ).toFixed(1);
-  else totalPrice.textContent = (strlength * currentCurrency).toFixed(1);
+  else totalPrice.textContent = (strlength * currencyStatus).toFixed(1);
 
   var quantityDisplay = document.getElementsByClassName("quantity__input")[0];
   quantityDisplay.value = strlength;

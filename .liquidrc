@@ -1,0 +1,221 @@
+{
+  // Defined the Liquid variation you are working with
+  "liquid.engine": "shopify",
+
+  // Path location to a rule configuration file (relative to project root)
+  "liquid.config.baseUrl": ".",
+
+  // Controls how extension settings are applied (leave this to workspace)
+  "liquid.settings.target": "workspace",
+
+  // Whether or not to enable tag completions
+  "liquid.completion.tags": true,
+
+  // Whether or not to enable object completions
+  "liquid.completion.objects": true,
+
+  // Whether or not to enable filter completions
+  "liquid.completion.filters": true,
+
+  // Whether or not to enable control flow operator completions
+  "liquid.completion.operators": true,
+
+  // Whether or not to enable section object completions
+  "liquid.completion.sections": true,
+
+  // Whether or not to enable JSON {% schema %} tag completions
+  "liquid.completion.schema": true,
+
+  // Whether or not to enable JSON {% schema %} tag diagnostic validations
+  "liquid.validate.schema": true,
+
+  // Controls whether formatting is enabled or disabled
+  "liquid.format.enable": true,
+
+  // Glob paths to exclude from formatting
+  "liquid.format.ignore": [],
+
+  // Word wrap limit, defaults to the vscode wordWrapColumn
+  "liquid.format.wrap": 0,
+
+  // indentation level, defaults to the vscode tabSize
+  "liquid.format.indentSize": 2,
+
+  // Whether or not documents end with newline, defaults to the vscode renderFinalNewline
+  "liquid.format.endNewLine": false,
+
+  // If a blank new line should be forced above comments
+  "liquid.format.commentIndent": false,
+
+  // The maximum number of consecutive empty lines to retain
+  "liquid.format.preserveLine": 3,
+
+  // Prevent comment reformatting due to option wrap
+  "liquid.format.preserveComment": false,
+
+  // Use Windows (CRLF) format, Unix (LF) format is the default.
+  "liquid.format.crlf": false,
+
+  // HTML, Liquid + HTML code style
+  "liquid.format.markup": {
+
+    // Automatically attempts to correct some sloppiness in code
+    "correct": false,
+
+    // Control the casing of attributes.
+    "attributeCasing": "preserve",
+
+    // Alphanumerically sort HTML attributes from A to Z.
+    "attributeSort": false,
+
+    // Sort attributes according to this list, requires attributeSort to be true
+    "attributeSortList": [],
+
+    // Control Liquid delimiter trims, eg: '{%-' and '{{-'
+    "delimiterTrims": "preserve",
+
+    // Strip extraneous spacing from Liquid delimiters
+    "delimiterSpacing": false,
+
+    // Whether comments should always start at position 0 or indented to code
+    "commentNewline": false,
+
+    // Force leading attributes onto a newline when using wrap
+    "forceLeadAttribute": false,
+
+    // Will force indentation upon content
+    "forceIndent": false,
+
+    // Whether attributes should be indented each onto their own line
+    "forceAttribute": false,
+
+    // Attribute force control and handling for value expressions
+    "valueForce": "intent",
+
+    // If text in the provided document code should be preserved
+    "preserveText": true,
+
+    // self-closing tags end will end with ' />' instead of '/>'
+    "selfCloseSpace": false,
+
+    // Whether attributes should be preserved
+    "preserveAttributes": false,
+
+    // Quotation character conversion
+    "quoteConvert": "none"
+  },
+
+  // CSS/SCSS code style
+  "liquid.format.style": {
+
+    // Automatically attempts to correct some sloppiness in code.
+    "correct": false,
+
+    // Whether to apply allman style indentation to braces
+    "braceAllman": false,
+
+    // Sorts CSS Selectors in an alphanumerical order
+    "sortSelectors": false,
+
+    // Sort Selectors in an alphanumerical order
+    "sortProperties": false,
+
+    // Inserts new line characters between every CSS code block
+    "classPadding": false,
+
+    // Whether leading `0s` in CSS values immediately preceding a decimal or removed
+    "noLeadZero": false,
+
+    // If comma separated CSS selectors should present on a single line of code
+    "selectorList": false
+  },
+
+  // JSON code style
+  "liquid.format.json": {
+
+    // Determines how array indexes should be indented
+    "arrayFormat": "default",
+
+    // Whether to apply allman style indentation to braces
+    "braceAllman": false,
+
+    // Inserts a space after the start and before the end of a container
+    "bracePadding": false,
+
+    // Emulates JSBeautify's brace_style option
+    "braceStyle": "none",
+
+    // Determines if all array indexes should be indented, never indented, or left to the default.
+    "formatArray": "default",
+
+    // Determines if all object keys should be indented, never indented, or left to the default
+    "objectIndent": "default"
+  },
+
+  // JavaScript, TypeScript code style
+  "liquid.format.script": {
+
+    // Determines how array indexes should be indented
+    "arrayFormat": "default",
+
+    // Automatically attempts to correct some sloppiness in code.
+    "correct": false,
+
+    // Whether to apply allman style indentation to braces
+    "braceAllman": false,
+
+    // Insert line after opening curly braces and before closing curly braces
+    "braceNewline": false,
+
+    // Inserts a space after the start and before the end of a container
+    "bracePadding": false,
+
+    // Emulates JSBeautify's brace_style option
+    "braceStyle": "none",
+
+    // If the colon separating a case's expression (of a switch/case block)
+    "caseSpace": false,
+
+    // Whether the 'else' keyword is forced onto a new line.
+    "elseNewline": false,
+
+    // If there should be a trailing comma in arrays and object
+    "endComma": "none",
+
+    // Determines how array indexes should be indented
+    "arrayFormat": "default",
+
+    // Determines how object keys should be indented
+    "objectIndent": "default",
+
+    // If a space should follow a JavaScript function name
+    "functionNameSpace": false,
+
+    // When to break chained methods and properties onto separate lines
+    "methodChain": 3,
+
+    // If destructured lists in script should never be flattened
+    "neverFlatten": false,
+
+    // If a case statement should receive indentation
+    "noCaseIndent": false,
+
+    // Removes semicolons that would be inserted by ASI
+    "noSemicolon": false,
+
+    // Prevent comment reformatting due to option wrap
+    "preserveComment": false,
+
+    // Quotation character conversion
+    "quoteConvert": "none",
+
+    // Inserts a space following the function keyword for anonymous functions
+    "functionSpace": false,
+
+    // Keep ternary statements on one Line
+    "ternaryLine": false,
+
+    // Merges into consecutive variables into a comma separated list
+    "variableList": false
+  }
+}
