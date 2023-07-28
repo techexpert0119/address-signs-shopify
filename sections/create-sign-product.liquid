@@ -32,55 +32,67 @@
 
       <div id="csp-design-box" class="design-box">
         <div id="csp-background-img" style="background-image: url(https://cdn.shopify.com/s/files/1/0711/9650/8478/files/brick-light.jpg?v=1689283021);"></div>
-        <div class="csp-sign-text-overlay">
 
-          <div class="measurement-text-box">
-            
-            <div class="height-text-box">
+        <div class="csp-design-ruler">
+          <button type="button" id="csp-ruler-btn" class="csp-design-ruler-btn">
+            {% render 'icon-ruler' %}
+          </button>
+        </div>
 
-              <div class="measure-height-cont">
-                <div class="height-measurement-count mearsurement-numbers">
-                  <span><span id="heightDisplay">0</span>in</span>
-                </div>
+        <div class="csp-design-static-text design-box-text-shadow">
+          <div class="csp-design-static-currency">
+            <span>$<span id="csp-design-static-currency">0.0</span></span>
+          </div>
+          <div class="csp-design-static-size">
+            <span id="csp-design-static-size">8×72in</span>
+          </div>
+          <div id="rate" style="display: none;">0.8</div>
+          <div id="currency" style="display: none;">18.75</div>
+        </div>
 
-                <div class="height-hr-box">
-                  <span class="height-measure-end"></span>
-                  <span class="height-hr"></span>
-                  <span class="height-measure-end"></span>
-                </div>
-
+        <div class="measurement-text-box">
+          <div class="height-text-box">
+            <div class="measure-height-cont">
+              <div class="mearsurement-numbers design-box-text-shadow">
+                <span><span id="heightDisplay">0</span>in</span>
               </div>
-              
-              <h2 id="sign-text-overlay" style="font-family:'ballantine',sans serif;">123 Address</h2>
+              <div class="height-hr-box">
+                <span class="height-measure-end"></span>
+                <span class="height-hr"></span>
+                <span class="height-measure-end"></span>
+              </div>
             </div>
+            
+            <h2 id="sign-text-overlay" style="font-family:'ballantine',sans serif;">613 Elite Street</h2>
+          </div>
 
+          <div class="measure-width-cont">
             <div class="hr-box">
               <hr class="measurement-endings">
               <hr id="csp-measure-hr">
               <hr class="measurement-endings">
             </div>
-            <div class="count-display-box">
+            <div class="count-display-box design-box-text-shadow">
               <span class="mearsurement-numbers"><span id="widthDisplay">0</span>in</span>
             </div>
           </div>
-          
         </div>
 
         <div class="csp-background-swatch-cont">
           <div class="csp-swatch-box">
-            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/brick-light.jpg?v=1689283021" alt="Material Background" width="100" height="100" />
+            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/brick-light.jpg?v=1689283021" alt="Material Background" />
           </div>
           <div class="csp-swatch-box">
-            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/red-bricks.jpg?v=1689283021" alt="Material Background" width="100" height="100" />
+            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/red-bricks.jpg?v=1689283021" alt="Material Background" />
           </div>
           <div class="csp-swatch-box">
-            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_3.jpg?v=1689283020" alt="Material Background" width="100" height="100" />
+            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_3.jpg?v=1689283020" alt="Material Background" />
           </div>
           <div class="csp-swatch-box">
-            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_2.png?v=1689283021" alt="Material Background" width="100" height="100" />
+            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_2.png?v=1689283021" alt="Material Background" />
           </div>
           <div class="csp-swatch-box">
-            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_5.jpg?v=1689283020" alt="Material Background" width="100" height="100" />
+            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_5.jpg?v=1689283020" alt="Material Background" />
           </div>
         </div>
 
@@ -91,35 +103,33 @@
         <div class="product__info-wrapper grid__item">
           <div id="ProductInfo-{{ section.id }}" class="design-container">
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
-
-{% comment %} QUANTITY {% endcomment %}
-          <label class="form__label" for="Quantity-{{ section.id }}">
-                      {{ 'products.product.quantity.label' | t }}
-                    </label>
-                    <quantity-input class="quantity">
-                      <button class="quantity__button no-js-hidden" name="minus" type="button">
-                        <span class="visually-hidden">
-                          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
-                        </span>
-                        {% render 'icon-minus' %}
-                      </button>
-                      <input
-                        class="quantity__input"
-                        type="number"
-                        name="quantity"
-                        id="Quantity-{{ section.id }}"
-                        min="1"
-                        value="1"
-                        form="{{ product_form_id }}"
-                      >
-                      <button class="quantity__button no-js-hidden" name="plus" type="button">
-                        <span class="visually-hidden">
-                          {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
-                        </span>
-                        {% render 'icon-plus' %}
-                      </button>
-                    </quantity-input>
-
+            {% comment %} QUANTITY {% endcomment %}
+            <label class="form__label" for="Quantity-{{ section.id }}" style="display: none;">
+              {{ 'products.product.quantity.label' | t }}
+            </label>
+            <quantity-input class="quantity" style="display: none;">
+              <button class="quantity__button no-js-hidden" name="minus" type="button">
+                <span class="visually-hidden">
+                  {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                </span>
+                {% render 'icon-minus' %}
+              </button>
+              <input
+                class="quantity__input"
+                type="number"
+                name="quantity"
+                id="Quantity-{{ section.id }}"
+                min="1"
+                value="1"
+                form="{{ product_form_id }}"
+              >
+              <button class="quantity__button no-js-hidden" name="plus" type="button">
+                <span class="visually-hidden">
+                  {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                </span>
+                {% render 'icon-plus' %}
+              </button>
+            </quantity-input>
             <div class="csp-text-input-box">
               <h3 class="csp-custom-h3"><span class="csp-form-label">1</span>CHOOSE YOUR TEXT</h3>
               <p>Click below to edit the text on your sign</p>
@@ -197,7 +207,7 @@
                     {%- endif -%}
                   </h2>
                 {%- when 'price' -%}
-                  <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                  <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }} style="display: none;">
                     {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                   </div>
                   {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -218,7 +228,7 @@
                       {%- endform -%}
                     </div>
                   {%- endif -%}
-                {%- when 'quantity_selector' -%}
+                  {%- when 'quantity_selector' -%}
                   <div
                     class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
                     {{ block.shopify_attributes }}
@@ -377,6 +387,7 @@
                                     name="{{ option.name }}"
                                     value="{{ value | escape }}"
                                     form="{{ product_form_id }}"
+                                    style="display: none;"
                                     {% if option.selected_value == value %}
                                       checked
                                     {% endif %}

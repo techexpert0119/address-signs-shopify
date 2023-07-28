@@ -13,6 +13,57 @@
   height: 100%;
   background-size: 600px;
 }
+/*********************************ROMEO'S WORK**********************************/
+.csp-design-ruler {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  top: 25px;
+  left: 50%;
+  translate: -24px;
+  border-radius: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.csp-design-ruler-btn {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: 3px solid #353eac;
+  border-radius: 100%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.csp-design-ruler-btn:hover {
+  color: white;
+  background-color: #a5aeff;
+}
+.csp-design-static-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 15px;
+  right: 20px;
+  font-family: roboto-bold, roboto, sans-serif;
+  font-weight: bold;
+  color: black;
+}
+.csp-design-static-currency {
+  font-size: 64px;
+  line-height: normal !important;
+}
+.csp-design-static-size {
+  font-size: 32px;
+  line-height: normal !important;
+}
+.measure-width-cont {
+  width: 100%;
+}
+.design-box-text-shadow {
+  text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px,
+    #ffffff 1px -1px 0px;
+}
+/*******************************************************************************/
 .csp-color-selection-box {
   padding-top: 20px;
 }
@@ -83,7 +134,7 @@
   width: 40px;
   height: 40px;
   border: 2px solid #353eac;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 0 5px;
   display: flex;
   justify-content: center;
@@ -149,8 +200,8 @@
 }
 .measure-height-cont {
   position: absolute;
-  top: 0;
-  left: -100px;
+  top: 0px;
+  right: 105%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,19 +223,18 @@
   border: 2px solid black;
   margin: 5px;
 }
-.height-measurement-count {
-}
 .measurement-text-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 35%;
-  left: 55%;
+  top: 45%;
+  left: 50%;
   translate: -50% -50%;
 }
 .height-text-box {
   position: relative;
+  width: 100%;
   display: flex;
   min-height: 125px;
 }
@@ -209,12 +259,10 @@
   align-items: center;
   margin: 0;
   text-shadow: 5px 5px 3px #0000004d;
-  font-weight: bold;
+  font-weight: 700;
   line-height: normal;
-  /**********************ROMEO'S WORK*************************/
   white-space: break-spaces;
   text-wrap: nowrap;
-  /***********************************************************/
 }
 #csp-measure-hr {
   width: 100%;
@@ -235,7 +283,7 @@
   line-height: 15px;
   font-weight: 600;
   color: #000;
-  font-size: 20px;
+  font-size: 30px;
 }
 .font-selector-cont {
   width: 50%;
@@ -366,36 +414,35 @@ input.prevent-highlight {
   font-weight: 600;
 }
 @media screen and (max-width: 990px) {
-    .csp-inner-cont {
-        flex-direction: column;
-        height: auto;
-        overflow: visible;
-    }
-    .design-box {
-        width: 100%;
-        position: sticky;
-        top: 0;
-        z-index: 2;
-        height: 45vh;
-    }
-    .csp-right-column {
-        width: 100%;
-    }
-    .csp-swatch-box {
-        width: 20%;
-        height: 100%;
-        border-radius: 100%;
-        margin: 0 5px;
-    }
-    .csp-swatch-img {
-        border-radius: 100%;
-    }
-    .csp-background-swatch-cont {
-        width: 85vw;
-        height: 11vw;
-        min-height: 60px;
-        max-height: 65px;
-        max-width: 500px;
-    }
-
+  .csp-inner-cont {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+  .design-box {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    height: 45vh;
+  }
+  .csp-right-column {
+    width: 100%;
+  }
+  .csp-swatch-box {
+    width: 20%;
+    height: 100%;
+    border-radius: 100%;
+    margin: 0 5px;
+  }
+  .csp-swatch-img {
+    border-radius: 100%;
+  }
+  .csp-background-swatch-cont {
+    width: 85vw;
+    height: 11vw;
+    min-height: 60px;
+    max-height: 65px;
+    max-width: 500px;
+  }
 }
