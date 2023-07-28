@@ -163,8 +163,8 @@ const rulerBtn = document.querySelector("#csp-ruler-btn");
 const rateBox = document.querySelector("#rate");
 const currencyBox = document.querySelector("#currency");
 
-iconCenterA.parentNode.parentNode.style.backgroundColor = "#353eac";
-iconCenterA.style.fill = "#68ffa8";
+iconLeftA.parentNode.parentNode.style.backgroundColor = "#353eac";
+iconLeftA.style.fill = "#68ffa8";
 
 //const widthMeasure = document.querySelector('#csp-measure-hr');
 const colorVariant = document.querySelectorAll(".csp-color-input");

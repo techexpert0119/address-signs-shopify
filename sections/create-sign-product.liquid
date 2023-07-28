@@ -104,10 +104,10 @@
           <div id="ProductInfo-{{ section.id }}" class="design-container">
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
             {% comment %} QUANTITY {% endcomment %}
-            <label class="form__label" for="Quantity-{{ section.id }}">
+            <label class="form__label" for="Quantity-{{ section.id }}" style="display: none;">
               {{ 'products.product.quantity.label' | t }}
             </label>
-            <quantity-input class="quantity">
+            <quantity-input class="quantity" style="display: none;">
               <button class="quantity__button no-js-hidden" name="minus" type="button">
                 <span class="visually-hidden">
                   {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
@@ -207,7 +207,7 @@
                     {%- endif -%}
                   </h2>
                 {%- when 'price' -%}
-                  <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                  <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }} style="display: none;">
                     {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                   </div>
                   {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
