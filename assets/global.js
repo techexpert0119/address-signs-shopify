@@ -1009,17 +1009,22 @@ class VariantSelects extends HTMLElement {
 
       var rateContainer = document.querySelector("#rate");
       var currencyContainer = document.querySelector("#currency");
+      var sizeContainer = document.querySelector("#csp-design-static-size");
+
       if (this.currentVariant.id === 45891538452760) {
         rateContainer.innerHTML = 0.8;
         currencyContainer.innerHTML = 18.75;
+        sizeContainer.innerHTML = "8×72in";
       }
       if (this.currentVariant.id === 45891538485528) {
         rateContainer.innerHTML = 1.0;
         currencyContainer.innerHTML = 25;
+        sizeContainer.innerHTML = "9×84in";
       }
       if (this.currentVariant.id === 45891538518296) {
         rateContainer.innerHTML = 1.25;
         currencyContainer.innerHTML = 31.25;
+        sizeContainer.innerHTML = "10×96in";
       }
       countValue();
       input.dispatchEvent(new Event("change", { bubbles: true }));

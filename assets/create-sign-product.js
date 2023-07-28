@@ -250,7 +250,13 @@ function countValue() {
   var strlength = textInput.value
     .split("")
     .filter((str) => str !== "\n" && str !== " ").length;
-  totalPrice.textContent = (strlength * +currencyBox.innerHTML).toFixed(1);
+  var currentCurrency = +currencyBox.innerHTML;
+  if (strlength > 4)
+    totalPrice.textContent = (
+      4 * currentCurrency +
+      (strlength - 4) * 0.7 * currentCurrency
+    ).toFixed(1);
+  else totalPrice.textContent = (strlength * currentCurrency).toFixed(1);
 
   displayDesignText.style.fontSize = fontSize + "px";
   while (
