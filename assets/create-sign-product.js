@@ -336,12 +336,6 @@ fontSelector.addEventListener("click", function () {
 
         // THIS WORKS BUT NEED THE fontSizes TO BE THE CORRECT NAMES
         console.log("Modified String: " + modifiedStr);
-        // console.log(fontSizes[modifiedStr]);
-
-        iconCarat.style.transform = "rotate(0deg)";
-        fontGrid.style.overflow = "hidden";
-        fontDropdownGrid.style.gridTemplateRows = "0fr";
-        fontGrid.style.display = "none";
 
         /**********************ROMEO'S WORK*************************/
         countValue();
