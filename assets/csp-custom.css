@@ -134,7 +134,7 @@
   width: 40px;
   height: 40px;
   border: 2px solid #353eac;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 0 5px;
   display: flex;
   justify-content: center;
@@ -259,7 +259,7 @@
   align-items: center;
   margin: 0;
   text-shadow: 5px 5px 3px #0000004d;
-  font-weight: bold;
+  font-weight: 700;
   line-height: normal;
   white-space: break-spaces;
   text-wrap: nowrap;

@@ -330,6 +330,9 @@ fontSelector.addEventListener("click", function () {
         fontInput.setAttribute("value", modifiedStr);
         displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
         displayDesignText.style.fontSize = fontSizes[modifiedStr] + "px";
+        if (modifiedStr === "brush-scri" || modifiedStr === "parsley")
+          displayDesignText.style.fontWeight = 500;
+        else displayDesignText.style.fontWeight = 700;
 
         // THIS WORKS BUT NEED THE fontSizes TO BE THE CORRECT NAMES
         console.log("Modified String: " + modifiedStr);
