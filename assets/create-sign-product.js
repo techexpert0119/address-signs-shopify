@@ -258,6 +258,9 @@ function countValue() {
     ).toFixed(1);
   else totalPrice.textContent = (strlength * currentCurrency).toFixed(1);
 
+  var quantityDisplay = document.getElementsByClassName("quantity__input")[0];
+  quantityDisplay.value = strlength;
+
   displayDesignText.style.fontSize = fontSize + "px";
   while (
     displayDesignText.scrollWidth > container.clientWidth &&
