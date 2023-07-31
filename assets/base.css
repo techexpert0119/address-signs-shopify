@@ -1,6 +1,6 @@
 @font-face {
   font-family: "ballantine";
-  src: url("Ballantines-Bold.woff") format("woff");
+  src: url("Ballantines.ttf");
 }
 @font-face {
   font-family: "seashore";
@@ -343,14 +343,19 @@ html.no-js .no-js-hidden {
 }
 
 /**********************ROMEO'S WORK*************************/
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 990px) {
   .measurement-text-box {
-    width: 60%;
+    width: 90%;
+  }
+}
+@media only screen and (min-width: 990px) {
+  .measurement-text-box {
+    width: 70%;
   }
 }
 @media only screen and (min-width: 1440px) {
   .measurement-text-box {
-    width: 70%;
+    width: 80%;
   }
 }
 /***********************************************************/
