@@ -185,8 +185,11 @@ let currencyStatus = 0;
 setInterval(function () {
   let currency = document.querySelector("#currency_status");
   let priceStr = currency.textContent.trim();
-  currencyStatus = priceStr.slice(1, priceStr.length - 4);
-  countValue();
+  const newStatus = priceStr.slice(1, priceStr.length - 4);
+  if (currencyStatus !== newStatus) {
+    currencyStatus = newStatus;
+    countValue();
+  }
 }, 100);
 
 rulerBtn.addEventListener("click", (event) => {
@@ -203,12 +206,13 @@ rulerBtn.addEventListener("click", (event) => {
   }
 });
 
-window.addEventListener("resize", function () {
+window.addEventListener("resize", () => {
   countValue();
 });
 
 // Function to handle keyup events
 function countValue() {
+  // Display Width/Height
   var textInput = document.getElementById("textInput");
   var inlineStrings = textInput.value.split("\n");
   var maxWidth = Math.max(
@@ -233,14 +237,20 @@ function countValue() {
   var textHeightDislay = document.getElementById("heightDisplay");
 
   var rate = +rateBox.innerHTML;
-  textWidthDislay.textContent = (maxWidth * rate).toFixed(1); // display total to 2 decimal places
-  textHeightDislay.textContent = (maxHeight * rate).toFixed(1); // display total to 2 decimal places
+  if (window.innerWidth > 990) {
+    textWidthDislay.textContent = (maxWidth * rate).toFixed(1);
+    textHeightDislay.textContent = (maxHeight * rate).toFixed(1);
+  } else {
+    if (maxWidth !== 0 && maxHeight !== 0) {
+      textWidthDislay.textContent = `${(maxHeight * rate).toFixed(1)}×${(
+        maxWidth * rate
+      ).toFixed(1)}`;
+    } else {
+      textWidthDislay.textContent = "0.0×0.0";
+    }
+  }
 
-  var container = document.getElementsByClassName("height-text-box")[0];
-  var fontStr = displayDesignText.style.fontFamily;
-  let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
-  let fontSize = fontSizes[modifiedStr];
-
+  // Show Price
   var totalPrice = document.querySelector("#csp-design-static-currency");
   var strlength = textInput.value
     .split("")
@@ -255,6 +265,12 @@ function countValue() {
 
   var quantityDisplay = document.getElementsByClassName("quantity__input")[0];
   quantityDisplay.value = strlength;
+
+  // Control Font Size
+  var container = document.getElementsByClassName("height-text-box")[0];
+  var fontStr = displayDesignText.style.fontFamily;
+  let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
+  let fontSize = fontSizes[modifiedStr];
 
   displayDesignText.style.fontSize = fontSize + "px";
   while (

@@ -201,7 +201,7 @@
 .measure-height-cont {
   position: absolute;
   top: 0px;
-  right: 105%;
+  right: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -236,7 +236,6 @@
   position: relative;
   width: 100%;
   display: flex;
-  min-height: 125px;
 }
 .hr-box {
   width: 100%;
@@ -251,14 +250,14 @@
 }
 #sign-text-overlay {
   width: max-content;
-  min-height: 100px;
+  color: black;
   font-size: 8.5vw;
   overflow-wrap: break-word;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
-  text-shadow: 5px 5px 3px #0000004d;
+  text-shadow: #fff 3px 1px 1px;
   font-weight: 700;
   line-height: normal;
   white-space: break-spaces;
@@ -424,7 +423,7 @@ input.prevent-highlight {
     position: sticky;
     top: 0;
     z-index: 2;
-    height: 45vh;
+    height: 55vh;
   }
   .csp-right-column {
     width: 100%;
@@ -444,5 +443,14 @@ input.prevent-highlight {
     min-height: 60px;
     max-height: 65px;
     max-width: 500px;
+  }
+  #csp-design-static-size {
+    display: none;
+  }
+  .csp-design-static-currency {
+    font-size: 32px;
+  }
+  .measure-height-cont {
+    display: none;
   }
 }
