@@ -1007,9 +1007,19 @@ class VariantSelects extends HTMLElement {
       const input = productForm.querySelector('input[name="id"]');
       input.value = this.currentVariant.id;
 
+      const displayText = document.querySelector("#sign-text-overlay");
       var rateContainer = document.querySelector("#rate");
       var sizeContainer = document.querySelector("#csp-design-static-size");
 
+      // Color
+      if (this.currentVariant.id === 45891538649368) {
+        displayText.style.textShadow = "3px 1px 1px #000";
+      }
+      if (this.currentVariant.id === 45891538452760) {
+        displayText.style.textShadow = "3px 1px 1px #fff";
+      }
+
+      // Size
       if (this.currentVariant.id === 45891538452760) {
         rateContainer.innerHTML = 0.8;
         sizeContainer.innerHTML = "8×72in";
