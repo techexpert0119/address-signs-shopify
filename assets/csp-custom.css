@@ -142,7 +142,7 @@
   cursor: pointer;
 }
 .csp-text-input-box textarea {
-  font-size: 24px;
+  font-size: 15px;
   padding: 10px;
   height: 80px;
   width: 100%;
@@ -229,7 +229,7 @@
   align-items: center;
   position: absolute;
   top: 45%;
-  left: 50%;
+  left: 52%;
   translate: -50% -50%;
 }
 .height-text-box {
