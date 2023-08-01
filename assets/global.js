@@ -1012,25 +1012,33 @@ class VariantSelects extends HTMLElement {
       var sizeContainer = document.querySelector("#csp-design-static-size");
 
       // Color
-      if (this.currentVariant.id === 45891538649368) {
-        displayText.style.textShadow = "3px 1px 1px #000";
+      if (window.getComputedStyle(displayText)) {
+        console.log("white");
+        console.log(window.getComputedStyle(displayText).textShadow);
+      } else {
+        console.log("black");
+        
       }
-      if (this.currentVariant.id === 45891538452760) {
-        displayText.style.textShadow = "3px 1px 1px #fff";
-      }
+
+      // if (this.currentVariant.id === 45891538649368) {
+      //   displayText.style.textShadow = "2px 1px 1px #000";
+      // }
+      // if (this.currentVariant.id === 45891538452760) {
+      //   displayText.style.textShadow = "2px 1px 1px #fff";
+      // }
 
       // Size
       if (this.currentVariant.id === 45891538452760) {
         rateContainer.innerHTML = 0.8;
-        sizeContainer.innerHTML = "8×72in";
+        sizeContainer.innerHTML = "8 × 72in";
       }
       if (this.currentVariant.id === 45891538485528) {
         rateContainer.innerHTML = 1.0;
-        sizeContainer.innerHTML = "9×84in";
+        sizeContainer.innerHTML = "9 × 84in";
       }
       if (this.currentVariant.id === 45891538518296) {
         rateContainer.innerHTML = 1.25;
-        sizeContainer.innerHTML = "10×96in";
+        sizeContainer.innerHTML = "10 × 96in";
       }
 
       countValue();
