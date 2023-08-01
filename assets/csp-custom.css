@@ -412,6 +412,9 @@ input.prevent-highlight {
   font-size: 10px;
   font-weight: 600;
 }
+.cust-btn {
+  max-width: 500px;
+}
 @media screen and (max-width: 990px) {
   .csp-inner-cont {
     flex-direction: column;

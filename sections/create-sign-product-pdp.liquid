@@ -1,4 +1,4 @@
-<!-- sections/create-sign-product.liquid -->
+<!-- sections/create-sign-product-pdp.liquid -->
 <!-- theme copy -->
 {{ 'section-create-sign-product.css' | asset_url | stylesheet_tag }}
 {{ 'section-featured-product.css' | asset_url | stylesheet_tag }}
@@ -23,8 +23,6 @@
 {%- endstyle -%}
 
 <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
-
-{%- assign product = section.settings.product -%}
 
 <section>
   <div class="section-{{ section.id }}-padding">
@@ -718,7 +716,7 @@
 
 {% schema %}
 {
-  "name": "Create Sign",
+  "name": "Create Sign PDP",
   "tag": "section",
   "class": "section section-featured-product",
   "blocks": [
@@ -890,7 +888,7 @@
   ],
   "presets": [
     {
-      "name": "Create Sign",
+      "name": "Create Sign PDP",
       "blocks": [
         {
           "type": "text",
