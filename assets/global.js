@@ -1012,12 +1012,11 @@ class VariantSelects extends HTMLElement {
       var sizeContainer = document.querySelector("#csp-design-static-size");
 
       // Color
-      if (window.getComputedStyle(displayText)) {
-        console.log("white");
-        console.log(window.getComputedStyle(displayText).textShadow);
-      } else {
-        console.log("black");
-        
+      if (this.options[0] === "White") {
+        displayText.style.textShadow = "3px 1px 1px #000";
+      }
+      if (this.options[0] === "Black") {
+        displayText.style.textShadow = "3px 1px 1px #fff";
       }
 
       // if (this.currentVariant.id === 45891538649368) {
@@ -1028,15 +1027,15 @@ class VariantSelects extends HTMLElement {
       // }
 
       // Size
-      if (this.currentVariant.id === 45891538452760) {
+      if (this.options[2] === "S") {
         rateContainer.innerHTML = 0.8;
         sizeContainer.innerHTML = "8 × 72in";
       }
-      if (this.currentVariant.id === 45891538485528) {
+      if (this.options[2] === "M") {
         rateContainer.innerHTML = 1.0;
         sizeContainer.innerHTML = "9 × 84in";
       }
-      if (this.currentVariant.id === 45891538518296) {
+      if (this.options[2] === "L") {
         rateContainer.innerHTML = 1.25;
         sizeContainer.innerHTML = "10 × 96in";
       }
