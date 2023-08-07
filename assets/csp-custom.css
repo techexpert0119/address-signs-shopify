@@ -309,7 +309,8 @@
   gap: 10px;
 }
 .csp-font-item {
-  border: 1px solid black;
+  color: rgb(53, 62, 172);
+  border: 1px solid rgb(53, 62, 172);
   text-align: center;
   height: 40px;
   font-weight: 600;

@@ -324,16 +324,26 @@ backgroundSwatches.forEach((swatch) => {
       "url(" + e.currentTarget.querySelector(".csp-swatch-img").src + ")";
   });
 });
-console.log(fontSizes);
+
 fontGrid.style.display = "none";
 fontSelector.addEventListener("click", function () {
-  console.log("font selector clicked!");
+ 
   if (fontDropdownGrid.style.gridTemplateRows === "0fr") {
     fontGrid.style.display = "grid";
     fontDropdownGrid.style.gridTemplateRows = "1fr";
     iconCarat.style.transform = "rotate(180deg)";
     for (let i = 0; i < fontGridItem.length; i++) {
+      if (i === 0) {
+        fontGridItem[i].style.color = '#68ffa8';
+        fontGridItem[i].style.backgroundColor = '#353eac';
+      } 
       fontGridItem[i].addEventListener("click", function (e) {
+        for (let x = 0; x < fontGridItem.length; x++) {
+          fontGridItem[x].style.color = 'rgb(53, 62, 172)';
+          fontGridItem[x].style.backgroundColor = 'transparent';
+        }
+        e.currentTarget.style.color = '#68ffa8';
+        e.currentTarget.style.backgroundColor = '#353eac';
         let fontStr = e.currentTarget.style.fontFamily;
         let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
         fontSelector.textContent =
@@ -360,36 +370,6 @@ fontSelector.addEventListener("click", function () {
     fontGrid.style.display = "none";
   }
 });
-
-// CHANGES THE FONT ON THE TEXT DISPLAYED OVER BACKGROUND MATERIAL
-//  fontSelector.addEventListener('change', function(e) {
-//      console.log('Font Changed!');
-//      var selectedOption = e.target.options[e.target.selectedIndex];
-//      var fontStyle = selectedOption.getAttribute('value');
-//      console.log('Selected font:', fontStyle);
-
-//     if (fontStyle.includes('font7') ) {
-//         displayDesignText.style.fontSize = fontSizes.font7 + 'px';
-//     } else if (fontStyle.includes('ballantine')) {
-//         displayDesignText.style.fontSize = fontSizes.ballantine + 'px';
-//     } else if (fontStyle.includes('plaza')) {
-//         displayDesignText.style.fontSize = fontSizes.plaza + 'px';
-//     } else if (fontStyle.includes('seashore')) {
-//         displayDesignText.style.fontSize = fontSizes.seashore + 'px';
-//     } else if (fontStyle.includes('scriptmtbold')) {
-//         displayDesignText.style.fontSize = fontSizes.scriptmtbold + 'px';
-//     } else if (fontStyle.includes('commercial script')) {
-//         displayDesignText.style.fontSize = fontSizes["commercial script"] + 'px';
-//     } else if (fontStyle.includes('parsley')) {
-//         displayDesignText.style.fontSize = fontSizes.parsley + 'px';
-//     } else if (fontStyle.includes('petit formal')) {
-//         displayDesignText.style.fontSize = fontSizes["petit formal"] + 'px';
-//     }
-
-//     displayDesignText.style.fontFamily = "'" + fontStyle + "'";
-//     // textInput.style.fontFamily = fontStyle;
-
-// });
 
 // LISTEN FOR COLOR VARIANT CHANGE
 colorVariant.forEach((color) => {
@@ -442,3 +422,5 @@ const removeAlignBoxStyle = function (alignBoxes) {
     box.querySelector(".align-icon").style.fill = "#353eac";
   });
 };
+
+

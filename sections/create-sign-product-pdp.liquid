@@ -23,7 +23,11 @@
 {%- endstyle -%}
 
 <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
-
+<button type="button" id="ajax-click">Ajax log</button>
+{% comment %} {% for collProduct in collections['number-of-letters-products'].products %}
+  <p>{{ collProduct.title }}</p><span>{{ collProduct.id }}</span>
+{% endfor %} {% endcomment %}
+{{product.selected_or_first_available_variant.id}}
 <section>
   <div class="section-{{ section.id }}-padding">
     <div class="csp-inner-cont">
@@ -310,7 +314,8 @@
                         {% assign option_downcase = option.name | downcase %}
                           {% comment %} COLOR OPTION {% endcomment %}
                           {% if option_downcase == 'color' %}
-                            <fieldset class="js product-form__input cust-var-input">
+                            <fieldset class="js product-form__input cust-var-input variants-selected">
+                            <p style="display:none;">{{product.selected_variant.id}}</p>
                               {%- for value in option.values -%}
                                {% assign value_downcase = value | downcase %}
                                 <div class="csp-color-btns">
@@ -361,7 +366,6 @@
                           {% comment %} OTHER OPTION {% endcomment %}
                             <div class="csp-size-selection-box">
                               <h3 class="csp-custom-h3"><span class="csp-form-label">3</span>SIZE</h3>
-                              <p>Choose what finish your sign will have</p>
                             </div>
                             <fieldset class="js product-form__input cust-var-input">
                               <legend class="form__label"></legend>
@@ -705,6 +709,48 @@
       hiddenInput.value = event.currentTarget.value;
     });
   });
+</script>
+
+<script>
+const ajaxBtn = document.querySelector('#ajax-click');
+console.log(ajaxBtn);
+ajaxBtn.addEventListener('click',function() {
+  fetch('/cart/add.js', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    id: 45847203643710, // Replace with the variant ID you want to add
+    quantity: 1, // Replace with the desired quantity
+  }),
+})
+  .then(response => response.json())
+  .then(cartItem => {
+    // The product has been added to the cart
+    // You can now update the cart UI or redirect the user to the cart page
+    console.log('Product added to cart:', cartItem);
+  })
+  .catch(error => {
+    console.error('There was an error adding the product to the cart:', error);
+  });
+});
+
+
+// Assuming you have a select input with the class 'variant-select'
+document.querySelector('.variants-selected').addEventListener('change', function(event) {
+  var variantID = event.target.value; // Get the selected variant's ID
+    console.log(variantID);
+  // Use the variant ID to update the product display or perform an Ajax request
+  fetch('/products/' + variantID + '.json')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      // Update the product details on the page with the newly selected variant's information
+      // You can access the variant details using data.variant
+    });
+});
+
 </script>
 
 {% if product.media.size > 0 %}
