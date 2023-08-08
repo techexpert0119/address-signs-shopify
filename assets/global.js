@@ -1007,35 +1007,23 @@ class VariantSelects extends HTMLElement {
       const input = productForm.querySelector('input[name="id"]');
       input.value = this.currentVariant.id;
 
-      const displayText = document.querySelector("#sign-text-overlay");
-      var rateContainer = document.querySelector("#rate");
-      var sizeContainer = document.querySelector("#csp-design-static-size");
-
-      // Color
-      if (this.options[0] === "White") {
-        displayText.style.textShadow = "3px 1px 1px #000";
-      }
-      if (this.options[0] === "Black") {
-        displayText.style.textShadow = "3px 1px 1px #fff";
-      }
-
-      // if (this.currentVariant.id === 45891538649368) {
-      //   displayText.style.textShadow = "2px 1px 1px #000";
-      // }
-      // if (this.currentVariant.id === 45891538452760) {
-      //   displayText.style.textShadow = "2px 1px 1px #fff";
-      // }
+      const rateContainer = document.querySelector("#rate");
+      const sizeContainer = document.querySelector("#csp-design-static-size");
+      const currentSize = document.querySelector("#current-size");
 
       // Size
-      if (this.options[2] === "S") {
+      if (this.options[0] === "S") {
+        currentSize.innerHTML = "S";
         rateContainer.innerHTML = 0.8;
         sizeContainer.innerHTML = "8 × 72in";
       }
-      if (this.options[2] === "M") {
+      if (this.options[0] === "M") {
+        currentSize.innerHTML = "M";
         rateContainer.innerHTML = 1.0;
         sizeContainer.innerHTML = "9 × 84in";
       }
-      if (this.options[2] === "L") {
+      if (this.options[0] === "L") {
+        currentSize.innerHTML = "L";
         rateContainer.innerHTML = 1.25;
         sizeContainer.innerHTML = "10 × 96in";
       }
