@@ -58,7 +58,9 @@
                 <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
               </tr>
             </thead>
-
+            {%- for property in item.properties -%}
+              {{property.first}}:{{property.last}}<br>
+            {%- endfor -%}
             <tbody>
               {%- for item in cart.items -%}
                 <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">

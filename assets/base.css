@@ -32,7 +32,7 @@
   src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/ScriptMTBold_owebd9.ttf");
 }
 
-@font-face {
+/* @font-face {
   font-family: "commercial script";
   src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/Commercial_Script_Regular_baz9au.ttf");
 }
@@ -45,7 +45,7 @@
 @font-face {
   font-family: "petit formal";
   src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1679950337/PetitFormalScript-Regular_ld2nf4.ttf");
-}
+} */
 
 /* Color custom properties */
 

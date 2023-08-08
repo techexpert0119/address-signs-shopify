@@ -147,7 +147,7 @@
                 <div class="font-selector-cont">
 
                   <button type="button"id="csp-font-option" value="ballantine">Ballantine</button>
-                  <input class="csp-font-input" type="hidden" form="{{ product_form_id }}"  name="properties[font]"  value="ballantine">
+                  <input id="csp-font-input" class="csp-font-input" type="hidden" form="{{ product_form_id }}"  name="properties[font]"  value="ballantine">
 
                   <div class="icon-carat-box">
                     {% render 'icon-caret-2' %}
@@ -156,7 +156,7 @@
                 </div>
 
                 <div class="csp-text-align-cont">
-                  <input type="hidden" form="{{ product_form_id }}"  name="properties[alignment]"  value="center">
+                  <input id="csp-alignment" type="hidden" form="{{ product_form_id }}"  name="properties[alignment]"  value="center">
                   <div class="csp-text-align-box left-align-box">
                     {% render 'icon-left-align' %}
                   </div>
@@ -713,8 +713,14 @@
 
 <script>
 const ajaxBtn = document.querySelector('#ajax-click');
-console.log(ajaxBtn);
+
 ajaxBtn.addEventListener('click',function() {
+  const fontValue = document.querySelector('#csp-font-input').value;
+  const alignmentValue = document.querySelector('#csp-alignment').value;
+  const textInput = document.querySelector('#textInput').value;
+  console.log(alignmentValue);
+  console.log(textInput);
+  console.log(fontValue);
   fetch('/cart/add.js', {
   method: 'POST',
   headers: {
@@ -723,6 +729,11 @@ ajaxBtn.addEventListener('click',function() {
   body: JSON.stringify({
     id: 45847203643710, // Replace with the variant ID you want to add
     quantity: 1, // Replace with the desired quantity
+    properties: {
+      "Font": fontValue,
+      "Alignment": alignmentValue,
+      "Address": textInput
+    }
   }),
 })
   .then(response => response.json())

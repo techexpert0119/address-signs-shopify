@@ -136,7 +136,7 @@
                 <textarea form="{{ product_form_id }}" id="textInput" type="text" onkeyup="countValue()" row="5" col="2" maxlength="40" name="properties[Address]"></textarea>
                 
               {%- endform -%}
-              <p style="margin:0;">Hit Return to go into the next line.</p>
+              <p style="margin: 0 0 20px 5px;">Hit Return to go into the next line.</p>
             </div>
 
             <div class="csp-font-selection-box">
@@ -176,6 +176,7 @@
                   <div style="font-family:'commercial-script',sans serif;font-size:14px;line-height:45px;" class="csp-font-item">Commercial Script</div>
                   <div style="font-family:'parsley',sans serif;font-size:24px;line-height:45px;" class="csp-font-item">Parsley</div>
                   <div style="font-family:'petit-formal',sans serif;font-size: 16px;line-height:45px;" class="csp-font-item">Petit Formal</div>
+                  <div style="font-family:'scriptmtbold',sans serif;font-size:20px;line-height:45px;" class="csp-font-item">ScriptMTBold</div>
                   <div style="font-family:'vivace',sans serif;font-size:22px;line-height:40px;" class="csp-font-item">Vivace</div>
                 </div>
               </div>
@@ -186,6 +187,63 @@
               <h3 class="csp-custom-h3"><span class="csp-form-label">2</span>CHOOSE YOUR COLOR</h3>
               <p>Which color do you want your sign to be?</p>
             </div>
+
+            <fieldset class="js product-form__input cust-var-input">
+                <div class="csp-color-btns">
+                  <input
+                    class="csp-color-input"
+                    type="radio"
+                    form="{{ product_form_id }}"
+                  >
+                  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                    <span class="black-variant"></span>
+                    <span>Black</span>
+                  </label>
+                </div>
+
+                <div class="csp-color-btns">
+                  <input
+                    class="csp-color-input"
+                    type="radio"
+                    form="{{ product_form_id }}"
+                  >
+                  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                    <span class="white-variant"></span>
+                    <span>White</span>
+                  </label>
+                </div>
+            </fieldset>
+
+            {% comment %} MATERIAL SELECTION {% endcomment %}
+
+            <div class="csp-color-selection-box">
+              <h3 class="csp-custom-h3">MATERIAL FINISH</h3>
+              <p>Choose what finish your sign will have</p>
+            </div>
+            <fieldset class="js product-form__input cust-var-input">
+                <div class="csp-variant-btns">
+                  <input
+                    id="color-radio-matte"
+                    type="radio"
+                    form="{{ product_form_id }}"
+                  >
+                  <label for="color-radio-matte">
+                    MATTE
+                  </label>
+                </div>
+
+                <div class="csp-variant-btns">
+                  <input
+                    id="color-radio-glossy"
+                    type="radio"
+                    form="{{ product_form_id }}"
+                  >
+                  <label for="color-radio-glossy">
+                    GLOSSY
+                  </label>
+                </div>
+            </fieldset>
+
 
             {%- for block in section.blocks -%}
               {%- case block.type -%}
