@@ -203,7 +203,14 @@ document.querySelector("#done-btn").addEventListener("click", () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   } else {
-    const shootDiv = document.querySelector("#csp-design-box");
+    const imageElement = document.querySelector("#cart-pre-img");
+    const divToCapture = document.querySelector("#csp-design-box");
+
+    html2canvas(divToCapture).then((canvas) => {
+      canvas.toBlob((blob) => {
+        imageElement.src = blob.toDataURL("image/png");
+      });
+    });
     preModal.style.display = "block";
   }
 });
@@ -211,6 +218,13 @@ document
   .querySelector("#cancel-prev-modal-btn")
   .addEventListener("click", () => {
     preModal.style.display = "none";
+    const comment = document.querySelector("#cart-pre-comment");
+    const addToCartBtn = document.querySelector("#add-to-cart-btn");
+    const viewCartbtn = document.querySelector("#view-cart-btn");
+
+    comment.innerHTML = "";
+    addToCartBtn.style.display = "block";
+    viewCartbtn.style.display = "none";
   });
 document.querySelector("#alert-closebtn").addEventListener("click", () => {
   alertBox.style.display = "none";
@@ -375,12 +389,12 @@ document.getElementById("textInput").addEventListener("keyup", countValue);
 
 // BACKGROUND CHANGE ON SWATCH CLICK FUNCTIONALITY
 const backgroundSwatches = document.querySelectorAll(".csp-swatch-box");
-const currentBackgroundImage = document.querySelector("#csp-background-img");
+const backgroundContainer = document.querySelector("#csp-background-img");
+const backgroundImage = backgroundContainer.querySelector("img");
 
 backgroundSwatches.forEach((swatch) => {
-  swatch.addEventListener("click", function (e) {
-    currentBackgroundImage.style.backgroundImage =
-      "url(" + e.currentTarget.querySelector(".csp-swatch-img").src + ")";
+  swatch.addEventListener("click", (e) => {
+    backgroundImage.src = e.currentTarget.querySelector(".csp-swatch-img").src;
   });
 });
 
