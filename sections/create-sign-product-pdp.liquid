@@ -8,26 +8,30 @@
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 {{ 'csp-custom.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
+  {%- style -%}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
+  px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}
+  px;
+}
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}
+    px;
+    padding-bottom: {{ section.settings.padding_bottom }}
+    px;
   }
+}
 {%- endstyle -%}
 
-<link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
-<button type="button" id="ajax-click">Ajax log</button>
-{% comment %} {% for collProduct in collections['number-of-letters-products'].products %}
-  <p>{{ collProduct.title }}</p><span>{{ collProduct.id }}</span>
-{% endfor %} {% endcomment %}
-{{product.selected_or_first_available_variant.id}}
+<link
+  rel="stylesheet"
+  href="{{ 'component-deferred-media.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'"> <button type="button" id="ajax-click">Ajax log</button>
+{{ product.selected_or_first_available_variant.id }}
 <section>
   <div class="section-{{ section.id }}-padding">
     <div class="csp-inner-cont">
@@ -36,14 +40,18 @@
         <div id="csp-background-img" style="background-image: url(https://cdn.shopify.com/s/files/1/0711/9650/8478/files/brick-light.jpg?v=1689283021);"></div>
 
         <div class="csp-design-ruler">
-          <button type="button" id="csp-ruler-btn" class="csp-design-ruler-btn">
+          <button
+            type="button"
+            id="csp-ruler-btn"
+            class="csp-design-ruler-btn">
             {% render 'icon-ruler' %}
           </button>
         </div>
 
         <div class="csp-design-static-text design-box-text-shadow">
           <div class="csp-design-static-currency">
-            <span>$<span id="csp-design-static-currency">0.0</span></span>
+            <span>$<span id="csp-design-static-currency">0.0</span>
+            </span>
           </div>
           <div class="csp-design-static-size">
             <span id="csp-design-static-size">8×72in</span>
@@ -55,7 +63,8 @@
           <div class="height-text-box">
             <div class="measure-height-cont">
               <div class="mearsurement-numbers design-box-text-shadow">
-                <span><span id="heightDisplay">0</span>in</span>
+                <span>
+                  <span id="heightDisplay">0</span>in</span>
               </div>
               <div class="height-hr-box">
                 <span class="height-measure-end"></span>
@@ -63,7 +72,7 @@
                 <span class="height-measure-end"></span>
               </div>
             </div>
-            
+
             <p id="sign-text-overlay" style="font-family:'ballantine',sans serif;">613 Elite Street</p>
           </div>
 
@@ -74,42 +83,64 @@
               <hr class="measurement-endings">
             </div>
             <div class="count-display-box design-box-text-shadow">
-              <span class="mearsurement-numbers"><span id="widthDisplay">0</span>in</span>
+              <span class="mearsurement-numbers">
+                <span id="widthDisplay">0</span>in</span>
             </div>
           </div>
         </div>
 
         <div class="csp-background-swatch-cont">
           <div class="csp-swatch-box">
-            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/brick-light.jpg?v=1689283021" alt="Material Background" />
+            <img
+              class="csp-swatch-img"
+              src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/brick-light.jpg?v=1689283021"
+              alt="Material Background" />
           </div>
           <div class="csp-swatch-box">
-            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/red-bricks.jpg?v=1689283021" alt="Material Background" />
+            <img
+              class="csp-swatch-img"
+              src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/red-bricks.jpg?v=1689283021"
+              alt="Material Background" />
           </div>
           <div class="csp-swatch-box">
-            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_3.jpg?v=1689283020" alt="Material Background" />
+            <img
+              class="csp-swatch-img"
+              src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_3.jpg?v=1689283020"
+              alt="Material Background" />
           </div>
           <div class="csp-swatch-box">
-            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_2.png?v=1689283021" alt="Material Background" />
+            <img
+              class="csp-swatch-img"
+              src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_2.png?v=1689283021"
+              alt="Material Background" />
           </div>
           <div class="csp-swatch-box">
-            <img class="csp-swatch-img" src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_5.jpg?v=1689283020" alt="Material Background" />
+            <img
+              class="csp-swatch-img"
+              src="https://cdn.shopify.com/s/files/1/0711/9650/8478/files/Plugin_5.jpg?v=1689283020"
+              alt="Material Background" />
           </div>
         </div>
 
       </div>
 
       <div class="featured-product product grid grid--1-col product--no-media csp-right-column">
-       
+
         <div class="product__info-wrapper grid__item">
           <div id="ProductInfo-{{ section.id }}" class="design-container">
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
             {% comment %} QUANTITY {% endcomment %}
-            <label class="form__label" for="Quantity-{{ section.id }}" style="display: none;">
+            <label
+              class="form__label"
+              for="Quantity-{{ section.id }}"
+              style="display: none;">
               {{ 'products.product.quantity.label' | t }}
             </label>
             <quantity-input class="quantity" style="display: none;">
-              <button class="quantity__button no-js-hidden" name="minus" type="button">
+              <button
+                class="quantity__button no-js-hidden"
+                name="minus"
+                type="button">
                 <span class="visually-hidden">
                   {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
                 </span>
@@ -122,9 +153,11 @@
                 id="Quantity-{{ section.id }}"
                 min="1"
                 value="1"
-                form="{{ product_form_id }}"
-              >
-              <button class="quantity__button no-js-hidden" name="plus" type="button">
+                form="{{ product_form_id }}">
+              <button
+                class="quantity__button no-js-hidden"
+                name="plus"
+                type="button">
                 <span class="visually-hidden">
                   {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
                 </span>
@@ -132,11 +165,20 @@
               </button>
             </quantity-input>
             <div class="csp-text-input-box">
-              <h3 class="csp-custom-h3"><span class="csp-form-label">1</span>CHOOSE YOUR TEXT</h3>
+              <h3 class="csp-custom-h3">
+                <span class="csp-form-label">1</span>CHOOSE YOUR TEXT</h3>
               <p>Click below to edit the text on your sign</p>
               {%- form 'product', product, class: 'address-text-form' -%}
-                <textarea form="{{ product_form_id }}" id="textInput" type="text" onkeyup="countValue()" row="5" col="2" maxlength="40" name="properties[Address]"></textarea>
-                
+                <textarea
+                  form="{{ product_form_id }}"
+                  id="textInput"
+                  type="text"
+                  onkeyup="countValue()"
+                  row="5"
+                  col="2"
+                  maxlength="40"
+                  name="properties[Address]"></textarea>
+
               {%- endform -%}
             </div>
 
@@ -146,17 +188,31 @@
 
                 <div class="font-selector-cont">
 
-                  <button type="button"id="csp-font-option" value="ballantine">Ballantine</button>
-                  <input id="csp-font-input" class="csp-font-input" type="hidden" form="{{ product_form_id }}"  name="properties[font]"  value="ballantine">
+                  <button
+                    type="button"
+                    id="csp-font-option"
+                    value="ballantine">Ballantine</button>
+                  <input
+                    id="csp-font-input"
+                    class="csp-font-input"
+                    type="hidden"
+                    form="{{ product_form_id }}"
+                    name="properties[font]"
+                    value="ballantine">
 
                   <div class="icon-carat-box">
                     {% render 'icon-caret-2' %}
                   </div>
-                   
+
                 </div>
 
                 <div class="csp-text-align-cont">
-                  <input id="csp-alignment" type="hidden" form="{{ product_form_id }}"  name="properties[alignment]"  value="center">
+                  <input
+                    id="csp-alignment"
+                    type="hidden"
+                    form="{{ product_form_id }}"
+                    name="properties[alignment]"
+                    value="center">
                   <div class="csp-text-align-box left-align-box">
                     {% render 'icon-left-align' %}
                   </div>
@@ -180,424 +236,424 @@
                   <div style="font-family:'vivace',sans serif;font-size:22px;line-height:40px;" class="csp-font-item">Vivace</div>
                 </div>
               </div>
-              
+
             </div>
 
             <div class="csp-color-selection-box">
-              <h3 class="csp-custom-h3"><span class="csp-form-label">2</span>CHOOSE YOUR COLOR</h3>
+              <h3 class="csp-custom-h3">
+                <span class="csp-form-label">2</span>CHOOSE YOUR COLOR</h3>
               <p>Which color do you want your sign to be?</p>
             </div>
 
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when '@app' -%}
-                  {% render block %}
+                {% render block %}
                 {%- when 'text' -%}
-                  <p
-                    class="product__text{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
-                    {{ block.shopify_attributes }}
-                  >
-                    {{- block.settings.text -}}
-                  </p>
+                <p class="product__text{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}" {{ block.shopify_attributes }}>
+                  {{- block.settings.text -}}
+                </p>
                 {%- when 'title' -%}
-                  <h2 class="product__title {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-                    {%- if product.title != blank -%}
-                      {{ product.title | escape }}
-                    {%- else -%}
-                      {{ 'onboarding.product_title' | t }}
-                    {%- endif -%}
-                  </h2>
+                <h2 class="product__title {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                  {%- if product.title != blank -%}
+                    {{ product.title | escape }}
+                  {%- else -%}
+                    {{ 'onboarding.product_title' | t }}
+                  {%- endif -%}
+                </h2>
                 {%- when 'price' -%}
-                  <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }} style="display: none;">
-                    {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+                <div
+                  class="no-js-hidden"
+                  id="price-{{ section.id }}"
+                  role="status"
+                  {{ block.shopify_attributes }}
+                  style="display: none;">
+                  {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+                </div>
+                {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+                  <div class="product__tax caption rte">
+                    {%- if shop.taxes_included -%}
+                      {{ 'products.product.include_taxes' | t }}
+                    {%- endif -%}
+                    {%- if shop.shipping_policy.body != blank -%}
+                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                    {%- endif -%}
                   </div>
-                  {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
-                    <div class="product__tax caption rte">
-                      {%- if shop.taxes_included -%}
-                        {{ 'products.product.include_taxes' | t }}
-                      {%- endif -%}
-                      {%- if shop.shipping_policy.body != blank -%}
-                        {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                      {%- endif -%}
-                    </div>
-                  {%- endif -%}
-                  {%- if product != blank -%}
-                    <div {{ block.shopify_attributes }}>
-                      {%- form 'product', product -%}
-                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                        {{ form | payment_terms }}
-                      {%- endform -%}
-                    </div>
-                  {%- endif -%}
-                  {%- when 'quantity_selector' -%}
-                  <div
-                    class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
-                    {{ block.shopify_attributes }}
-                  >
-                    <label class="form__label" for="Quantity-{{ section.id }}">
-                      {{ 'products.product.quantity.label' | t }}
-                    </label>
-                    <quantity-input class="quantity">
-                      <button class="quantity__button no-js-hidden" name="minus" type="button">
-                        <span class="visually-hidden">
-                          {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
-                        </span>
-                        {% render 'icon-minus' %}
-                      </button>
+                {%- endif -%}
+                {%- if product != blank -%}
+                  <div {{ block.shopify_attributes }}>
+                    {%- form 'product', product -%}
                       <input
-                        class="quantity__input"
-                        type="number"
-                        name="quantity"
-                        id="Quantity-{{ section.id }}"
-                        min="1"
-                        value="1"
-                        form="{{ product_form_id }}"
-                      >
-                      <button class="quantity__button no-js-hidden" name="plus" type="button">
-                        <span class="visually-hidden">
-                          {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
-                        </span>
-                        {% render 'icon-plus' %}
-                      </button>
-                    </quantity-input>
+                        type="hidden"
+                        name="id"
+                        value="{{ product.selected_or_first_available_variant.id }}">
+                      {{ form | payment_terms }}
+                    {%- endform -%}
                   </div>
+                {%- endif -%}
+                {%- when 'quantity_selector' -%}
+                <div class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
+                  <label class="form__label" for="Quantity-{{ section.id }}">
+                    {{ 'products.product.quantity.label' | t }}
+                  </label>
+                  <quantity-input class="quantity">
+                    <button
+                      class="quantity__button no-js-hidden"
+                      name="minus"
+                      type="button">
+                      <span class="visually-hidden">
+                        {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                      </span>
+                      {% render 'icon-minus' %}
+                    </button>
+                    <input
+                      class="quantity__input"
+                      type="number"
+                      name="quantity"
+                      id="Quantity-{{ section.id }}"
+                      min="1"
+                      value="1"
+                      form="{{ product_form_id }}">
+                    <button
+                      class="quantity__button no-js-hidden"
+                      name="plus"
+                      type="button">
+                      <span class="visually-hidden">
+                        {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                      </span>
+                      {% render 'icon-plus' %}
+                    </button>
+                  </quantity-input>
+                </div>
 
                 {%- when 'share' -%}
-                  <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
-                  <share-button id="Share-{{ section.id }}" class="share-button" {{ block.shopify_attributes }}>
-                    <button class="share-button__button hidden">
+                <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+                <share-button
+                  id="Share-{{ section.id }}"
+                  class="share-button"
+                  {{ block.shopify_attributes }}>
+                  <button class="share-button__button hidden">
+                    {% render 'icon-share' %}
+                    {{ block.settings.share_label | escape }}
+                  </button>
+                  <details id="Details-{{ block.id }}-{{ section.id }}">
+                    <summary class="share-button__button">
                       {% render 'icon-share' %}
                       {{ block.settings.share_label | escape }}
-                    </button>
-                    <details id="Details-{{ block.id }}-{{ section.id }}">
-                      <summary class="share-button__button">
-                        {% render 'icon-share' %}
-                        {{ block.settings.share_label | escape }}
-                      </summary>
-                      <div id="Product-share-{{ section.id }}" class="share-button__fallback motion-reduce">
-                        <div class="field">
-                          <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status">
-                          </span>
-                          <input
-                            type="text"
-                            class="field__input"
-                            id="url"
-                            value="{{ product.selected_variant.url | default: product.url | prepend: request.origin }}"
-                            placeholder="{{ 'general.share.share_url' | t }}"
-                            onclick="this.select();"
-                            readonly
-                          >
-                          <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
-                        </div>
-                        <button class="share-button__close hidden no-js-hidden">
-                          {% render 'icon-close' %}
-                          <span class="visually-hidden">{{ 'general.share.close' | t }}</span>
-                        </button>
-                        <button class="share-button__copy no-js-hidden">
-                          {% render 'icon-clipboard' %}
-                          <span class="visually-hidden">{{ 'general.share.copy_to_clipboard' | t }}</span>
-                        </button>
+                    </summary>
+                    <div id="Product-share-{{ section.id }}" class="share-button__fallback motion-reduce">
+                      <div class="field">
+                        <span
+                          id="ShareMessage-{{ section.id }}"
+                          class="share-button__message hidden"
+                          role="status"></span>
+                        <input
+                          type="text"
+                          class="field__input"
+                          id="url"
+                          value="{{ product.selected_variant.url | default: product.url | prepend: request.origin }}"
+                          placeholder="{{ 'general.share.share_url' | t }}"
+                          onclick="this.select();"
+                          readonly>
+                        <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
                       </div>
-                    </details>
-                  </share-button>
-                {%- when 'variant_picker' -%}
-                  {%- unless product.has_only_default_variant -%}
-                    {%- if block.settings.picker_type == 'button' -%}
-                      <variant-radios
-                        class="no-js-hidden"
-                        data-section="{{ section.id }}"
-                        data-url="{{ product.url }}"
-                        data-update-url="false"
-                        {{ block.shopify_attributes }}
-                      >
-                        {%- for option in product.options_with_values -%}
-                        {% assign option_downcase = option.name | downcase %}
-                          {% comment %} COLOR OPTION {% endcomment %}
-                          {% if option_downcase == 'color' %}
-                            <fieldset class="js product-form__input cust-var-input variants-selected">
-                            <p style="display:none;">{{product.selected_variant.id}}</p>
-                              {%- for value in option.values -%}
-                               {% assign value_downcase = value | downcase %}
-                                <div class="csp-color-btns">
-                                  <input
-                                    class="csp-color-input"
-                                    type="radio"
-                                    id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-                                    name="{{ option.name }}"
-                                    value="{{ value | escape }}"
-                                    form="{{ product_form_id }}"
-                                    {% if option.selected_value == value %}
-                                      checked
-                                    {% endif %}
-                                  >
-                                  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                                    <span class="{% if value_downcase == 'black' %}black-variant{% elsif value_downcase == 'white' %}white-variant{% endif %}"></span>
-                                    <span>{{ value }}</span>
-                                  </label>
-                                </div>
-                              {%- endfor -%}
-                            </fieldset>
-                            {% comment %} MATERIAL OPTION {% endcomment %}
-                          {% elsif option_downcase == 'material' %}
-                            <div class="csp-color-selection-box">
-                              <h3 class="csp-custom-h3">MATERIAL FINISH</h3>
-                              <p>Choose what finish your sign will have</p>
-                            </div>
-                            <fieldset class="js product-form__input cust-var-input">
-                              {%- for value in option.values -%}
-                                <div class="csp-variant-btns">
-                                  <input
-                                    type="radio"
-                                    id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-                                    name="{{ option.name }}"
-                                    value="{{ value | escape }}"
-                                    form="{{ product_form_id }}"
-                                    {% if option.selected_value == value %}
-                                      checked
-                                    {% endif %}
-                                  >
-                                  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                                    {{ value }}
-                                  </label>
-                                </div>
-                              {%- endfor -%}
-                            </fieldset>
-                          {% elsif option_downcase == 'size' %}
-                          {% comment %} OTHER OPTION {% endcomment %}
-                            <div class="csp-size-selection-box">
-                              <h3 class="csp-custom-h3"><span class="csp-form-label">3</span>SIZE</h3>
-                            </div>
-                            <fieldset class="js product-form__input cust-var-input">
-                              <legend class="form__label"></legend>
-                              {%- for value in option.values -%}
-                                {%- capture measurements -%}
-                                  {% assign value_lowcase = value | downcase %}
-                                  {%- case value_lowcase -%}
-                                    {% when 's' %}
-                                      8X72in
-                                    {% when 'm' %}
-                                      9X84in
-                                    {% when 'l' %}
-                                      10X96in
-                                  {%- endcase -%}
-                                {%- endcapture -%}
-                                <div class="csp-variant-btns">
-                                  <input
-                                    type="radio"
-                                    id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-                                    name="{{ option.name }}"
-                                    value="{{ value | escape }}"
-                                    form="{{ product_form_id }}"
-                                    style="display: none;"
-                                    {% if option.selected_value == value %}
-                                      checked
-                                    {% endif %}
-                                  >
-                                  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                                    <div class="csp-value-box">
-                                      {{ value }}
-                                      <span>{{measurements}}</span>
-                                    </div>
-                                   
-                                  </label>
-                                </div>
-                              {%- endfor -%}
-                            </fieldset>
-                          {% else %}
-                            <fieldset class="js product-form__input cust-var-input">
-                              <legend class="form__label"></legend>
-                              {%- for value in option.values -%}
-                                <div class="csp-variant-btns">
-                                  <input
-                                    type="radio"
-                                    id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-                                    name="{{ option.name }}"
-                                    value="{{ value | escape }}"
-                                    form="{{ product_form_id }}"
-                                    {% if option.selected_value == value %}
-                                      checked
-                                    {% endif %}
-                                  >
-                                  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                                    {{ value }}
-                                  </label>
-                                </div>
-                              {%- endfor -%}
-                            </fieldset>
-                          {% endif %}
-                        {%- endfor -%}
-
-                        <script type="application/json">
-                          {{ product.variants | json }}
-                        </script>
-                      </variant-radios>
-                    {%- else -%}
-                      <variant-selects
-                        class="no-js-hidden"
-                        data-section="{{ section.id }}"
-                        data-url="{{ product.url }}"
-                        data-update-url="false"
-                        {{ block.shopify_attributes }}
-                      >
-                        {%- for option in product.options_with_values -%}
-                          <div class="product-form__input product-form__input--dropdown">
-                            <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
-                              {{ option.name }}
-                            </label>
-                            <div class="select">
-                              <select
-                                id="Option-{{ section.id }}-{{ forloop.index0 }}"
-                                class="select__select"
-                                name="options[{{ option.name | escape }}]"
-                                form="{{ product_form_id }}"
-                              >
-                                {%- for value in option.values -%}
-                                  <option
-                                    value="{{ value | escape }}"
-                                    {% if option.selected_value == value %}
-                                      selected="selected"
-                                    {% endif %}
-                                  >
-                                    {{ value }}
-                                  </option>
-                                {%- endfor -%}
-                              </select>
-                              {% render 'icon-caret' %}
-                            </div>
-                          </div>
-                        {%- endfor -%}
-
-                        <script type="application/json">
-                          {{ product.variants | json }}
-                        </script>
-                      </variant-selects>
-                    {%- endif -%}
-                  {%- endunless -%}
-
-                  <noscript class="product-form__noscript-wrapper-{{ section.id }}">
-                    <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
-                      <label class="form__label" for="Variants-{{ section.id }}">
-                        {{- 'products.product.product_variants' | t -}}
-                      </label>
-                      <div class="select">
-                        <select
-                          name="id"
-                          id="Variants-{{ section.id }}"
-                          class="select__select"
-                          form="{{ product_form_id }}"
-                        >
-                          {%- for variant in product.variants -%}
-                            <option
-                              {% if variant == product.selected_or_first_available_variant %}
-                                selected="selected"
-                              {% endif %}
-                              {% if variant.available == false %}
-                                disabled
-                              {% endif %}
-                              value="{{ variant.id }}"
-                            >
-                              {{ variant.title }}
-                              {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
-                              - {{ variant.price | money | strip_html }}
-                            </option>
-                          {%- endfor -%}
-                        </select>
-                        {% render 'icon-caret' %}
-                      </div>
+                      <button class="share-button__close hidden no-js-hidden">
+                        {% render 'icon-close' %}
+                        <span class="visually-hidden">{{ 'general.share.close' | t }}</span>
+                      </button>
+                      <button class="share-button__copy no-js-hidden">
+                        {% render 'icon-clipboard' %}
+                        <span class="visually-hidden">{{ 'general.share.copy_to_clipboard' | t }}</span>
+                      </button>
                     </div>
-                  </noscript>
-                {%- when 'buy_buttons' -%}
-                  <div {{ block.shopify_attributes }}>
-                    {%- if product != blank -%}
-                      <product-form class="product-form">
-                        <div class="product-form__error-message-wrapper" role="alert" hidden>
-                          <svg
-                            aria-hidden="true"
-                            focusable="false"
-                            role="presentation"
-                            class="icon icon-error"
-                            viewBox="0 0 13 13"
-                          >
-                            <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
-                            <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
-                            <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
-                            <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
-                          </svg>
-                          <span class="product-form__error-message"></span>
-                        </div>
-
-                        {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                          <input
-                            type="hidden"
-                            name="id"
-                            value="{{ product.selected_or_first_available_variant.id }}"
-                            disabled
-                          >
-                          <div class="product-form__buttons cust-btn">
-                            <button
-                              type="submit"
-                              name="add"
-                              class="csp-cta-btn"
-                              {% if product.selected_or_first_available_variant.available == false %}
-                                disabled
-                              {% endif %}
-                            >
-                              <div>DONE</div>
-                              
-                              <div class="loading-overlay__spinner hidden">
-                                <svg
-                                  aria-hidden="true"
-                                  focusable="false"
-                                  role="presentation"
-                                  class="spinner"
-                                  viewBox="0 0 66 66"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                                </svg>
+                  </details>
+                </share-button>
+                {%- when 'variant_picker' -%}
+                {%- unless product.has_only_default_variant -%}
+                  {%- if block.settings.picker_type == 'button' -%}
+                    <variant-radios
+                      class="no-js-hidden"
+                      data-section="{{ section.id }}"
+                      data-url="{{ product.url }}"
+                      data-update-url="false"
+                      {{ block.shopify_attributes }}>
+                      {%- for option in product.options_with_values -%}
+                        {% assign option_downcase = option.name | downcase %}
+                        {% comment %} COLOR OPTION {% endcomment %}
+                        {% if option_downcase == 'color' %}
+                          <fieldset class="js product-form__input cust-var-input variants-selected">
+                            <p style="display:none;">{{ product.selected_variant.id }}</p>
+                            {%- for value in option.values -%}
+                              {% assign value_downcase = value | downcase %}
+                              <div class="csp-color-btns">
+                                <input
+                                  class="csp-color-input"
+                                  type="radio"
+                                  id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                  name="{{ option.name }}"
+                                  value="{{ value | escape }}"
+                                  form="{{ product_form_id }}"
+                                  {% if option.selected_value == value %}checked{% endif %}>
+                                <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                  <span class="{% if value_downcase == 'black' %}black-variant{% elsif value_downcase == 'white' %}white-variant{% endif %}"></span>
+                                  <span>{{ value }}</span>
+                                </label>
                               </div>
-                            </button>
-                            {% comment %} {%- if block.settings.show_dynamic_checkout -%}
-                              {{ form | payment_button }}
-                            {%- endif -%} {% endcomment %}
+                            {%- endfor -%}
+                          </fieldset>
+                          {% comment %} MATERIAL OPTION {% endcomment %}
+                        {% elsif option_downcase == 'material' %}
+                          <div class="csp-color-selection-box">
+                            <h3 class="csp-custom-h3">MATERIAL FINISH</h3>
+                            <p>Choose what finish your sign will have</p>
                           </div>
-                        {%- endform -%}
-                      </product-form>
-                    {%- else -%}
-                      <div class="product-form">
-                        <div class="product-form__buttons form">
+                          <fieldset class="js product-form__input cust-var-input">
+                            {%- for value in option.values -%}
+                              <div class="csp-variant-btns">
+                                <input
+                                  type="radio"
+                                  id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                  name="{{ option.name }}"
+                                  value="{{ value | escape }}"
+                                  form="{{ product_form_id }}"
+                                  {% if option.selected_value == value %}checked{% endif %}>
+                                <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                  {{ value }}
+                                </label>
+                              </div>
+                            {%- endfor -%}
+                          </fieldset>
+                        {% elsif option_downcase == 'size' %}
+                          {% comment %} OTHER OPTION {% endcomment %}
+                          <div class="csp-size-selection-box">
+                            <h3 class="csp-custom-h3">
+                              <span class="csp-form-label">3</span>SIZE</h3>
+                          </div>
+                          <fieldset class="js product-form__input cust-var-input">
+                            <legend class="form__label"></legend>
+                            {%- for value in option.values -%}
+                              {%- capture measurements -%}
+                                {% assign value_lowcase = value | downcase %}
+                                {%- case value_lowcase -%}
+                                  {% when 's' %}
+                                  8X72in
+                                  {% when 'm' %}
+                                  9X84in
+                                  {% when 'l' %}
+                                  10X96in
+                                {%- endcase -%}
+                              {%- endcapture -%}
+                              <div class="csp-variant-btns">
+                                <input
+                                  type="radio"
+                                  id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                  name="{{ option.name }}"
+                                  value="{{ value | escape }}"
+                                  form="{{ product_form_id }}"
+                                  style="display: none;"
+                                  {% if option.selected_value == value %}checked{% endif %}>
+                                <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                  <div class="csp-value-box">
+                                    {{ value }}
+                                    <span>{{ measurements }}</span>
+                                  </div>
+
+                                </label>
+                              </div>
+                            {%- endfor -%}
+                          </fieldset>
+                        {% else %}
+                          <fieldset class="js product-form__input cust-var-input">
+                            <legend class="form__label"></legend>
+                            {%- for value in option.values -%}
+                              <div class="csp-variant-btns">
+                                <input
+                                  type="radio"
+                                  id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                  name="{{ option.name }}"
+                                  value="{{ value | escape }}"
+                                  form="{{ product_form_id }}"
+                                  {% if option.selected_value == value %}checked{% endif %}>
+                                <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                  {{ value }}
+                                </label>
+                              </div>
+                            {%- endfor -%}
+                          </fieldset>
+                        {% endif %}
+                      {%- endfor -%}
+
+                      <script type="application/json">
+                        {{ product.variants | json }}
+                      </script>
+                    </variant-radios>
+                  {%- else -%}
+                    <variant-selects
+                      class="no-js-hidden"
+                      data-section="{{ section.id }}"
+                      data-url="{{ product.url }}"
+                      data-update-url="false"
+                      {{ block.shopify_attributes }}>
+                      {%- for option in product.options_with_values -%}
+                        <div class="product-form__input product-form__input--dropdown">
+                          <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+                            {{ option.name }}
+                          </label>
+                          <div class="select">
+                            <select
+                              id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                              class="select__select"
+                              name="options[{{ option.name | escape }}]"
+                              form="{{ product_form_id }}">
+                              {%- for value in option.values -%}
+                                <option value="{{ value | escape }}" {% if option.selected_value == value %}selected="selected"{% endif %}>
+                                  {{ value }}
+                                </option>
+                              {%- endfor -%}
+                            </select>
+                            {% render 'icon-caret' %}
+                          </div>
+                        </div>
+                      {%- endfor -%}
+
+                      <script type="application/json">
+                        {{ product.variants | json }}
+                      </script>
+                    </variant-selects>
+                  {%- endif -%}
+                {%- endunless -%}
+
+                <noscript class="product-form__noscript-wrapper-{{ section.id }}">
+                  <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
+                    <label class="form__label" for="Variants-{{ section.id }}">
+                      {{- 'products.product.product_variants' | t -}}
+                    </label>
+                    <div class="select">
+                      <select
+                        name="id"
+                        id="Variants-{{ section.id }}"
+                        class="select__select"
+                        form="{{ product_form_id }}">
+                        {%- for variant in product.variants -%}
+                          <option {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}{% if variant.available == false %}disabled{% endif %} value="{{ variant.id }}">
+                            {{ variant.title }}
+                            {%- if variant.available == false %}
+                              - {{ 'products.product.sold_out' | t }}{% endif %}
+                            - {{ variant.price | money | strip_html }}
+                          </option>
+                        {%- endfor -%}
+                      </select>
+                      {% render 'icon-caret' %}
+                    </div>
+                  </div>
+                </noscript>
+                {%- when 'buy_buttons' -%}
+                <div {{ block.shopify_attributes }}>
+                  {%- if product != blank -%}
+                    <product-form class="product-form">
+                      <div
+                        class="product-form__error-message-wrapper"
+                        role="alert"
+                        hidden>
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          role="presentation"
+                          class="icon icon-error"
+                          viewBox="0 0 13 13">
+                          <circle
+                            cx="6.5"
+                            cy="6.50049"
+                            r="5.5"
+                            stroke="white"
+                            stroke-width="2" />
+                          <circle
+                            cx="6.5"
+                            cy="6.5"
+                            r="5.5"
+                            fill="#EB001B"
+                            stroke="#EB001B"
+                            stroke-width="0.7" />
+                          <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white" />
+                          <path
+                            d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z"
+                            fill="white"
+                            stroke="#EB001B"
+                            stroke-width="0.7">
+                        </svg>
+                        <span class="product-form__error-message"></span>
+                      </div>
+
+                      {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                        <input
+                          type="hidden"
+                          name="id"
+                          value="{{ product.selected_or_first_available_variant.id }}"
+                          disabled>
+                        <div class="product-form__buttons cust-btn">
                           <button
                             type="submit"
                             name="add"
-                            class="product-form__submit button button--full-width button--primary"
-                            disabled
-                          >
-                            {{ 'products.product.sold_out' | t }}
+                            class="csp-cta-btn"
+                            {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
+                            <div>DONE</div>
+
+                            <div class="loading-overlay__spinner hidden">
+                              <svg
+                                aria-hidden="true"
+                                focusable="false"
+                                role="presentation"
+                                class="spinner"
+                                viewBox="0 0 66 66"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle
+                                  class="path"
+                                  fill="none"
+                                  stroke-width="6"
+                                  cx="33"
+                                  cy="33"
+                                  r="30" />
+                              </svg>
+                            </div>
                           </button>
+                          {% comment %} {%- if block.settings.show_dynamic_checkout -%}
+                          {{ form | payment_button }}
+                          {%- endif -%} {% endcomment %}
                         </div>
+                      {%- endform -%}
+                    </product-form>
+                  {%- else -%}
+                    <div class="product-form">
+                      <div class="product-form__buttons form">
+                        <button
+                          type="submit"
+                          name="add"
+                          class="product-form__submit button button--full-width button--primary"
+                          disabled>
+                          {{ 'products.product.sold_out' | t }}
+                        </button>
                       </div>
-                    {%- endif -%}
-                  </div>
+                    </div>
+                  {%- endif -%}
+                </div>
               {%- endcase -%}
             {%- endfor -%}
           </div>
         </div>
+      </div>
     </div>
-  </div>
     <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
       <div
         class="product-media-modal__dialog"
         role="dialog"
         aria-label="{{ 'products.modal.label' | t }}"
         aria-modal="true"
-        tabindex="-1"
-      >
+        tabindex="-1">
         <button
           id="ModalClose-{{ section.id }}"
           type="button"
           class="product-media-modal__toggle"
-          aria-label="{{ 'accessibility.close' | t }}"
-        >
+          aria-label="{{ 'accessibility.close' | t }}">
           {% render 'icon-close' %}
         </button>
 
@@ -605,8 +661,7 @@
           class="product-media-modal__content color-background-1 gradient"
           role="document"
           aria-label="{{ 'products.modal.label' | t }}"
-          tabindex="0"
-        >
+          tabindex="0">
           {%- liquid
             if product.selected_or_first_available_variant.featured_media != null
               assign media = product.selected_or_first_available_variant.featured_media
@@ -645,46 +700,46 @@
 
 <script type="application/ld+json">
   {
-    "@context": "http://schema.org/",
-    "@type": "Product",
-    "name": {{ product.title | json }},
-    "url": {{ request.origin | append: product.url | json }},
-    {% if seo_media -%}
-      "image": [
-        {{ seo_media | image_url: width: seo_media.preview_image.width | prepend: "https:" | json }}
-      ],
-    {%- endif %}
-    "description": {{ product.description | strip_html | json }},
-    {% if product.selected_or_first_available_variant.sku != blank -%}
-      "sku": {{ product.selected_or_first_available_variant.sku | json }},
-    {%- endif %}
-    "brand": {
-      "@type": "Brand",
-      "name": {{ product.vendor | json }}
-    },
-    "offers": [
-      {%- for variant in product.variants -%}
-        {
-          "@type" : "Offer",
-          {%- if variant.sku != blank -%}
-            "sku": {{ variant.sku | json }},
-          {%- endif -%}
-          {%- if variant.barcode.size == 12 -%}
-              "gtin12": {{ variant.barcode }},
-          {%- endif -%}
-          {%- if variant.barcode.size == 13 -%}
-            "gtin13": {{ variant.barcode }},
-          {%- endif -%}
-          {%- if variant.barcode.size == 14 -%}
-            "gtin14": {{ variant.barcode }},
-          {%- endif -%}
-          "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
-          "price" : {{ variant.price | divided_by: 100.00 | json }},
-          "priceCurrency" : {{ cart.currency.iso_code | json }},
-          "url" : {{ request.origin | append: variant.url | json }}
-        }{% unless forloop.last %},{% endunless %}
-      {%- endfor -%}
-    ]
+  "@context": "http://schema.org/",
+          "@type": "Product",
+          "name": {{ product.title | json }},
+  "url": {{ request.origin | append: product.url | json }},
+  {% if seo_media -%}
+    "image": [
+    {{ seo_media | image_url: width: seo_media.preview_image.width | prepend: "https:" | json }}
+    ],
+  {%- endif %}
+  "description": {{ product.description | strip_html | json }},
+  {% if product.selected_or_first_available_variant.sku != blank -%}
+    "sku": {{ product.selected_or_first_available_variant.sku | json }},
+  {%- endif %}
+  "brand": {
+  "@type": "Brand",
+            "name": {{ product.vendor | json }}
+  },
+  "offers": [
+  {%- for variant in product.variants -%}
+    {
+    "@type" : "Offer",
+    {%- if variant.sku != blank -%}
+      "sku": {{ variant.sku | json }},
+    {%- endif -%}
+    {%- if variant.barcode.size == 12 -%}
+      "gtin12": {{ variant.barcode }},
+    {%- endif -%}
+    {%- if variant.barcode.size == 13 -%}
+      "gtin13": {{ variant.barcode }},
+    {%- endif -%}
+    {%- if variant.barcode.size == 14 -%}
+      "gtin14": {{ variant.barcode }},
+    {%- endif -%}
+    "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+    "price" : {{ variant.price | divided_by: 100.00 | json }},
+    "priceCurrency" : {{ cart.currency.iso_code | json }},
+    "url" : {{ request.origin | append: variant.url | json }}
+    }{% unless forloop.last %},{% endunless %}
+  {%- endfor -%}
+  ]
   }
 </script>
 
@@ -695,73 +750,76 @@
       const msie = ua.indexOf('MSIE ');
       const trident = ua.indexOf('Trident/');
 
-      return (msie > 0 || trident > 0);
+      return(msie > 0 || trident > 0);
     }
 
-    if (!isIE()) return;
-    const hiddenInput = document.querySelector('#{{ product_form_id }} input[name="id"]');
+    if (! isIE()) 
+      return;
+    
+
+
+    const hiddenInput = document.querySelector('#   {{ product_form_id }} input[name="id"]');
     const noScriptInputWrapper = document.createElement('div');
-    const variantSwitcher = document.querySelector('variant-radios[data-section="{{ section.id }}"]') || document.querySelector('variant-selects[data-section="{{ section.id }}"]');
-    noScriptInputWrapper.innerHTML = document.querySelector('.product-form__noscript-wrapper-{{ section.id }}').textContent;
+    const variantSwitcher = document.querySelector('variant-radios[data-section="   {{ section.id }} "]') || document.querySelector('variant-selects[data-section="   {{ section.id }} "]');
+    noScriptInputWrapper.innerHTML = document.querySelector('.product-form__noscript-wrapper-   {{ section.id }}').textContent;
     variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
 
-    document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function(event) {
+    document.querySelector('#Variants-   {{ section.id }}').addEventListener('change', function(event) {
       hiddenInput.value = event.currentTarget.value;
     });
   });
 </script>
 
 <script>
-const ajaxBtn = document.querySelector('#ajax-click');
+  const ajaxBtn = document.querySelector('#ajax-click');
 
-ajaxBtn.addEventListener('click',function() {
-  const fontValue = document.querySelector('#csp-font-input').value;
-  const alignmentValue = document.querySelector('#csp-alignment').value;
-  const textInput = document.querySelector('#textInput').value;
-  console.log(alignmentValue);
-  console.log(textInput);
-  console.log(fontValue);
-  fetch('/cart/add.js', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    id: 45847203643710, // Replace with the variant ID you want to add
-    quantity: 1, // Replace with the desired quantity
-    properties: {
-      "Font": fontValue,
-      "Alignment": alignmentValue,
-      "Address": textInput
-    }
-  }),
-})
-  .then(response => response.json())
-  .then(cartItem => {
-    // The product has been added to the cart
-    // You can now update the cart UI or redirect the user to the cart page
-    console.log('Product added to cart:', cartItem);
-  })
-  .catch(error => {
-    console.error('There was an error adding the product to the cart:', error);
+  ajaxBtn.addEventListener('click', function() {
+    const fontValue = document.querySelector('#csp-font-input').value;
+    const alignmentValue = document.querySelector('#csp-alignment').value;
+    const textInput = document.querySelector('#textInput').value;
+    console.log(alignmentValue);
+    console.log(textInput);
+    console.log(fontValue);
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        {
+          id: 45847203643710, // Replace with the variant ID you want to add
+          quantity: 1, // Replace with the desired quantity
+          properties: {
+            "Font": fontValue,
+            "Alignment": alignmentValue,
+            "Address": textInput
+          }
+        }
+      )
+    }).then(response => response.json()).then(cartItem => {
+
+// The product has been added to the cart
+// You can now update the cart UI or redirect the user to the cart page
+      console.log('Product added to cart:', cartItem);
+    }).catch(error => {
+      console.error('There was an error adding the product to the cart:', error);
+    });
   });
-});
 
 
 // Assuming you have a select input with the class 'variant-select'
-document.querySelector('.variants-selected').addEventListener('change', function(event) {
-  var variantID = event.target.value; // Get the selected variant's ID
+  document.querySelector('.variants-selected').addEventListener('change', function(event) {
+    var variantID = event.target.value; // Get the selected variant's ID
     console.log(variantID);
-  // Use the variant ID to update the product display or perform an Ajax request
-  fetch('/products/' + variantID + '.json')
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      // Update the product details on the page with the newly selected variant's information
-      // You can access the variant details using data.variant
-    });
-});
 
+// Use the variant ID to update the product display or perform an Ajax request
+    fetch('/products/' + variantID + '.json').then(response => response.json()).then(data => {
+      console.log(data);
+
+// Update the product details on the page with the newly selected variant's information
+// You can access the variant details using data.variant
+    });
+  });
 </script>
 
 {% if product.media.size > 0 %}
@@ -772,205 +830,189 @@ document.querySelector('.variants-selected').addEventListener('change', function
 {{ 'create-sign-product.js' | asset_url | script_tag }}
 
 {% schema %}
-{
-  "name": "Create Sign PDP",
-  "tag": "section",
-  "class": "section section-featured-product",
-  "blocks": [
-    {
-      "type": "@app"
-    },
-    {
-      "type": "text",
-      "name": "t:sections.featured-product.blocks.text.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "default": "Text block",
-          "label": "t:sections.featured-product.blocks.text.settings.text.label"
-        },
-        {
-          "type": "select",
-          "id": "text_style",
-          "options": [
-            {
-              "value": "body",
-              "label": "t:sections.featured-product.blocks.text.settings.text_style.options__1.label"
-            },
-            {
-              "value": "subtitle",
-              "label": "t:sections.featured-product.blocks.text.settings.text_style.options__2.label"
-            },
-            {
-              "value": "uppercase",
-              "label": "t:sections.featured-product.blocks.text.settings.text_style.options__3.label"
-            }
-          ],
-          "default": "body",
-          "label": "t:sections.featured-product.blocks.text.settings.text_style.label"
-        }
-      ]
-    },
-    {
-      "type": "title",
-      "name": "t:sections.featured-product.blocks.title.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-            {
-              "value": "h2",
-              "label": "t:sections.all.heading_size.options__1.label"
-            },
-            {
-              "value": "h1",
-              "label": "t:sections.all.heading_size.options__2.label"
-            },
-            {
-              "value": "h0",
-              "label": "t:sections.all.heading_size.options__3.label"
-            }
-          ],
-          "default": "h1",
-          "label": "t:sections.all.heading_size.label"
-        }
-      ]
-    },
-    {
-      "type": "price",
-      "name": "t:sections.featured-product.blocks.price.name",
-      "limit": 1
-    },
-    {
-      "type": "variant_picker",
-      "name": "t:sections.featured-product.blocks.variant_picker.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "picker_type",
-          "options": [
-            {
-              "value": "dropdown",
-              "label": "t:sections.featured-product.blocks.variant_picker.settings.picker_type.options__1.label"
-            },
-            {
-              "value": "button",
-              "label": "t:sections.featured-product.blocks.variant_picker.settings.picker_type.options__2.label"
-            }
-          ],
-          "default": "button",
-          "label": "t:sections.featured-product.blocks.variant_picker.settings.picker_type.label"
-        }
-      ]
-    },
-    {
-      "type": "buy_buttons",
-      "name": "t:sections.featured-product.blocks.buy_buttons.name",
-      "limit": 1,
-      "settings": []
-    },
-    {
-      "type": "share",
-      "name": "t:sections.featured-product.blocks.share.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "share_label",
-          "label": "t:sections.featured-product.blocks.share.settings.text.label",
-          "default": "Share"
-        },
-        {
-          "type": "paragraph",
-          "content": "t:sections.featured-product.blocks.share.settings.featured_image_info.content"
-        },
-        {
-          "type": "paragraph",
-          "content": "t:sections.featured-product.blocks.share.settings.title_info.content"
-        }
-      ]
-    }
-  ],
-  "settings": [
-    {
-      "type": "product",
-      "id": "product",
-      "label": "t:sections.featured-product.settings.product.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.featured-product.settings.header.content",
-      "info": "t:sections.featured-product.settings.header.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_variants",
-      "default": false,
-      "label": "t:sections.main-product.settings.hide_variants.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_video_looping",
-      "default": false,
-      "label": "t:sections.featured-product.settings.enable_video_looping.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    }
-  ],
-  "presets": [
-    {
-      "name": "Create Sign PDP",
-      "blocks": [
-        {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
+  {
+    "name": "Create Sign PDP",
+    "tag": "section",
+    "class": "section section-featured-product",
+    "blocks": [
+      {
+        "type": "@app"
+      },
+      {
+        "type": "text",
+        "name": "t:sections.featured-product.blocks.text.name",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "default": "Text block",
+            "label": "t:sections.featured-product.blocks.text.settings.text.label"
+          }, {
+            "type": "select",
+            "id": "text_style",
+            "options": [
+              {
+                "value": "body",
+                "label": "t:sections.featured-product.blocks.text.settings.text_style.options__1.label"
+              }, {
+                "value": "subtitle",
+                "label": "t:sections.featured-product.blocks.text.settings.text_style.options__2.label"
+              }, {
+                "value": "uppercase",
+                "label": "t:sections.featured-product.blocks.text.settings.text_style.options__3.label"
+              }
+            ],
+            "default": "body",
+            "label": "t:sections.featured-product.blocks.text.settings.text_style.label"
           }
-        },
-        {
-          "type": "title"
-        },
-        {
-          "type": "price"
-        },
-        {
-          "type": "variant_picker"
-        },
-        {
-          "type": "buy_buttons"
-        },
-        {
-          "type": "share"
-        }
-      ]
-    }
-  ]
-}
+        ]
+      },
+      {
+        "type": "title",
+        "name": "t:sections.featured-product.blocks.title.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+              {
+                "value": "h2",
+                "label": "t:sections.all.heading_size.options__1.label"
+              }, {
+                "value": "h1",
+                "label": "t:sections.all.heading_size.options__2.label"
+              }, {
+                "value": "h0",
+                "label": "t:sections.all.heading_size.options__3.label"
+              }
+            ],
+            "default": "h1",
+            "label": "t:sections.all.heading_size.label"
+          }
+        ]
+      },
+      {
+        "type": "price",
+        "name": "t:sections.featured-product.blocks.price.name",
+        "limit": 1
+      }, {
+        "type": "variant_picker",
+        "name": "t:sections.featured-product.blocks.variant_picker.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "select",
+            "id": "picker_type",
+            "options": [
+              {
+                "value": "dropdown",
+                "label": "t:sections.featured-product.blocks.variant_picker.settings.picker_type.options__1.label"
+              }, {
+                "value": "button",
+                "label": "t:sections.featured-product.blocks.variant_picker.settings.picker_type.options__2.label"
+              }
+            ],
+            "default": "button",
+            "label": "t:sections.featured-product.blocks.variant_picker.settings.picker_type.label"
+          }
+        ]
+      }, {
+        "type": "buy_buttons",
+        "name": "t:sections.featured-product.blocks.buy_buttons.name",
+        "limit": 1,
+        "settings": []
+      }, {
+        "type": "share",
+        "name": "t:sections.featured-product.blocks.share.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "share_label",
+            "label": "t:sections.featured-product.blocks.share.settings.text.label",
+            "default": "Share"
+          }, {
+            "type": "paragraph",
+            "content": "t:sections.featured-product.blocks.share.settings.featured_image_info.content"
+          }, {
+            "type": "paragraph",
+            "content": "t:sections.featured-product.blocks.share.settings.title_info.content"
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "type": "product",
+        "id": "product",
+        "label": "t:sections.featured-product.settings.product.label"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.featured-product.settings.header.content",
+        "info": "t:sections.featured-product.settings.header.info"
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_variants",
+        "default": false,
+        "label": "t:sections.main-product.settings.hide_variants.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_video_looping",
+        "default": false,
+        "label": "t:sections.featured-product.settings.enable_video_looping.label"
+      }, {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }
+    ],
+    "presets": [
+      {
+        "name": "Create Sign PDP",
+        "blocks": [
+          {
+            "type": "text",
+            "settings": {
+              "text": "{{ section.settings.product.vendor }}",
+              "text_style": "uppercase"
+            }
+          },
+          {
+            "type": "title"
+          },
+          {
+            "type": "price"
+          },
+          {
+            "type": "variant_picker"
+          }, {
+            "type": "buy_buttons"
+          }, {
+            "type": "share"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}

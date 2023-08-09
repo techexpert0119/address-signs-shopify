@@ -159,15 +159,27 @@ const leftAlignBox = document.querySelector(".left-align-box");
 const centerAlignBox = document.querySelector(".center-align-box");
 const rightAlignBox = document.querySelector(".right-align-box");
 const alignBoxes = document.querySelectorAll(".csp-text-align-box");
+
 const rulerBtn = document.querySelector("#csp-ruler-btn");
 const rateBox = document.querySelector("#rate");
+const alertBox = document.querySelector("#alert");
+
+const currentProduct = document.querySelector("#current-product");
+const currentAddress = document.querySelector("#current-address");
+const currentFont = document.querySelector("#current-font");
+const currentAlign = document.querySelector("#current-align");
+const currentColor = document.querySelector("#current-color");
+const currentMaterial = document.querySelector("#current-material");
+const currentCSize = document.querySelector("#current-size");
+
+const radioColorBlack = document.querySelector("#color-radio-black");
+const radioColorWhite = document.querySelector("#color-radio-white");
+const radioMaterialMatte = document.querySelector("#material-radio-matte");
+const radioMaterialGlossy = document.querySelector("#material-radio-glossy");
 
 iconLeftA.parentNode.parentNode.style.backgroundColor = "#353eac";
 iconLeftA.style.fill = "#68ffa8";
 
-//const widthMeasure = document.querySelector('#csp-measure-hr');
-const colorVariant = document.querySelectorAll(".csp-color-input");
-//let calcWidth;
 const breakTag = `<br>`;
 
 let fontSizes = {
@@ -178,10 +190,46 @@ let fontSizes = {
   parsley: 100,
   "petit-form": 80,
   vivace: 110,
+  scriptmtbo: 100,
 };
 let currencyStatus = 0;
 
 /*********************************ROMEO'S WORK**********************************/
+var preModal = document.querySelector("#cart-pre-notification");
+document.querySelector("#done-btn").addEventListener("click", () => {
+  const text = textInput.value;
+  if (text === "") {
+    alertBox.style.display = "block";
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  } else {
+    const imageElement = document.querySelector("#cart-pre-img");
+    const divToCapture = document.querySelector("#csp-design-box");
+
+    html2canvas(divToCapture).then((canvas) => {
+      canvas.toBlob((blob) => {
+        imageElement.src = blob.toDataURL("image/png");
+      });
+    });
+    preModal.style.display = "block";
+  }
+});
+document
+  .querySelector("#cancel-prev-modal-btn")
+  .addEventListener("click", () => {
+    preModal.style.display = "none";
+    const comment = document.querySelector("#cart-pre-comment");
+    const addToCartBtn = document.querySelector("#add-to-cart-btn");
+    const viewCartbtn = document.querySelector("#view-cart-btn");
+
+    comment.innerHTML = "";
+    addToCartBtn.style.display = "block";
+    viewCartbtn.style.display = "none";
+  });
+document.querySelector("#alert-closebtn").addEventListener("click", () => {
+  alertBox.style.display = "none";
+});
+
 setInterval(function () {
   let currency = document.querySelector("#currency_status");
   let priceStr = currency.textContent.trim();
@@ -212,8 +260,9 @@ window.addEventListener("resize", () => {
 
 // Function to handle keyup events
 function countValue() {
+  alertBox.style.display = "none";
+
   // Display Width/Height
-  var textInput = document.getElementById("textInput");
   var inlineStrings = textInput.value.split("\n");
   var maxWidth = Math.max(
     ...inlineStrings.map((s) =>
@@ -264,7 +313,10 @@ function countValue() {
   else totalPrice.textContent = (strlength * currencyStatus).toFixed(1);
 
   var quantityDisplay = document.getElementsByClassName("quantity__input")[0];
-  quantityDisplay.value = strlength;
+  quantityDisplay.value = 1;
+
+  currentAddress.innerHTML = textInput.value;
+  currentProduct.innerHTML = `${strlength} letter`;
 
   // Control Font Size
   var container = document.getElementsByClassName("height-text-box")[0];
@@ -285,6 +337,27 @@ function countValue() {
     displayDesignText.style.fontSize = fontSize + "px";
   }
 }
+
+[radioColorBlack, radioColorWhite].forEach((color) =>
+  color.addEventListener("change", (e) => {
+    if (e.target.checked) {
+      currentColor.innerHTML = e.target.value;
+      const valueLowCase = e.target.value.toLowerCase();
+      displayDesignText.style.color = valueLowCase;
+      if (valueLowCase === "white")
+        displayDesignText.style.textShadow = "3px 1px 1px #000";
+      else displayDesignText.style.textShadow = "3px 1px 1px #fff";
+    }
+  })
+);
+
+[radioMaterialMatte, radioMaterialGlossy].forEach((material) =>
+  material.addEventListener("change", (e) => {
+    if (e.target.checked) {
+      currentMaterial.innerHTML = e.target.value;
+    }
+  })
+);
 /*******************************************************************************/
 
 function filterInput() {
@@ -316,34 +389,33 @@ document.getElementById("textInput").addEventListener("keyup", countValue);
 
 // BACKGROUND CHANGE ON SWATCH CLICK FUNCTIONALITY
 const backgroundSwatches = document.querySelectorAll(".csp-swatch-box");
-const currentBackgroundImage = document.querySelector("#csp-background-img");
+const backgroundContainer = document.querySelector("#csp-background-img");
+const backgroundImage = backgroundContainer.querySelector("img");
 
 backgroundSwatches.forEach((swatch) => {
-  swatch.addEventListener("click", function (e) {
-    currentBackgroundImage.style.backgroundImage =
-      "url(" + e.currentTarget.querySelector(".csp-swatch-img").src + ")";
+  swatch.addEventListener("click", (e) => {
+    backgroundImage.src = e.currentTarget.querySelector(".csp-swatch-img").src;
   });
 });
 
 fontGrid.style.display = "none";
 fontSelector.addEventListener("click", function () {
- 
   if (fontDropdownGrid.style.gridTemplateRows === "0fr") {
     fontGrid.style.display = "grid";
     fontDropdownGrid.style.gridTemplateRows = "1fr";
     iconCarat.style.transform = "rotate(180deg)";
     for (let i = 0; i < fontGridItem.length; i++) {
       if (i === 0) {
-        fontGridItem[i].style.color = '#68ffa8';
-        fontGridItem[i].style.backgroundColor = '#353eac';
-      } 
+        fontGridItem[i].style.color = "#68ffa8";
+        fontGridItem[i].style.backgroundColor = "#353eac";
+      }
       fontGridItem[i].addEventListener("click", function (e) {
         for (let x = 0; x < fontGridItem.length; x++) {
-          fontGridItem[x].style.color = 'rgb(53, 62, 172)';
-          fontGridItem[x].style.backgroundColor = 'transparent';
+          fontGridItem[x].style.color = "rgb(53, 62, 172)";
+          fontGridItem[x].style.backgroundColor = "transparent";
         }
-        e.currentTarget.style.color = '#68ffa8';
-        e.currentTarget.style.backgroundColor = '#353eac';
+        e.currentTarget.style.color = "#68ffa8";
+        e.currentTarget.style.backgroundColor = "#353eac";
         let fontStr = e.currentTarget.style.fontFamily;
         let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
         fontSelector.textContent =
@@ -356,6 +428,7 @@ fontSelector.addEventListener("click", function () {
         else displayDesignText.style.fontWeight = 700;
 
         // THIS WORKS BUT NEED THE fontSizes TO BE THE CORRECT NAMES
+        currentFont.innerHTML = modifiedStr;
         console.log("Modified String: " + modifiedStr);
 
         /**********************ROMEO'S WORK*************************/
@@ -369,14 +442,6 @@ fontSelector.addEventListener("click", function () {
     fontDropdownGrid.style.gridTemplateRows = "0fr";
     fontGrid.style.display = "none";
   }
-});
-
-// LISTEN FOR COLOR VARIANT CHANGE
-colorVariant.forEach((color) => {
-  color.addEventListener("click", function (e) {
-    const valueLowCase = color.value.toLowerCase();
-    displayDesignText.style.color = valueLowCase;
-  });
 });
 
 // FUNCTION DETECTS WHEN A NUMBER IS 60% OF SCREEN WIDTH
@@ -398,6 +463,7 @@ leftAlignBox.addEventListener("click", function () {
   displayDesignText.style.textAlign = "left";
   alignBoxes[0].style.backgroundColor = "#353eac";
   iconLeftA.style.fill = "#68ffa8";
+  currentAlign.innerHTML = "Left";
   console.log("box clicked");
 });
 centerAlignBox.addEventListener("click", function () {
@@ -405,6 +471,7 @@ centerAlignBox.addEventListener("click", function () {
   displayDesignText.style.textAlign = "center";
   alignBoxes[1].style.backgroundColor = "#353eac";
   iconCenterA.style.fill = "#68ffa8";
+  currentAlign.innerHTML = "Center";
   console.log("box clicked");
 });
 rightAlignBox.addEventListener("click", function () {
@@ -412,6 +479,7 @@ rightAlignBox.addEventListener("click", function () {
   displayDesignText.style.textAlign = "right";
   alignBoxes[2].style.backgroundColor = "#353eac";
   iconRightA.style.fill = "#68ffa8";
+  currentAlign.innerHTML = "Right";
   console.log("box clicked");
 });
 
@@ -422,5 +490,3 @@ const removeAlignBoxStyle = function (alignBoxes) {
     box.querySelector(".align-icon").style.fill = "#353eac";
   });
 };
-
-
