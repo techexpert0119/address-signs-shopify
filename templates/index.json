@@ -1,7 +1,40 @@
 {
   "sections": {
+    "ce7eb5fb-44b3-49e8-8845-05104202437b": {
+      "type": "image-banner",
+      "blocks": {
+        "template--19850311532862__ce7eb5fb-44b3-49e8-8845-05104202437b-buttons-1": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "CREATE YOUR SIGN",
+            "button_link_1": "shopify:\/\/pages\/create-a-sign",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19850311532862__ce7eb5fb-44b3-49e8-8845-05104202437b-buttons-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Screenshot_2023-08-09_221246.png",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
     "c0e615e1-a990-4ddc-bfb6-9ced9bb7f397": {
       "type": "create-sign-product",
+      "disabled": true,
       "blocks": {
         "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-3": {
           "type": "variant_picker",
@@ -24,7 +57,7 @@
         "0267ec2e-a247-4168-a7b3-463b105c4223"
       ],
       "settings": {
-        "product": "elite-address-sign",
+        "product": "1-letter",
         "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 0,
@@ -39,6 +72,7 @@
     }
   },
   "order": [
+    "ce7eb5fb-44b3-49e8-8845-05104202437b",
     "c0e615e1-a990-4ddc-bfb6-9ced9bb7f397",
     "167548135556d65f77"
   ]

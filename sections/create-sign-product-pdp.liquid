@@ -755,8 +755,6 @@
 
     if (! isIE()) 
       return;
-    
-
 
     const hiddenInput = document.querySelector('#   {{ product_form_id }} input[name="id"]');
     const noScriptInputWrapper = document.createElement('div');
@@ -766,58 +764,6 @@
 
     document.querySelector('#Variants-   {{ section.id }}').addEventListener('change', function(event) {
       hiddenInput.value = event.currentTarget.value;
-    });
-  });
-</script>
-
-<script>
-  const ajaxBtn = document.querySelector('#ajax-click');
-
-  ajaxBtn.addEventListener('click', function() {
-    const fontValue = document.querySelector('#csp-font-input').value;
-    const alignmentValue = document.querySelector('#csp-alignment').value;
-    const textInput = document.querySelector('#textInput').value;
-    console.log(alignmentValue);
-    console.log(textInput);
-    console.log(fontValue);
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(
-        {
-          id: 45847203643710, // Replace with the variant ID you want to add
-          quantity: 1, // Replace with the desired quantity
-          properties: {
-            "Font": fontValue,
-            "Alignment": alignmentValue,
-            "Address": textInput
-          }
-        }
-      )
-    }).then(response => response.json()).then(cartItem => {
-
-// The product has been added to the cart
-// You can now update the cart UI or redirect the user to the cart page
-      console.log('Product added to cart:', cartItem);
-    }).catch(error => {
-      console.error('There was an error adding the product to the cart:', error);
-    });
-  });
-
-
-// Assuming you have a select input with the class 'variant-select'
-  document.querySelector('.variants-selected').addEventListener('change', function(event) {
-    var variantID = event.target.value; // Get the selected variant's ID
-    console.log(variantID);
-
-// Use the variant ID to update the product display or perform an Ajax request
-    fetch('/products/' + variantID + '.json').then(response => response.json()).then(data => {
-      console.log(data);
-
-// Update the product details on the page with the newly selected variant's information
-// You can access the variant details using data.variant
     });
   });
 </script>
@@ -985,33 +931,6 @@
         "unit": "px",
         "label": "t:sections.all.padding.padding_bottom",
         "default": 36
-      }
-    ],
-    "presets": [
-      {
-        "name": "Create Sign PDP",
-        "blocks": [
-          {
-            "type": "text",
-            "settings": {
-              "text": "{{ section.settings.product.vendor }}",
-              "text_style": "uppercase"
-            }
-          },
-          {
-            "type": "title"
-          },
-          {
-            "type": "price"
-          },
-          {
-            "type": "variant_picker"
-          }, {
-            "type": "buy_buttons"
-          }, {
-            "type": "share"
-          }
-        ]
       }
     ]
   }
