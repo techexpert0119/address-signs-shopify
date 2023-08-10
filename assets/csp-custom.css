@@ -196,6 +196,7 @@
 .csp-right-column {
   overflow-y: scroll;
   width: 25%;
+  max-width: 400px;
   min-width: 300px;
 }
 .measure-height-cont {
