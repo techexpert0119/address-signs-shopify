@@ -1,6 +1,6 @@
 // theme copy
 "use strict";
-const LetterWidths = {
+const ballantineLetterWidths = {
   ">": 0,
   "<": 0,
   "\n": 0,
@@ -267,7 +267,7 @@ function countValue() {
   var maxWidth = Math.max(
     ...inlineStrings.map((s) =>
       s.split("").reduce((save, item) => {
-        return save + LetterWidths[item];
+        return save + ballantineLetterWidths[item];
       }, 0)
     )
   );
@@ -366,8 +366,8 @@ function filterInput() {
 
   var filteredValue = "";
   for (var i = 0; i < value.length; i++) {
-    // Check for character in LetterWidths or newline
-    if (LetterWidths.hasOwnProperty(value[i]) || value[i] === "\n") {
+    // Check for character in ballantineLetterWidths or newline
+    if (ballantineLetterWidths.hasOwnProperty(value[i]) || value[i] === "\n") {
       filteredValue += value[i];
     }
   }
