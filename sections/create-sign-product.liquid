@@ -63,7 +63,7 @@
             </span>
           </div>
           <div class="csp-design-static-size">
-            <span id="csp-design-static-size">8×72in</span>
+            <span id="csp-design-static-size">0 × 0in</span>
           </div>
           <div id="rate" style="display: none;">0.8</div>
         </div>
@@ -82,7 +82,7 @@
               </div>
             </div>
 
-            <p id="sign-text-overlay" style="font-family:'ballantine',sans serif;"> My House Number</p>
+            <p id="sign-text-overlay" style="font-family:'ballantine',sans serif;">My House Number</p>
           </div>
 
           <div class="measure-width-cont">
@@ -510,11 +510,11 @@
                                 {% assign value_lowcase = value | downcase %}
                                 {%- case value_lowcase -%}
                                   {% when 's' %}
-                                  8X72in
+                                  <span id="size-small">0.0×0.0in</span>
                                   {% when 'm' %}
-                                  9X84in
+                                  <span id="size-medium">0.0×0.0in</span>
                                   {% when 'l' %}
-                                  10X96in
+                                  <span id="size-large">0.0×0.0in</span>
                                 {%- endcase -%}
                               {%- endcapture -%}
                               <div class="csp-variant-btns">
@@ -830,7 +830,6 @@
       comment.style.color = "red";
       return;
     }
-    console.log(currentProduct)
     const currentVariant = currentProduct.variants.filter(variant => variant.title === currentSize)[0];
     if (! currentVariant) {
       comment.innerHTML = "Variant doesn't exist!"
@@ -898,8 +897,8 @@
 <script type="application/ld+json">
   {
   "@context": "http://schema.org/",
-                                                                                                                                                                              "@type": "Product",
-                                                                                                                                                                              "name": {{ product.title | json }},
+                                                                                                                                                                                          "@type": "Product",
+                                                                                                                                                                                          "name": {{ product.title | json }},
   "url": {{ request.origin | append: product.url | json }},
   {% if seo_media -%}
     "image": [
@@ -912,7 +911,7 @@
   {%- endif %}
   "brand": {
   "@type": "Brand",
-                                                                                                                                                                                "name": {{ product.vendor | json }}
+                                                                                                                                                                                            "name": {{ product.vendor | json }}
   },
   "offers": [
   {%- for variant in product.variants -%}

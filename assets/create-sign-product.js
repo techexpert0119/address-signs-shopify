@@ -284,20 +284,35 @@ function countValue() {
 
   var textWidthDislay = document.getElementById("widthDisplay");
   var textHeightDislay = document.getElementById("heightDisplay");
+  var dynamicSize = document.getElementById("csp-design-static-size");
+  var smallSizeDisplay = document.getElementById("size-small");
+  var mediumSizeDisplay = document.getElementById("size-medium");
+  var largeSizeDisplay = document.getElementById("size-large");
 
   var rate = +rateBox.innerHTML;
+  const height = (maxHeight * rate).toFixed(1);
+  const width = (maxWidth * rate).toFixed(1);
+
   if (window.innerWidth > 990) {
-    textWidthDislay.textContent = (maxWidth * rate).toFixed(1);
-    textHeightDislay.textContent = (maxHeight * rate).toFixed(1);
+    dynamicSize.textContent = `${height} × ${width}in`;
+    textHeightDislay.textContent = height;
+    textWidthDislay.textContent = width;
   } else {
     if (maxWidth !== 0 && maxHeight !== 0) {
-      textWidthDislay.textContent = `${(maxHeight * rate).toFixed(1)}×${(
-        maxWidth * rate
-      ).toFixed(1)}`;
+      textWidthDislay.textContent = `${height}×${width}`;
     } else {
       textWidthDislay.textContent = "0.0×0.0";
     }
   }
+  smallSizeDisplay.textContent = `${(maxHeight * 0.8).toFixed(1)}×${(
+    maxWidth * 0.8
+  ).toFixed(1)}in`;
+  mediumSizeDisplay.textContent = `${(maxHeight * 1).toFixed(1)}×${(
+    maxWidth * 1
+  ).toFixed(1)}in`;
+  largeSizeDisplay.textContent = `${(maxHeight * 1.25).toFixed(1)}×${(
+    maxWidth * 1.25
+  ).toFixed(1)}in`;
 
   // Show Price
   var totalPrice = document.querySelector("#csp-design-static-currency");
@@ -309,8 +324,8 @@ function countValue() {
     totalPrice.textContent = (
       4 * currencyStatus +
       (strlength - 4) * 0.7 * currencyStatus
-    ).toFixed(1);
-  else totalPrice.textContent = (strlength * currencyStatus).toFixed(1);
+    ).toFixed(2);
+  else totalPrice.textContent = (strlength * currencyStatus).toFixed(2);
 
   var quantityDisplay = document.getElementsByClassName("quantity__input")[0];
   quantityDisplay.value = 1;
