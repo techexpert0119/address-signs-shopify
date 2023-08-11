@@ -190,7 +190,7 @@ let fontSizes = {
   parsley: 100,
   "petit-form": 80,
   vivace: 110,
-  scriptmtbo: 100,
+  scriptmtbold: 100,
 };
 let currencyStatus = 0;
 

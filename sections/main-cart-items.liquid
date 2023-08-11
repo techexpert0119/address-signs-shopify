@@ -58,15 +58,21 @@
                 <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
               </tr>
             </thead>
-            {%- for property in item.properties -%}
-              {{property.first}}:{{property.last}}<br>
-            {%- endfor -%}
+           
             <tbody>
               {%- for item in cart.items -%}
+                {%- for property in item.properties -%}
+                  {% if property.first == 'Font' %}
+                    {{property.last}}
+                    {% assign addressFont = property.last %}
+                  {% endif %}
+                  {% if property.first == 'Address' %}
+                    {% assign addressSign = property.last %}
+                  {% endif %}
+                {%- endfor -%}
                 <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
                   <td class="cart-item__media">
                     {% if item.image %}
-                      {%- unless item.title contains 'Address' -%}
                         {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                         <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
                           <div class="cart-item__image-container gradient global-media-settings">
@@ -78,15 +84,9 @@
                               height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
                             >
                           </div>
+
                       {% else %}
-                      
-                      {%- for property in item.properties -%}
-                        
-                        {%- if property contains 'Address' -%}
-                          <p>{{ property.last }}</p>
-                        {%- endif -%}
-                      {%- endfor -%}
-                      {%- endunless -%}
+                        <h2 style="font-family: '{{addressFont}}'">{{addressSign}}</h2>
                     {% endif %}
                   </td>
 
