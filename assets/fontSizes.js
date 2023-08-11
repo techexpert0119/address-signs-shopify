@@ -1,3 +1,6 @@
+// theme copy
+"use strict";
+
 window.seashoreWidth = {
   1: 3.1,
   2: 5.7,
@@ -65,7 +68,7 @@ window.seashoreWidth = {
   ",": 1,
   "'": 1.2,
   " ": 5,
-  "/": 3.3,
+  "-": 3.3,
 };
 
 window.seashoreHeight = {
@@ -135,7 +138,7 @@ window.seashoreHeight = {
   ",": 2,
   "'": 2,
   " ": 1,
-  "/": 1,
+  "-": 1,
 };
 
 window.brushScriptWidth = {
@@ -205,7 +208,7 @@ window.brushScriptWidth = {
   ",": 2,
   "'": 2,
   " ": 5,
-  "/": 3.4,
+  "-": 3.4,
 };
 
 window.brushScriptHeight = {
@@ -275,7 +278,7 @@ window.brushScriptHeight = {
   ",": 2,
   "'": 2,
   " ": 1,
-  "/": 1,
+  "-": 1,
 };
 
 window.commercialWidth = {
@@ -345,7 +348,7 @@ window.commercialWidth = {
   ",": 2.5,
   "'": 2.2,
   " ": 5,
-  "/": 2.4,
+  "-": 2.4,
 };
 
 window.commercialHeight = {
@@ -415,7 +418,7 @@ window.commercialHeight = {
   ",": 2.7,
   "'": 2.5,
   " ": 1,
-  "/": 1,
+  "-": 1,
 };
 
 window.vivaceWidth = {
@@ -485,7 +488,7 @@ window.vivaceWidth = {
   ",": 2,
   "'": 2,
   " ": 5,
-  "/": 3,
+  "-": 3,
 };
 
 window.vivaceHeight = {
@@ -555,7 +558,7 @@ window.vivaceHeight = {
   ",": 2,
   "'": 2,
   " ": 1,
-  "/": 1,
+  "-": 1,
 };
 
 window.parsleyWidth = {
@@ -625,7 +628,7 @@ window.parsleyWidth = {
   ",": 1.6,
   "'": 1.7,
   " ": 5,
-  "/": 3.3,
+  "-": 3.3,
 };
 
 window.parsleyHeight = {
@@ -695,7 +698,7 @@ window.parsleyHeight = {
   ",": 2,
   "'": 2.4,
   " ": 1,
-  "/": 1,
+  "-": 1,
 };
 
 window.petitFormalWidth = {
@@ -765,7 +768,7 @@ window.petitFormalWidth = {
   ",": 1.2,
   "'": 1.2,
   " ": 5,
-  "/": 3,
+  "-": 3,
 };
 
 window.petitFormalHeight = {
@@ -835,7 +838,7 @@ window.petitFormalHeight = {
   ",": 1.6,
   "'": 1.5,
   " ": 1,
-  "/": 1,
+  "-": 1,
 };
 
 window.scriptMTBoldWidth = {
@@ -905,7 +908,7 @@ window.scriptMTBoldWidth = {
   ",": 2.2,
   "'": 2.2,
   " ": 5,
-  "/": 3,
+  "-": 3,
 };
 
 window.scriptMTBoldHeight = {
@@ -975,13 +978,10 @@ window.scriptMTBoldHeight = {
   ",": 3.3,
   "'": 3.3,
   " ": 1,
-  "/": 1,
+  "-": 1,
 };
 
 window.ballantineWidth = {
-  ">": 0,
-  "<": 0,
-  "\n": 0,
   0: 6.1,
   1: 5.2,
   2: 7,
@@ -992,18 +992,14 @@ window.ballantineWidth = {
   7: 6.3,
   8: 6,
   9: 5.7,
-  ",": 2.1,
-  ".": 1.4,
   A: 11.7,
   a: 6.2,
-  "'": 2.1,
   B: 11.1,
   b: 4.6,
   C: 7.4,
   c: 4.3,
   D: 10.7,
   d: 7.4,
-  "-": 3.5,
   E: 8,
   e: 4.5,
   F: 11.1,
@@ -1034,7 +1030,6 @@ window.ballantineWidth = {
   r: 3.4,
   S: 8,
   s: 3.4,
-  " ": 5,
   T: 11.2,
   t: 4.4,
   U: 10,
@@ -1049,6 +1044,11 @@ window.ballantineWidth = {
   y: 7.4,
   Z: 11.3,
   z: 5.6,
+  "-": 3.5,
+  "'": 2.1,
+  ",": 2.1,
+  ".": 1.4,
+  " ": 5,
 };
 
 window.ballantineHeight = {
@@ -1062,18 +1062,14 @@ window.ballantineHeight = {
   7: 6.5,
   8: 6.6,
   9: 6.7,
-  ",": 2.4,
-  ".": 1.4,
   A: 7.6,
   a: 3.8,
-  "'": 2.4,
   B: 7.5,
   b: 6.6,
   C: 7.6,
   c: 3.8,
   D: 7.3,
   d: 6.6,
-  "-": 1,
   E: 7.6,
   e: 3.9,
   F: 7.5,
@@ -1104,7 +1100,6 @@ window.ballantineHeight = {
   r: 3.8,
   S: 7.6,
   s: 3.9,
-  " ": 1,
   T: 7.5,
   t: 5.4,
   U: 7.5,
@@ -1119,6 +1114,9 @@ window.ballantineHeight = {
   y: 9.3,
   Z: 7.6,
   z: 3.9,
+  " ": 1,
+  "-": 1,
+  "'": 2.4,
+  ",": 2.4,
+  ".": 1.4,
 };
-
-window.AAA = 123;

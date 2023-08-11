@@ -897,8 +897,8 @@
 <script type="application/ld+json">
   {
   "@context": "http://schema.org/",
-                                                                                                                                                                                          "@type": "Product",
-                                                                                                                                                                                          "name": {{ product.title | json }},
+                                                                                                                                                                                            "@type": "Product",
+                                                                                                                                                                                            "name": {{ product.title | json }},
   "url": {{ request.origin | append: product.url | json }},
   {% if seo_media -%}
     "image": [
@@ -911,7 +911,7 @@
   {%- endif %}
   "brand": {
   "@type": "Brand",
-                                                                                                                                                                                            "name": {{ product.vendor | json }}
+                                                                                                                                                                                              "name": {{ product.vendor | json }}
   },
   "offers": [
   {%- for variant in product.variants -%}
@@ -972,6 +972,7 @@
   <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
 {% endif %}
 
+{{ 'fontSizes.js' | asset_url | script_tag }}
 {{ 'create-sign-product.js' | asset_url | script_tag }}
 
 {% schema %}
