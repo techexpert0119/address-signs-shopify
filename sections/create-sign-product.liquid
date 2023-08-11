@@ -240,8 +240,8 @@
                   <div style="font-family:'brush-script',sans serif;font-size:20px;line-height:45px;" class="csp-font-item">Brush Script</div>
                   <div style="font-family:'commercial-script',sans serif;font-size:14px;line-height:45px;" class="csp-font-item">Commercial Script</div>
                   <div style="font-family:'parsley',sans serif;font-size:24px;line-height:45px;" class="csp-font-item">Parsley</div>
-                  <div style="font-family:'petit-formal',sans serif;font-size: 16px;line-height:45px;" class="csp-font-item">Petit Formal</div>
-                  <div style="font-family:'scriptmtbold',sans serif;font-size:20px;line-height:45px;" class="csp-font-item">ScriptMTBold</div>
+                  <div style="font-family:'petit-formal',sans serif;font-size:14px;line-height:45px;" class="csp-font-item">Petit Formal</div>
+                  <div style="font-family:'scriptmtbold',sans serif;font-size:18px;line-height:45px;" class="csp-font-item">ScriptMTBold</div>
                   <div style="font-family:'vivace',sans serif;font-size:22px;line-height:40px;" class="csp-font-item">Vivace</div>
                 </div>
               </div>
@@ -520,6 +520,7 @@
                               <div class="csp-variant-btns">
                                 <input
                                   type="radio"
+                                  class="size-radio-btn"
                                   id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
                                   name="{{ option.name }}"
                                   value="{{ value | escape }}"
@@ -647,22 +648,30 @@
                   <div class="cart-pre-notification-content">
                     <h1 class="cart-pre-title">Add to Cart</h1>
                     <hr style="margin: 0 !important">
-                    <div>
-                      <img src="" id="cart-pre-img">
+                    <div class="cart-pre-header">
+                      <div class="cart-pre-img-container">
+                        <span id="cart-prev-design-text" style="font-family:'ballantine',sans serif;"></span>
+                        <img src="" id="cart-pre-img">
+                      </div>
+                      <div class="cart-pre-address-item">
+                        <div style="width: 100%;">
+                          <b>Address:
+                          </b>
+                        </div>
+                        <span id="current-address"></span>
+                      </div>
                     </div>
-                    <div style="display: flex; flex-wrap: wrap;">
+                    <div class="cart-pre-variant">
                       <div class="cart-pre-variant-item">
                         <b>Product Name:
                         </b>
                         <span id="current-product"></span>
                       </div>
-                      <div class="cart-pre-variant-item" style="white-space: pre-line; line-break: anywhere;">
-                        <b>Address:
+                      <div class="cart-pre-variant-item">
+                        <b>Size:
                         </b>
-                        <span id="current-address"></span>
+                        <span id="current-size">S</span>
                       </div>
-                    </div>
-                    <div class="cart-pre-variant">
                       <div class="cart-pre-variant-item">
                         <b>Font:
                         </b>
@@ -682,11 +691,6 @@
                         <b>Material:
                         </b>
                         <span id="current-material">Matte</span>
-                      </div>
-                      <div class="cart-pre-variant-item">
-                        <b>Size:
-                        </b>
-                        <span id="current-size">S</span>
                       </div>
                     </div>
                     <div id="cart-pre-comment" style="margin-bottom: 10px; font-size: 20px;"></div>
@@ -799,10 +803,51 @@
 
 <script>
   let productsArr = [];
+  const currentSize = document.querySelector("#current-size");
 
 // Get Products Info
   {% for prodInfo in collections['number-of-letters-products'].products %};
     productsArr.push({{ prodInfo | json }});{% endfor %}
+
+// Show Variant Price
+  const getPrice = () => {
+    const length = document
+      .querySelector("#textInput")
+      .value
+      .split("")
+      .filter((str) => str !== "\n" && str !== " ")
+      .length
+      .toString();
+
+    const currentSizeValue = currentSize.innerHTML;
+
+    const currentProduct = productsArr.filter(product => product.title.split(" ")[0] === length)[0]
+    if (! currentProduct) {
+      return;
+    }
+    const currentVariant = currentProduct.variants.filter(variant => variant.title === currentSizeValue)[0];
+    if (! currentVariant) {
+      return;
+    }
+    const staticPrice = document.querySelector("#csp-design-static-currency");
+    staticPrice.innerHTML = (+ currentVariant.price / 100.0).toFixed(2);
+  }
+
+  document.querySelector("#textInput").addEventListener("keyup", () => {
+    getPrice();
+  });
+  document.getElementsByClassName("size-radio-btn")[0].addEventListener("click", () => {
+    currentSize.innerHTML = "S";
+    getPrice();
+  });
+  document.getElementsByClassName("size-radio-btn")[1].addEventListener("click", () => {
+    currentSize.innerHTML = "M";
+    getPrice();
+  });
+  document.getElementsByClassName("size-radio-btn")[2].addEventListener("click", () => {
+    currentSize.innerHTML = "L";
+    getPrice();
+  });
 
 // Add done-btn handler
   const addToCartBtn = document.querySelector("#add-to-cart-btn");
@@ -897,8 +942,8 @@
 <script type="application/ld+json">
   {
   "@context": "http://schema.org/",
-                                                                                                                                                                                            "@type": "Product",
-                                                                                                                                                                                            "name": {{ product.title | json }},
+                                                                                                                                                                                                                                                                                                                    "@type": "Product",
+                                                                                                                                                                                                                                                                                                                    "name": {{ product.title | json }},
   "url": {{ request.origin | append: product.url | json }},
   {% if seo_media -%}
     "image": [
@@ -911,7 +956,7 @@
   {%- endif %}
   "brand": {
   "@type": "Brand",
-                                                                                                                                                                                              "name": {{ product.vendor | json }}
+                                                                                                                                                                                                                                                                                                                      "name": {{ product.vendor | json }}
   },
   "offers": [
   {%- for variant in product.variants -%}

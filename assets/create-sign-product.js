@@ -6,6 +6,7 @@ var currentFontHeight = window.ballantineHeight;
 
 const designBox = document.querySelector("#csp-design-box");
 const displayDesignText = document.querySelector("#sign-text-overlay");
+const cartPreDesignText = document.querySelector("#cart-prev-design-text");
 const measurementTexBox = document.querySelector(".measurement-text-box");
 const textInput = document.querySelector("#textInput");
 const fontSelector = document.querySelector("#csp-font-option");
@@ -22,6 +23,7 @@ const leftAlignBox = document.querySelector(".left-align-box");
 const centerAlignBox = document.querySelector(".center-align-box");
 const rightAlignBox = document.querySelector(".right-align-box");
 const alignBoxes = document.querySelectorAll(".csp-text-align-box");
+const preModal = document.querySelector("#cart-pre-notification");
 
 const rulerBtn = document.querySelector("#csp-ruler-btn");
 const rateBox = document.querySelector("#rate");
@@ -53,12 +55,28 @@ let fontSizes = {
   parsley: 100,
   "petit-form": 80,
   vivace: 110,
-  scriptmtbold: 100,
+  scriptmtbo: 100,
 };
 let currencyStatus = 0;
 
 /*********************************ROMEO'S WORK**********************************/
-var preModal = document.querySelector("#cart-pre-notification");
+const cartPreFontChange = () => {
+  var cartPreImageContainer = document.querySelector(".cart-pre-img-container");
+  var fontStr = cartPreDesignText.style.fontFamily;
+  let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
+  let fontSize = fontSizes[modifiedStr] / 3;
+  cartPreDesignText.style.fontSize = fontSize + "px";
+
+  while (
+    cartPreDesignText.scrollWidth >
+      (cartPreImageContainer.clientWidth - 20) * 0.8 &&
+    fontSize > 0
+  ) {
+    fontSize--;
+    cartPreDesignText.style.fontSize = fontSize + "px";
+  }
+};
+
 document.querySelector("#done-btn").addEventListener("click", () => {
   const text = textInput.value;
   if (text === "") {
@@ -66,15 +84,12 @@ document.querySelector("#done-btn").addEventListener("click", () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   } else {
-    const imageElement = document.querySelector("#cart-pre-img");
-    const divToCapture = document.querySelector("#csp-design-box");
-
-    html2canvas(divToCapture).then((canvas) => {
-      canvas.toBlob((blob) => {
-        imageElement.src = blob.toDataURL("image/png");
-      });
-    });
     preModal.style.display = "block";
+    var cartPreImage = document.querySelector("#cart-pre-img");
+    var cartPreDesignText = document.querySelector("#cart-prev-design-text");
+    cartPreImage.src = backgroundImage.src;
+    cartPreDesignText.innerHTML = text;
+    cartPreFontChange();
   }
 });
 document
@@ -119,6 +134,7 @@ rulerBtn.addEventListener("click", (event) => {
 
 window.addEventListener("resize", () => {
   countValue();
+  cartPreFontChange();
 });
 
 // Function to handle keyup events
@@ -178,17 +194,9 @@ function countValue() {
   ).toFixed(1)}in`;
 
   // Show Price
-  var totalPrice = document.querySelector("#csp-design-static-currency");
   var strlength = textInput.value
     .split("")
     .filter((str) => str !== "\n" && str !== " ").length;
-
-  if (strlength > 4)
-    totalPrice.textContent = (
-      4 * currencyStatus +
-      (strlength - 4) * 0.7 * currencyStatus
-    ).toFixed(2);
-  else totalPrice.textContent = (strlength * currencyStatus).toFixed(2);
 
   var quantityDisplay = document.getElementsByClassName("quantity__input")[0];
   quantityDisplay.value = 1;
@@ -222,9 +230,14 @@ function countValue() {
       currentColor.innerHTML = e.target.value;
       const valueLowCase = e.target.value.toLowerCase();
       displayDesignText.style.color = valueLowCase;
-      if (valueLowCase === "white")
+      cartPreDesignText.style.color = valueLowCase;
+      if (valueLowCase === "white") {
         displayDesignText.style.textShadow = "3px 1px 1px #000";
-      else displayDesignText.style.textShadow = "3px 1px 1px #fff";
+        cartPreDesignText.style.textShadow = "1px 1px 1px #000";
+      } else {
+        displayDesignText.style.textShadow = "3px 1px 1px #fff";
+        cartPreDesignText.style.textShadow = "1px 1px 1px #fff";
+      }
     }
   })
 );
@@ -301,6 +314,7 @@ fontSelector.addEventListener("click", function () {
           modifiedStr.charAt(0).toUpperCase() + modifiedStr.slice(1);
         fontInput.setAttribute("value", modifiedStr);
         displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
+        cartPreDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
         displayDesignText.style.fontSize = fontSizes[modifiedStr] + "px";
         if (modifiedStr === "brush-scri" || modifiedStr === "parsley")
           displayDesignText.style.fontWeight = 500;
@@ -375,6 +389,7 @@ fontSelector.addEventListener("click", function () {
 leftAlignBox.addEventListener("click", function () {
   removeAlignBoxStyle(alignBoxes);
   displayDesignText.style.textAlign = "left";
+  cartPreDesignText.style.textAlign = "left";
   alignBoxes[0].style.backgroundColor = "#353eac";
   iconLeftA.style.fill = "#68ffa8";
   currentAlign.innerHTML = "Left";
@@ -383,6 +398,7 @@ leftAlignBox.addEventListener("click", function () {
 centerAlignBox.addEventListener("click", function () {
   removeAlignBoxStyle(alignBoxes);
   displayDesignText.style.textAlign = "center";
+  cartPreDesignText.style.textAlign = "center";
   alignBoxes[1].style.backgroundColor = "#353eac";
   iconCenterA.style.fill = "#68ffa8";
   currentAlign.innerHTML = "Center";
@@ -391,6 +407,7 @@ centerAlignBox.addEventListener("click", function () {
 rightAlignBox.addEventListener("click", function () {
   removeAlignBoxStyle(alignBoxes);
   displayDesignText.style.textAlign = "right";
+  cartPreDesignText.style.textAlign = "right";
   alignBoxes[2].style.backgroundColor = "#353eac";
   iconRightA.style.fill = "#68ffa8";
   currentAlign.innerHTML = "Right";
