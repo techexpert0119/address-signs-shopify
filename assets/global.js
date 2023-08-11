@@ -1008,24 +1008,20 @@ class VariantSelects extends HTMLElement {
       input.value = this.currentVariant.id;
 
       const rateContainer = document.querySelector("#rate");
-      const sizeContainer = document.querySelector("#csp-design-static-size");
       const currentSize = document.querySelector("#current-size");
 
       // Size
       if (this.options[0] === "S") {
         currentSize.innerHTML = "S";
         rateContainer.innerHTML = 0.8;
-        sizeContainer.innerHTML = "8 × 72in";
       }
       if (this.options[0] === "M") {
         currentSize.innerHTML = "M";
         rateContainer.innerHTML = 1.0;
-        sizeContainer.innerHTML = "9 × 84in";
       }
       if (this.options[0] === "L") {
         currentSize.innerHTML = "L";
         rateContainer.innerHTML = 1.25;
-        sizeContainer.innerHTML = "10 × 96in";
       }
 
       countValue();
