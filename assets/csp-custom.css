@@ -497,6 +497,17 @@ input.prevent-highlight {
   line-break: anywhere;
 }
 .cart-pre-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-pre-price {
+  position: absolute;
+  right: 0;
+  font-size: 30px;
+}
+.cart-pre-upper-body {
   display: flex;
   align-items: center;
 }

@@ -646,9 +646,12 @@
                 {% endcomment %}
                 <div id="cart-pre-notification" class="cart-pre-notification">
                   <div class="cart-pre-notification-content">
-                    <h1 class="cart-pre-title">Add to Cart</h1>
-                    <hr style="margin: 0 !important">
                     <div class="cart-pre-header">
+                      <h1 class="cart-pre-title">Add to Cart</h1>
+                      <span class="cart-pre-price" id="cart-pre-price">0.00$</span>
+                    </div>
+                    <hr style="margin: 0 !important">
+                    <div class="cart-pre-upper-body">
                       <div class="cart-pre-img-container">
                         <span id="cart-prev-design-text" style="font-family:'ballantine',sans serif;"></span>
                         <img src="" id="cart-pre-img">
@@ -670,7 +673,10 @@
                       <div class="cart-pre-variant-item">
                         <b>Size:
                         </b>
-                        <span id="current-size">S</span>
+                        <span>
+                          <span id="current-size">S</span>
+                          <span id="current-width-height">(0.0×0.0in)</span>
+                        </span>
                       </div>
                       <div class="cart-pre-variant-item">
                         <b>Font:
@@ -830,7 +836,11 @@
       return;
     }
     const staticPrice = document.querySelector("#csp-design-static-currency");
+    const headerPrice = document.querySelector("#cart-pre-price");
     staticPrice.innerHTML = (+ currentVariant.price / 100.0).toFixed(2);
+    headerPrice.innerHTML = `${
+      (+ currentVariant.price / 100.0).toFixed(2)
+    }$`;
   }
 
   document.querySelector("#textInput").addEventListener("keyup", () => {
@@ -942,8 +952,8 @@
 <script type="application/ld+json">
   {
   "@context": "http://schema.org/",
-                                                                                                                                                                                                                                                                                                                    "@type": "Product",
-                                                                                                                                                                                                                                                                                                                    "name": {{ product.title | json }},
+                                                                                                                                                                                                                                                                                                                                                                                    "@type": "Product",
+                                                                                                                                                                                                                                                                                                                                                                                    "name": {{ product.title | json }},
   "url": {{ request.origin | append: product.url | json }},
   {% if seo_media -%}
     "image": [
@@ -956,7 +966,7 @@
   {%- endif %}
   "brand": {
   "@type": "Brand",
-                                                                                                                                                                                                                                                                                                                      "name": {{ product.vendor | json }}
+                                                                                                                                                                                                                                                                                                                                                                                      "name": {{ product.vendor | json }}
   },
   "offers": [
   {%- for variant in product.variants -%}

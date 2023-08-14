@@ -167,13 +167,13 @@ function countValue() {
   var smallSizeDisplay = document.getElementById("size-small");
   var mediumSizeDisplay = document.getElementById("size-medium");
   var largeSizeDisplay = document.getElementById("size-large");
+  var currentWidthHeight = document.getElementById("current-width-height");
 
   var rate = +rateBox.innerHTML;
   const height = (maxHeight * rate).toFixed(1);
   const width = (maxWidth * rate).toFixed(1);
 
   if (window.innerWidth > 990) {
-    dynamicSize.textContent = `${height} × ${width}in`;
     textHeightDislay.textContent = height;
     textWidthDislay.textContent = width;
   } else {
@@ -183,6 +183,8 @@ function countValue() {
       textWidthDislay.textContent = "0.0×0.0";
     }
   }
+  dynamicSize.textContent = `${height} × ${width}in`;
+  currentWidthHeight.textContent = `(${height} × ${width}in)`;
   smallSizeDisplay.textContent = `${(maxHeight * 0.8).toFixed(1)}×${(
     maxWidth * 0.8
   ).toFixed(1)}in`;
