@@ -24,7 +24,6 @@
     px;
   }
 }
-
 {%- endstyle -%} <link
   rel="stylesheet"
   href="{{ 'component-deferred-media.css' | asset_url }}"
@@ -872,6 +871,7 @@
     const currentColor = document.querySelector("#current-color").innerHTML;
     const currentMaterial = document.querySelector("#current-material").innerHTML;
     const currentSize = document.querySelector('#current-size').innerHTML;
+    const currentDimension = document.querySelector('#csp-design-static-size').innerHTML;
 
     const textInput = document.querySelector("#textInput").value;
     const currentLength = textInput
@@ -910,7 +910,8 @@
             "Alignment": currentAlign,
             "Color": currentColor,
             "Material": currentMaterial,
-            "Address": textInput
+            "Address": textInput,
+            "Dimension": currentDimension
           }
         }
       )
@@ -953,8 +954,8 @@
 <script type="application/ld+json">
   {
   "@context": "http://schema.org/",
-                                                                                                                                                                                                                                                                                                                                                                                    "@type": "Product",
-                                                                                                                                                                                                                                                                                                                                                                                    "name": {{ product.title | json }},
+                                                                                                                                                                                                                                                                                                                                                                                          "@type": "Product",
+                                                                                                                                                                                                                                                                                                                                                                                          "name": {{ product.title | json }},
   "url": {{ request.origin | append: product.url | json }},
   {% if seo_media -%}
     "image": [
@@ -967,7 +968,7 @@
   {%- endif %}
   "brand": {
   "@type": "Brand",
-                                                                                                                                                                                                                                                                                                                                                                                      "name": {{ product.vendor | json }}
+                                                                                                                                                                                                                                                                                                                                                                                            "name": {{ product.vendor | json }}
   },
   "offers": [
   {%- for variant in product.variants -%}
