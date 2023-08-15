@@ -71,6 +71,7 @@
 .csp-size-selection-box p {
   font-size: 14px;
   width: 100%;
+  color: rgb(128, 128, 128);
 }
 .csp-size-selection-box {
   padding-top: 10px;
@@ -128,6 +129,7 @@
 .csp-text-input-box p {
   font-size: 14px;
   width: 100%;
+  color: rgb(128, 128, 128);
 }
 .csp-text-align-box {
   padding: 5px;

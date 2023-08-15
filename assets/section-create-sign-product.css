@@ -242,6 +242,10 @@ fieldset.product-form__input .form__label {
   background-color: rgb(var(--color-foreground));
   color: rgb(var(--color-background));
 }
+.product-form__input input[type="radio"]:not(:checked) + label {
+  border: 1px solid #353eac;
+  color: #353eac;
+}
 
 @media screen and (forced-colors: active) {
   .product-form__input input[type="radio"]:checked + label {
