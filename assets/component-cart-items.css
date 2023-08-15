@@ -59,6 +59,9 @@
 
 .cart-item__media {
   position: relative;
+  white-space: break-spaces;
+  text-wrap: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .cart-item__link {
@@ -111,6 +114,13 @@
   line-height: calc(1 + 0.5 / var(--font-body-scale));
 }
 
+.product-option dd {
+  word-break: break-word;
+  white-space: break-spaces;
+  text-wrap: nowrap;
+  overflow-wrap: anywhere;
+}
+
 .cart-item cart-remove-button {
   display: flex;
   margin-left: 1rem;
@@ -131,7 +141,7 @@ cart-remove-button .button {
 }
 
 cart-remove-button .button:before,
-cart-remove-button .button:after  {
+cart-remove-button .button:after {
   content: none;
 }
 
