@@ -63,11 +63,13 @@
               {%- for item in cart.items -%}
                 {%- for property in item.properties -%}
                   {% if property.first == 'Font' %}
-                    {{property.last}}
                     {% assign addressFont = property.last %}
                   {% endif %}
                   {% if property.first == 'Address' %}
                     {% assign addressSign = property.last %}
+                  {% endif %}
+                  {% if property.first == 'Alignment' %}
+                    {% assign addressAlignment = property.last %}
                   {% endif %}
                 {%- endfor -%}
                 <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
@@ -86,7 +88,7 @@
                           </div>
 
                       {% else %}
-                        <h2 style="font-family: '{{addressFont}}'">{{addressSign}}</h2>
+                        <h2 style="font-family: '{{addressFont}}';text-align:{{addressAlignment}};">{{addressSign}}</h2>
                     {% endif %}
                   </td>
 
@@ -95,9 +97,9 @@
                       <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
                     {%- endif -%}
 
-                    <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
+                    {% comment %} <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a> {% endcomment %}
 
-                    {%- if item.original_price != item.final_price -%}
+                    {% comment %} {%- if item.original_price != item.final_price -%}
                       <div class="cart-item__discounted-prices">
                         <span class="visually-hidden">
                           {{ 'products.product.price.regular_price' | t }}
@@ -116,7 +118,7 @@
                       <div class="product-option">
                         {{ item.original_price | money }}
                       </div>
-                    {%- endif -%}
+                    {%- endif -%} {% endcomment %}
 
                     {%- if item.product.has_only_default_variant == false or item.properties.size != 0 or item.selling_plan_allocation != nil -%}
                       <dl>

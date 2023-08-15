@@ -228,6 +228,7 @@ function countValue() {
 
 [radioColorBlack, radioColorWhite].forEach((color) =>
   color.addEventListener("change", (e) => {
+    console.log(e.currentTarget);
     if (e.target.checked) {
       currentColor.innerHTML = e.target.value;
       const valueLowCase = e.target.value.toLowerCase();
