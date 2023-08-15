@@ -537,6 +537,13 @@ input.prevent-highlight {
 }
 
 @media screen and (max-width: 778px) {
+  .cart-pre-price {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  .cart-pre-header {
+    flex-direction: column;
+  }
   .cart-pre-variant-item {
     width: 100%;
     padding: 0px 20px 10px;
