@@ -310,10 +310,7 @@ fontSelector.addEventListener("click", function () {
         e.currentTarget.style.color = "#68ffa8";
         e.currentTarget.style.backgroundColor = "#353eac";
         let fontStr = e.currentTarget.style.fontFamily;
-        let displayStr = fontStr.split(",")[0];
         let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
-        fontSelector.textContent =
-          modifiedStr.charAt(0).toUpperCase() + modifiedStr.slice(1);
         fontInput.setAttribute("value", modifiedStr);
         displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
         cartPreDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
@@ -323,48 +320,56 @@ fontSelector.addEventListener("click", function () {
         else displayDesignText.style.fontWeight = 700;
 
         // THIS WORKS BUT NEED THE fontSizes TO BE THE CORRECT NAMES
-        console.log("Modified String: " + modifiedStr);
+        console.log("Font: " + e.currentTarget.style.fontFamily);
 
         switch (modifiedStr) {
           case "ballantine":
             currentFontWidth = window.ballantineWidth;
             currentFontHeight = window.ballantineHeight;
             currentFont.innerHTML = "Baroque";
+            fontSelector.textContent = "Baroque";
             break;
           case "seashore":
             currentFontWidth = window.seashoreWidth;
             currentFontHeight = window.seashoreHeight;
             currentFont.innerHTML = "Gemstone";
+            fontSelector.textContent = "Gemstone";
             break;
           case "brush-scri":
             currentFontWidth = window.brushScriptWidth;
             currentFontHeight = window.brushScriptHeight;
             currentFont.innerHTML = "Vintage";
+            fontSelector.textContent = "Vintage";
             break;
           case "commercial":
             currentFontWidth = window.commercialWidth;
             currentFontHeight = window.commercialHeight;
             currentFont.innerHTML = "Radiant";
+            fontSelector.textContent = "Radiant";
             break;
           case "parsley":
             currentFontWidth = window.parsleyWidth;
             currentFontHeight = window.parsleyHeight;
             currentFont.innerHTML = "Regal";
+            fontSelector.textContent = "Regal";
             break;
           case "petit-form":
             currentFontWidth = window.petitFormalWidth;
             currentFontHeight = window.petitFormalHeight;
             currentFont.innerHTML = "Contemporary";
+            fontSelector.textContent = "Contemporary";
             break;
           case "scriptmtbo":
             currentFontWidth = window.scriptMTBoldWidth;
             currentFontHeight = window.scriptMTBoldHeight;
             currentFont.innerHTML = "Novel";
+            fontSelector.textContent = "Novel";
             break;
           case "vivace":
             currentFontWidth = window.vivaceWidth;
             currentFontHeight = window.vivaceHeight;
             currentFont.innerHTML = "Vivace";
+            fontSelector.textContent = "Vivace";
             break;
         }
 
