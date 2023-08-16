@@ -58,12 +58,28 @@
                 <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
               </tr>
             </thead>
-           
             <tbody>
               {%- for item in cart.items -%}
                 {%- for property in item.properties -%}
                   {% if property.first == 'Font' %}
-                    {% assign addressFont = property.last %}
+                    {% case property.last %}
+                      {% when "Baroque" %}
+                        {% assign addressFont = "ballantine" %}
+                      {% when "Gemstone" %}
+                        {% assign addressFont = "seashore" %}
+                      {% when "Vintage" %}
+                        {% assign addressFont = "brush-script" %}
+                      {% when "Radiant" %}
+                        {% assign addressFont = "commercial-script" %}
+                      {% when "Regal" %}
+                        {% assign addressFont = "parsley" %}
+                      {% when "Contemporary" %}
+                        {% assign addressFont = "petit-formal" %}
+                      {% when "Novel" %}
+                        {% assign addressFont = "scriptmtbold" %}
+                      {% else %}
+                        {% assign addressFont = "vivace" %}
+                    {% endcase %}
                   {% endif %}
                   {% if property.first == 'Address' %}
                     {% assign addressSign = property.last %}
