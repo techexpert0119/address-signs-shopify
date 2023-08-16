@@ -953,8 +953,8 @@
 <script type="application/ld+json">
   {
   "@context": "http://schema.org/",
-                                                                                                                                                                                                                                                                                                                                                                                                                                      "@type": "Product",
-                                                                                                                                                                                                                                                                                                                                                                                                                                      "name": {{ product.title | json }},
+                                                                                                                                                                                                                                                                                                                                                                                                                                                "@type": "Product",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                "name": {{ product.title | json }},
   "url": {{ request.origin | append: product.url | json }},
   {% if seo_media -%}
     "image": [
@@ -967,7 +967,7 @@
   {%- endif %}
   "brand": {
   "@type": "Brand",
-                                                                                                                                                                                                                                                                                                                                                                                                                                        "name": {{ product.vendor | json }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  "name": {{ product.vendor | json }}
   },
   "offers": [
   {%- for variant in product.variants -%}
