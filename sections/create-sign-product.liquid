@@ -82,7 +82,7 @@
               </div>
             </div>
 
-            <p id="sign-text-overlay" style="font-family:'ballantine',sans serif;"> My House Number</p>
+            <p id="sign-text-overlay" style="font-family:'ballantine',sans serif;">My House Number</p>
           </div>
 
           <div class="measure-width-cont">
@@ -186,8 +186,8 @@
                   row="5"
                   col="2"
                   maxlength="40"
-                  name="properties[Address]"></textarea>
-
+                  name="properties[Address]"
+                  style="resize: none;"></textarea>
               {%- endform -%}
               <p style="margin: 0 0 20px 5px;">Hit Return to go into the next line.</p>
             </div>
@@ -201,7 +201,7 @@
                   <button
                     type="button"
                     id="csp-font-option"
-                    value="ballantine">Ballantine</button>
+                    value="ballantine">Baroque</button>
                   <input
                     class="csp-font-input"
                     type="hidden"
@@ -235,13 +235,13 @@
               </div>
               <div style="grid-template-rows: 0fr;" class="csp-grid-dropdown">
                 <div class="csp-font-grid">
-                  <div style="font-family:'ballantine',sans serif;font-size:30px;line-height:35px;" class="csp-font-item">Ballantine</div>
-                  <div style="font-family:'seashore',sans serif;font-size: 14px;line-height:43px;" class="csp-font-item">Black Seashore</div>
-                  <div style="font-family:'brush-script',sans serif;font-size:20px;line-height:45px;" class="csp-font-item">Brush Script</div>
-                  <div style="font-family:'commercial-script',sans serif;font-size:14px;line-height:45px;" class="csp-font-item">Commercial Script</div>
-                  <div style="font-family:'parsley',sans serif;font-size:24px;line-height:45px;" class="csp-font-item">Parsley</div>
-                  <div style="font-family:'petit-formal',sans serif;font-size:14px;line-height:45px;" class="csp-font-item">Petit Formal</div>
-                  <div style="font-family:'scriptmtbold',sans serif;font-size:18px;line-height:45px;" class="csp-font-item">ScriptMTBold</div>
+                  <div style="font-family:'ballantine',sans serif;font-size:30px;line-height:35px;" class="csp-font-item">Baroque</div>
+                  <div style="font-family:'seashore',sans serif;font-size: 14px;line-height:43px;" class="csp-font-item">Gemstone</div>
+                  <div style="font-family:'brush-script',sans serif;font-size:20px;line-height:45px;" class="csp-font-item">Vintage</div>
+                  <div style="font-family:'commercial-script',sans serif;font-size:14px;line-height:45px;" class="csp-font-item">Radiant</div>
+                  <div style="font-family:'parsley',sans serif;font-size:24px;line-height:45px;" class="csp-font-item">Regal</div>
+                  <div style="font-family:'petit-formal',sans serif;font-size:14px;line-height:45px;" class="csp-font-item">Contemporary</div>
+                  <div style="font-family:'scriptmtbold',sans serif;font-size:18px;line-height:45px;" class="csp-font-item">Novel</div>
                   <div style="font-family:'vivace',sans serif;font-size:22px;line-height:40px;" class="csp-font-item">Vivace</div>
                 </div>
               </div>
@@ -681,7 +681,7 @@
                       <div class="cart-pre-variant-item">
                         <b>Font:
                         </b>
-                        <span id="current-font">ballantine</span>
+                        <span id="current-font">Baroque</span>
                       </div>
                       <div class="cart-pre-variant-item">
                         <b>Alignment:
@@ -701,7 +701,7 @@
                     </div>
                     <div id="cart-pre-comment" style="margin-bottom: 10px; font-size: 20px;"></div>
                     <div class="cart-pre-btn-wrapper">
-                      <button id="cancel-prev-modal-btn" class="cart-pre-notification-btn">Cancel</button>
+                      <button id="cancel-prev-modal-btn" class="cart-pre-notification-btn">EDIT DESIGN</button>
                       <product-form class="product-form">
                         {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                           <input
@@ -714,7 +714,7 @@
                               id="add-to-cart-btn"
                               class="cart-pre-notification-btn"
                               {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
-                              <div style="display: flex; align-items: center;">
+                              <div style="display: flex; align-items: center; justify-content: space-around; ">
                                 <div class="loading-overlay__spinner hidden">
                                   <svg
                                     aria-hidden="true"
@@ -732,7 +732,7 @@
                                       r="30" />
                                   </svg>
                                 </div>
-                                <div>Add to cart</div>
+                                <div>ADD TO BAG</div>
                               </div>
                             </button>
                           </div>
@@ -741,22 +741,21 @@
                       <button
                         id="view-cart-btn"
                         class="cart-pre-notification-btn"
-                        style="display: none;">View Cart</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="product-form">
-                  <div style="max-width: 35rem; width:100%; ">
-                    <div class="product-form__buttons cust-btn">
-                      <button id="done-btn" class="csp-cta-btn">
-                        <div>DONE</div>
-                      </button>
+                        style="display: none;">VIEW CART</button>
                     </div>
                   </div>
                 </div>
               {%- endcase -%}
             {%- endfor -%}
+          </div>
+          <div class="product-form" style="position: sticky; bottom: 0;">
+            <div style="max-width: 35rem; width:100%; ">
+              <div class="product-form__buttons cust-btn">
+                <button id="done-btn" class="csp-cta-btn">
+                  <div>DONE</div>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -866,7 +865,7 @@
   addToCartBtn.addEventListener("click", () => {
     const comment = document.querySelector("#cart-pre-comment");
 
-    const currentFont = document.querySelector('#current-font').innerHTML;
+    const currentFontText = document.querySelector('#current-font').innerHTML;
     const currentAlign = document.querySelector("#current-align").innerHTML;
     const currentColor = document.querySelector("#current-color").innerHTML;
     const currentMaterial = document.querySelector("#current-material").innerHTML;
@@ -906,7 +905,7 @@
           id: currentVariant.id,
           quantity: 1,
           properties: {
-            "Font": currentFont,
+            "Font": currentFontText,
             "Alignment": currentAlign,
             "Color": currentColor,
             "Material": currentMaterial,
@@ -954,8 +953,8 @@
 <script type="application/ld+json">
   {
   "@context": "http://schema.org/",
-                                                                                                                                                                                                                                                                                                                                                                                          "@type": "Product",
-                                                                                                                                                                                                                                                                                                                                                                                          "name": {{ product.title | json }},
+                                                                                                                                                                                                                                                                                                                                                                                                                                      "@type": "Product",
+                                                                                                                                                                                                                                                                                                                                                                                                                                      "name": {{ product.title | json }},
   "url": {{ request.origin | append: product.url | json }},
   {% if seo_media -%}
     "image": [
@@ -968,7 +967,7 @@
   {%- endif %}
   "brand": {
   "@type": "Brand",
-                                                                                                                                                                                                                                                                                                                                                                                            "name": {{ product.vendor | json }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                        "name": {{ product.vendor | json }}
   },
   "offers": [
   {%- for variant in product.variants -%}

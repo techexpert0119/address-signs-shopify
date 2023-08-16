@@ -5,7 +5,7 @@
   background-color: red;
 }
 .design-container {
-  padding: 20px 20px;
+  padding: 20px 20px 10px;
 }
 #csp-background-img {
   display: block !important;
@@ -464,11 +464,12 @@ input.prevent-highlight {
   justify-content: center;
 }
 .cart-pre-notification-btn {
-  width: 160px;
-  height: 60px;
+  width: 210px;
+  height: 55px;
+  border-radius: 10px;
   background-color: #353eac;
   color: #fff;
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 600;
   letter-spacing: 3px;
   cursor: pointer;
