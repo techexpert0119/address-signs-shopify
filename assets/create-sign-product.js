@@ -228,7 +228,6 @@ function countValue() {
 
 [radioColorBlack, radioColorWhite].forEach((color) =>
   color.addEventListener("change", (e) => {
-    console.log(e.currentTarget);
     if (e.target.checked) {
       currentColor.innerHTML = e.target.value;
       const valueLowCase = e.target.value.toLowerCase();
@@ -324,41 +323,48 @@ fontSelector.addEventListener("click", function () {
         else displayDesignText.style.fontWeight = 700;
 
         // THIS WORKS BUT NEED THE fontSizes TO BE THE CORRECT NAMES
-        currentFont.innerHTML = displayStr;
         console.log("Modified String: " + modifiedStr);
 
         switch (modifiedStr) {
           case "ballantine":
             currentFontWidth = window.ballantineWidth;
             currentFontHeight = window.ballantineHeight;
+            currentFont.innerHTML = "Baroque";
             break;
           case "seashore":
             currentFontWidth = window.seashoreWidth;
             currentFontHeight = window.seashoreHeight;
+            currentFont.innerHTML = "Gemstone";
             break;
           case "brush-scri":
             currentFontWidth = window.brushScriptWidth;
             currentFontHeight = window.brushScriptHeight;
+            currentFont.innerHTML = "Vintage";
             break;
           case "commercial":
             currentFontWidth = window.commercialWidth;
             currentFontHeight = window.commercialHeight;
+            currentFont.innerHTML = "Radiant";
             break;
           case "parsley":
             currentFontWidth = window.parsleyWidth;
             currentFontHeight = window.parsleyHeight;
+            currentFont.innerHTML = "Regal";
             break;
           case "petit-form":
             currentFontWidth = window.petitFormalWidth;
             currentFontHeight = window.petitFormalHeight;
+            currentFont.innerHTML = "Contemporary";
             break;
           case "scriptmtbo":
             currentFontWidth = window.scriptMTBoldWidth;
             currentFontHeight = window.scriptMTBoldHeight;
+            currentFont.innerHTML = "Novel";
             break;
           case "vivace":
             currentFontWidth = window.vivaceWidth;
             currentFontHeight = window.vivaceHeight;
+            currentFont.innerHTML = "Vivace";
             break;
         }
 
