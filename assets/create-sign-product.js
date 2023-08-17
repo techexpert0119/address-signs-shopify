@@ -208,13 +208,15 @@ function countValue() {
 
   // Control Font Size
   var container = document.getElementsByClassName("height-text-box")[0];
+
   var fontStr = displayDesignText.style.fontFamily;
   let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
   let fontSize = fontSizes[modifiedStr];
 
   displayDesignText.style.fontSize = fontSize + "px";
   while (
-    displayDesignText.scrollWidth > container.clientWidth &&
+    (displayDesignText.scrollWidth > container.clientWidth ||
+      container.scrollHeight > designBox.clientHeight - 220) &&
     fontSize > 0
   ) {
     fontSize--;
