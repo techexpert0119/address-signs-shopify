@@ -292,16 +292,18 @@ backgroundSwatches.forEach((swatch) => {
 });
 
 fontGrid.style.display = "none";
+fontGridItem[0].style.backgroundColor = "#353eac";
+fontGridItem[0].style.color = "#68ffa8";
 fontSelector.addEventListener("click", function () {
   if (fontDropdownGrid.style.gridTemplateRows === "0fr") {
     fontGrid.style.display = "grid";
     fontDropdownGrid.style.gridTemplateRows = "1fr";
     iconCarat.style.transform = "rotate(180deg)";
     for (let i = 0; i < fontGridItem.length; i++) {
-      if (i === 0) {
-        fontGridItem[i].style.color = "#68ffa8";
-        fontGridItem[i].style.backgroundColor = "#353eac";
-      }
+      // if (i === 0) {
+      //   fontGridItem[i].style.color = "#68ffa8";
+      //   fontGridItem[i].style.backgroundColor = "#353eac";
+      // }
       fontGridItem[i].addEventListener("click", function (e) {
         for (let x = 0; x < fontGridItem.length; x++) {
           fontGridItem[x].style.color = "rgb(53, 62, 172)";
