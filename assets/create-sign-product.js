@@ -107,6 +107,19 @@ document
 document.querySelector("#alert-closebtn").addEventListener("click", () => {
   alertBox.style.display = "none";
 });
+document.querySelector("#close-modal-xBtn").addEventListener("click", () => {
+  preModal.style.display = "none";
+  const comment = document.querySelector("#cart-pre-comment");
+  const addToCartBtn = document.querySelector("#add-to-cart-btn");
+  const viewCartbtn = document.querySelector("#view-cart-btn");
+
+  comment.innerHTML = "";
+  addToCartBtn.style.display = "block";
+  viewCartbtn.style.display = "none";
+});
+document.querySelector("#alert-closebtn").addEventListener("click", () => {
+  alertBox.style.display = "none";
+});
 
 setInterval(function () {
   let currency = document.querySelector("#currency_status");
