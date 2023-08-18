@@ -63,11 +63,6 @@
   text-shadow: #ffffff -1px -1px 0px, #ffffff -1px 1px 0px, #ffffff 1px 1px 0px,
     #ffffff 1px -1px 0px;
 }
-@media screen and (max-width: 778px) {
-  #csp-ruler-btn svg {
-    translate: 0 2px;
-  }
-}
 /*******************************************************************************/
 .csp-color-selection-box {
   padding-top: 15px;
@@ -428,6 +423,17 @@ input.prevent-highlight {
 }
 .cust-btn {
   max-width: 500px;
+}
+#csp-ruler-btn svg {
+  translate: 0 1px;
+}
+@media screen and (max-width: 778px) {
+  #csp-ruler-btn svg {
+    translate: -4px 2px;
+  }
+  .measurement-text-box {
+    left: 50%;
+  }
 }
 
 /*********************ALERT*********************/
