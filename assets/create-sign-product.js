@@ -50,12 +50,12 @@ const breakTag = `<br>`;
 let fontSizes = {
   ballantine: 130,
   seashore: 80,
-  "brush-scri": 100,
-  commercial: 110,
+  "brush-script": 100,
+  "commercial-script": 110,
   parsley: 100,
-  "petit-form": 80,
+  "petit-formal": 80,
   vivace: 110,
-  scriptmtbo: 100,
+  scriptmtbold: 100,
 };
 let currencyStatus = 0;
 
@@ -221,9 +221,8 @@ function countValue() {
 
   // Control Font Size
   var container = document.getElementsByClassName("height-text-box")[0];
-
   var fontStr = displayDesignText.style.fontFamily;
-  let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
+  let modifiedStr = fontStr.split(",")[0].replaceAll('"', "");
   let fontSize = fontSizes[modifiedStr];
 
   displayDesignText.style.fontSize = fontSize + "px";
@@ -327,17 +326,17 @@ fontSelector.addEventListener("click", function () {
         e.currentTarget.style.color = "#68ffa8";
         e.currentTarget.style.backgroundColor = "#353eac";
         let fontStr = e.currentTarget.style.fontFamily;
-        let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
+        let modifiedStr = fontStr.split(",")[0].replaceAll('"', "");
         fontInput.setAttribute("value", modifiedStr);
         displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
         cartPreDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
         displayDesignText.style.fontSize = fontSizes[modifiedStr] + "px";
-        if (modifiedStr === "brush-scri" || modifiedStr === "parsley")
+        if (modifiedStr === "brush-script" || modifiedStr === "parsley")
           displayDesignText.style.fontWeight = 500;
         else displayDesignText.style.fontWeight = 700;
 
         // THIS WORKS BUT NEED THE fontSizes TO BE THE CORRECT NAMES
-        console.log("Font: " + e.currentTarget.style.fontFamily);
+        console.log("Font: " + modifiedStr);
 
         switch (modifiedStr) {
           case "ballantine":
@@ -352,13 +351,13 @@ fontSelector.addEventListener("click", function () {
             currentFont.innerHTML = "Gemstone";
             fontSelector.textContent = "Gemstone";
             break;
-          case "brush-scri":
+          case "brush-script":
             currentFontWidth = window.brushScriptWidth;
             currentFontHeight = window.brushScriptHeight;
             currentFont.innerHTML = "Vintage";
             fontSelector.textContent = "Vintage";
             break;
-          case "commercial":
+          case "commercial-script":
             currentFontWidth = window.commercialWidth;
             currentFontHeight = window.commercialHeight;
             currentFont.innerHTML = "Radiant";
@@ -370,13 +369,13 @@ fontSelector.addEventListener("click", function () {
             currentFont.innerHTML = "Regal";
             fontSelector.textContent = "Regal";
             break;
-          case "petit-form":
+          case "petit-formal":
             currentFontWidth = window.petitFormalWidth;
             currentFontHeight = window.petitFormalHeight;
             currentFont.innerHTML = "Contemporary";
             fontSelector.textContent = "Contemporary";
             break;
-          case "scriptmtbo":
+          case "scriptmtbold":
             currentFontWidth = window.scriptMTBoldWidth;
             currentFontHeight = window.scriptMTBoldHeight;
             currentFont.innerHTML = "Novel";

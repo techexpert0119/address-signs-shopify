@@ -273,8 +273,7 @@
   text-shadow: #fff 2px 1px 1px;
   font-weight: 700;
   line-height: normal;
-  white-space: break-spaces;
-  text-wrap: nowrap;
+  white-space: pre;
 }
 #csp-measure-hr {
   width: 100%;
@@ -540,8 +539,7 @@ input.prevent-highlight {
   text-shadow: 1px 1px 1px #fff;
   line-height: normal;
   overflow-wrap: break-word;
-  white-space: break-spaces;
-  text-wrap: nowrap;
+  white-space: pre;
 }
 #cart-pre-img {
   width: 100%;
