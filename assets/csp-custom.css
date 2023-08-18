@@ -434,7 +434,7 @@ input.prevent-highlight {
     left: 50%;
   }
   #sign-text-overlay {
-    text-shadow: #fff 0px 1px 0px;
+    text-shadow: #fff 1px 2px 0;
   }
 }
 

@@ -45,8 +45,6 @@ const radioMaterialGlossy = document.querySelector("#material-radio-glossy");
 iconLeftA.parentNode.parentNode.style.backgroundColor = "#353eac";
 iconLeftA.style.fill = "#68ffa8";
 
-document.body.style = "overflow:hidden;";
-
 const breakTag = `<br>`;
 
 let fontSizes = {
