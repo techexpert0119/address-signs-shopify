@@ -63,7 +63,7 @@ let currencyStatus = 0;
 const cartPreFontChange = () => {
   var cartPreImageContainer = document.querySelector(".cart-pre-img-container");
   var fontStr = cartPreDesignText.style.fontFamily;
-  let modifiedStr = fontStr.split(",")[0].split("").slice(0, 10).join("");
+  let modifiedStr = fontStr.split(",")[0].replaceAll('"', "");
   let fontSize = fontSizes[modifiedStr] / 3;
   cartPreDesignText.style.fontSize = fontSize + "px";
 
