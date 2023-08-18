@@ -228,7 +228,7 @@ function countValue() {
   displayDesignText.style.fontSize = fontSize + "px";
   while (
     (displayDesignText.scrollWidth > container.clientWidth ||
-      container.scrollHeight > designBox.clientHeight - 260) &&
+      container.scrollHeight > designBox.clientHeight - 270) &&
     fontSize > 0
   ) {
     fontSize--;
