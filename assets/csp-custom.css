@@ -574,6 +574,7 @@ input.prevent-highlight {
 .cart-pre-closeBtn svg {
   width: 20px;
   height: 20px;
+  fill: #353eac;
 }
 #cart-pre-comment {
   margin-bottom: 10px;
