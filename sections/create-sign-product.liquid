@@ -646,7 +646,9 @@
                 {% endcomment %}
                 <div id="cart-pre-notification" class="cart-pre-notification">
                   <div class="cart-pre-notification-content">
-                    <div class="cart-pre-closeBtn"><span id="close-modal-xBtn">X</span></div>
+                    <div class="cart-pre-closeBtn">
+                      <div id="close-modal-xBtn" class="mod-x-char">{% render 'icon-x-close' %}</div>
+                    </div>
                     <div class="cart-pre-header">
                       <h1 class="cart-pre-title">Add to Cart</h1>
                       <span class="cart-pre-price" id="cart-pre-price">$0.00</span>
@@ -700,7 +702,7 @@
                         <span id="current-material">Matte</span>
                       </div>
                     </div>
-                    <div id="cart-pre-comment" style="margin-bottom: 10px; font-size: 20px;"></div>
+                    <div id="cart-pre-comment"></div>
                     <div class="cart-pre-btn-wrapper">
                       <button id="cancel-prev-modal-btn" class="cart-pre-notification-btn">EDIT DESIGN</button>
                       <product-form class="product-form">
