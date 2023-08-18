@@ -20,11 +20,12 @@
   height: 45px;
   top: 25px;
   left: 50%;
-  translate: -24px;
+  transform: translate(-24px, 0);
   border-radius: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .csp-design-ruler-btn {
+  padding: 0;
   width: 100%;
   height: 100%;
   background-color: white;
@@ -170,7 +171,7 @@
   position: absolute;
   left: 50%;
   bottom: 25px;
-  translate: -50%;
+  transform: translate(-50%);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -426,12 +427,12 @@ input.prevent-highlight {
   max-width: 500px;
 }
 #csp-ruler-btn svg {
-  translate: 0 1px;
+  transform: translate(0, 2px);
 }
 @media screen and (max-width: 778px) {
-  #csp-ruler-btn svg {
-    translate: -4px 2px;
-  }
+  /* #csp-ruler-btn svg {
+    transform: translate(-4px, 2px);
+  } */
   .measurement-text-box {
     left: 50%;
   }
@@ -617,7 +618,7 @@ input.prevent-highlight {
     width: 90%;
     padding-left: 10px;
     padding-right: 10px;
-    translate: 0 -50px;
+    transform: translate(0, -50px);
   }
   .cart-pre-notification-btn {
     font-size: 14px;
