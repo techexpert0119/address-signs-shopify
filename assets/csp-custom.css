@@ -53,8 +53,9 @@
   line-height: normal !important;
 }
 .csp-design-static-size {
+  z-index: 1;
   font-size: 32px;
-  line-height: normal !important;
+  line-height: 0.5 !important;
 }
 .measure-width-cont {
   width: 100%;
