@@ -157,7 +157,7 @@
 }
 .csp-inner-cont {
   display: flex;
-  height: 86.4vh;
+  height: 90.1vh;
   overflow: hidden;
 }
 .design-box {
@@ -432,6 +432,9 @@ input.prevent-highlight {
   }
   .measurement-text-box {
     left: 50%;
+  }
+  #sign-text-overlay {
+    text-shadow: #fff 0px 1px 0px;
   }
 }
 
