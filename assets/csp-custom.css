@@ -157,7 +157,7 @@
 }
 .csp-inner-cont {
   display: flex;
-  height: 90.1vh;
+  height: calc(100vh - 77.6px);
   overflow: hidden;
 }
 .design-box {
@@ -204,6 +204,7 @@
   width: 25%;
   max-width: 400px;
   min-width: 300px;
+  position: relative;
 }
 .measure-height-cont {
   position: absolute;
