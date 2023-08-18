@@ -1,4 +1,25 @@
 /* theme copy */
+/* For Webkit browsers */
+body::-webkit-scrollbar {
+  width: 8px; /* Width */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: lightgrey; /* Thumb color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+  border-radius: 10px;
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: thin; /* Width of the scrollbar */
+  scrollbar-color: lightgrey #f1f1f1; /* Thumb and Track color */
+}
+
 #my-element {
   width: 200px;
   height: 200px;
@@ -13,6 +34,7 @@
   height: 100%;
   background-size: 600px;
 }
+
 /*********************************ROMEO'S WORK**********************************/
 .csp-design-ruler {
   position: absolute;
@@ -157,6 +179,9 @@
   border: 2px solid #353eac;
   border-radius: 10px;
 }
+.csp-text-input-box textarea::placeholder {
+  color: lightgray;
+}
 .csp-inner-cont {
   display: flex;
   height: calc(100vh - 77.6px);
@@ -207,7 +232,13 @@
   max-width: 400px;
   min-width: 300px;
   position: relative;
+  scrollbar-width: none; /* Firefox */
 }
+.csp-right-column::-webkit-scrollbar {
+  /* Chrome, Safari, Edge */
+  display: none;
+}
+
 .measure-height-cont {
   position: absolute;
   top: 0px;
@@ -271,6 +302,7 @@
   text-shadow: #fff 2px 1px 1px;
   font-weight: 700;
   line-height: 0.8;
+  letter-spacing: 0;
   white-space: pre;
 }
 #csp-measure-hr {
