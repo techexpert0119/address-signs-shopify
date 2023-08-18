@@ -59,8 +59,7 @@
 
 .cart-item__media {
   position: relative;
-  white-space: break-spaces;
-  text-wrap: nowrap;
+  white-space: pre;
   overflow-wrap: anywhere;
 }
 
@@ -116,8 +115,7 @@
 
 .product-option dd {
   word-break: break-word;
-  white-space: break-spaces;
-  text-wrap: nowrap;
+  white-space: pre;
   overflow-wrap: anywhere;
 }
 
