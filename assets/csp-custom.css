@@ -242,7 +242,7 @@ body {
 .measure-height-cont {
   position: absolute;
   top: 0px;
-  right: 100%;
+  right: 101%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -302,7 +302,7 @@ body {
   text-shadow: #fff 2px 1px 1px;
   font-weight: 700;
   line-height: 0.8;
-  letter-spacing: 0;
+  letter-spacing: 5px;
   white-space: pre;
 }
 #csp-measure-hr {
