@@ -58,6 +58,7 @@ let fontSizes = {
   scriptmtbold: 100,
 };
 let currencyStatus = 0;
+let showMeasureBar = true;
 
 /*********************************ROMEO'S WORK**********************************/
 const cartPreFontChange = () => {
@@ -131,24 +132,39 @@ setInterval(function () {
   }
 }, 100);
 
-rulerBtn.addEventListener("click", (event) => {
-  const horizontalRuler = document.querySelector(".measure-height-cont");
-  const verticalRuler = document.querySelector(".measure-width-cont");
-  const viewStatus = horizontalRuler.style.display;
-
-  if (viewStatus !== "none") {
-    horizontalRuler.style.display = "none";
-    verticalRuler.style.display = "none";
-  } else {
-    horizontalRuler.style.display = "flex";
-    verticalRuler.style.display = "block";
-  }
+rulerBtn.addEventListener("click", () => {
+  if (showMeasureBar === true) showMeasureBar = false;
+  else showMeasureBar = true;
+  changeRulerDisplay();
 });
+
+// window.addEventListener("load", () => {
+//   changeRulerDisplay();
+// });
 
 window.addEventListener("resize", () => {
   countValue();
   cartPreFontChange();
+  changeRulerDisplay();
 });
+
+const changeRulerDisplay = () => {
+  const verticalRuler = document.querySelector(".measure-height-cont");
+  const horizontalRuler = document.querySelector(".measure-width-cont");
+
+  if (showMeasureBar) {
+    if (window.innerWidth > 990) {
+      verticalRuler.style.display = "flex";
+      horizontalRuler.style.display = "block";
+    } else {
+      verticalRuler.style.display = "none";
+      horizontalRuler.style.display = "block";
+    }
+  } else {
+    verticalRuler.style.display = "none";
+    horizontalRuler.style.display = "none";
+  }
+};
 
 // Function to handle keyup events
 function countValue() {
