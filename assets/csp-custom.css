@@ -302,7 +302,7 @@ body {
   text-shadow: #fff 2px 1px 1px;
   font-weight: 700;
   line-height: 0.8;
-  letter-spacing: 0;
+  letter-spacing: -1px;
   white-space: pre;
 }
 #csp-measure-hr {
