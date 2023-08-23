@@ -361,7 +361,11 @@ fontSelector.addEventListener("click", function () {
             currentFont.innerHTML = "Baroque";
             fontSelector.textContent = "Baroque";
             displayDesignText.style.lineHeight = 0.9;
-            displayDesignText.style.letterSpacing = "-2px";
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "-2px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
             break;
           case "seashore":
             currentFontWidth = window.seashoreWidth;
@@ -369,7 +373,11 @@ fontSelector.addEventListener("click", function () {
             currentFont.innerHTML = "Gemstone";
             fontSelector.textContent = "Gemstone";
             displayDesignText.style.lineHeight = 1.5;
-            displayDesignText.style.letterSpacing = "-1px";
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "-1px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
             break;
           case "brush-script":
             currentFontWidth = window.brushScriptWidth;
@@ -377,7 +385,11 @@ fontSelector.addEventListener("click", function () {
             currentFont.innerHTML = "Vintage";
             fontSelector.textContent = "Vintage";
             displayDesignText.style.lineHeight = 1.2;
-            displayDesignText.style.letterSpacing = "0px";
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "0px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
             break;
           case "commercial-script":
             currentFontWidth = window.commercialWidth;
@@ -385,7 +397,11 @@ fontSelector.addEventListener("click", function () {
             currentFont.innerHTML = "Radiant";
             fontSelector.textContent = "Radiant";
             displayDesignText.style.lineHeight = 1.2;
-            displayDesignText.style.letterSpacing = "-2px";
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "-2.9px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
             break;
           case "parsley":
             currentFontWidth = window.parsleyWidth;
@@ -393,7 +409,11 @@ fontSelector.addEventListener("click", function () {
             currentFont.innerHTML = "Regal";
             fontSelector.textContent = "Regal";
             displayDesignText.style.lineHeight = 1.0;
-            displayDesignText.style.letterSpacing = "0px";
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "0px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
             break;
           case "petit-formal":
             currentFontWidth = window.petitFormalWidth;
@@ -401,7 +421,11 @@ fontSelector.addEventListener("click", function () {
             currentFont.innerHTML = "Contemporary";
             fontSelector.textContent = "Contemporary";
             displayDesignText.style.lineHeight = 1.6;
-            displayDesignText.style.letterSpacing = "-1px";
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "-2px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
             break;
           case "scriptmtbold":
             currentFontWidth = window.scriptMTBoldWidth;
@@ -409,7 +433,11 @@ fontSelector.addEventListener("click", function () {
             currentFont.innerHTML = "Novel";
             fontSelector.textContent = "Novel";
             displayDesignText.style.lineHeight = 1.2;
-            displayDesignText.style.letterSpacing = "-2px";
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "-2px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
             break;
           case "vivace":
             currentFontWidth = window.vivaceWidth;
@@ -417,7 +445,11 @@ fontSelector.addEventListener("click", function () {
             currentFont.innerHTML = "Vivace";
             fontSelector.textContent = "Vivace";
             displayDesignText.style.lineHeight = 1.2;
-            displayDesignText.style.letterSpacing = "-2px";
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "-2px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
             break;
         }
 
