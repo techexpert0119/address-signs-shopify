@@ -1,0 +1,150 @@
+{
+  "sections": {
+    "c0e615e1-a990-4ddc-bfb6-9ced9bb7f397": {
+      "type": "create-sign-product",
+      "blocks": {
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-3": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-2": {
+          "type": "price",
+          "settings": {}
+        },
+        "0267ec2e-a247-4168-a7b3-463b105c4223": {
+          "type": "buy_buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-3",
+        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-2",
+        "0267ec2e-a247-4168-a7b3-463b105c4223"
+      ],
+      "disabled": true,
+      "settings": {
+        "product": "1-letter",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "167548135556d65f77": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "2985e8d9-f1cf-4aa9-b51d-85dacbdc26e7": {
+      "type": "ss-text-block-pro",
+      "blocks": {
+        "template--19850311532862__2985e8d9-f1cf-4aa9-b51d-85dacbdc26e7-subtitle-1": {
+          "type": "subtitle",
+          "disabled": true,
+          "settings": {
+            "subtitle": "",
+            "subtitle_custom": false,
+            "subtitle_font": "assistant_n4",
+            "subtitle_size": 14,
+            "subtitle_height": 100,
+            "subtitle_align": "center",
+            "subtitle_mt": 0,
+            "subtitle_color": "#334fb4"
+          }
+        },
+        "template--19850311532862__2985e8d9-f1cf-4aa9-b51d-85dacbdc26e7-title-1": {
+          "type": "title",
+          "settings": {
+            "title": "Your number is a click away.",
+            "title_custom": false,
+            "title_font": "mono",
+            "title_size": 24,
+            "title_height": 100,
+            "title_align": "center",
+            "title_mt": 12,
+            "title_color": "#334fb4"
+          }
+        },
+        "template--19850311532862__2985e8d9-f1cf-4aa9-b51d-85dacbdc26e7-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Extraordinary number and letter script signs.<br\/>Handcrafted with care. Made for you.<\/p>",
+            "text_custom": false,
+            "text_font": "mono",
+            "text_size": 18,
+            "text_height": 130,
+            "text_align": "center",
+            "text_mt": 16,
+            "text_color": "#334fb4"
+          }
+        },
+        "template--19850311532862__2985e8d9-f1cf-4aa9-b51d-85dacbdc26e7-button-1": {
+          "type": "button",
+          "settings": {
+            "btn": "SHOP NOW",
+            "btn_url": "shopify:\/\/pages\/create-a-sign",
+            "btn_custom": false,
+            "btn_font": "assistant_n4",
+            "btn_size": 20,
+            "btn_height": 130,
+            "btn_align": "center",
+            "btn_width": 180,
+            "btn_mt": 32,
+            "btn_padding_horizontal": 16,
+            "btn_padding_vertical": 12,
+            "btn_border_thickness": 1,
+            "btn_radius": 0,
+            "btn_color": "#334fb4",
+            "btn_hover_color": "#334fb4",
+            "btn_bg_color": "",
+            "btn_bg_hover_color": "",
+            "btn_border_color": "#334fb4",
+            "btn_border_hover_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--19850311532862__2985e8d9-f1cf-4aa9-b51d-85dacbdc26e7-subtitle-1",
+        "template--19850311532862__2985e8d9-f1cf-4aa9-b51d-85dacbdc26e7-title-1",
+        "template--19850311532862__2985e8d9-f1cf-4aa9-b51d-85dacbdc26e7-text-1",
+        "template--19850311532862__2985e8d9-f1cf-4aa9-b51d-85dacbdc26e7-button-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Screenshot_2.png",
+        "image_width": 50,
+        "image_custom": true,
+        "image_height_desktop": 400,
+        "image_height_mobile": 200,
+        "image_radius": 0,
+        "image_ration": "none",
+        "image_location": "row",
+        "image_location_mobile": "column",
+        "content_padding_horizontal": 0,
+        "content_padding_vertical": 0,
+        "content_radius": 0,
+        "gap": 15,
+        "gap_mobile": 25,
+        "background_color": "#68ffa8",
+        "background_gradient": "",
+        "border_color": "#ffffff",
+        "content_bg": "#68ffa8",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 44,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "content_width": 120,
+        "border_thickness": 0
+      }
+    }
+  },
+  "order": [
+    "c0e615e1-a990-4ddc-bfb6-9ced9bb7f397",
+    "167548135556d65f77",
+    "2985e8d9-f1cf-4aa9-b51d-85dacbdc26e7"
+  ]
+}

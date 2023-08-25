@@ -1,79 +1,77 @@
 {
   "sections": {
-    "ce7eb5fb-44b3-49e8-8845-05104202437b": {
-      "type": "image-banner",
-      "blocks": {
-        "template--19850311532862__ce7eb5fb-44b3-49e8-8845-05104202437b-buttons-1": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "CREATE YOUR SIGN",
-            "button_link_1": "shopify:\/\/pages\/create-a-sign",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "template--19850311532862__ce7eb5fb-44b3-49e8-8845-05104202437b-buttons-1"
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/Screenshot_2023-08-09_221246.png",
-        "image_overlay_opacity": 0,
-        "image_height": "small",
-        "adapt_height_first_image": false,
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
-      }
-    },
-    "c0e615e1-a990-4ddc-bfb6-9ced9bb7f397": {
-      "type": "create-sign-product",
-      "disabled": true,
-      "blocks": {
-        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-3": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-2": {
-          "type": "price",
-          "settings": {}
-        },
-        "0267ec2e-a247-4168-a7b3-463b105c4223": {
-          "type": "buy_buttons",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-3",
-        "template--19850311532862__c0e615e1-a990-4ddc-bfb6-9ced9bb7f397-1689279343cfaebc26-2",
-        "0267ec2e-a247-4168-a7b3-463b105c4223"
-      ],
-      "settings": {
-        "product": "1-letter",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 0,
-        "padding_bottom": 36
-      }
-    },
     "167548135556d65f77": {
       "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "pagefly-home": {
+      "type": "pagefly-home",
+      "settings": {}
+    },
+    "pina-instagram": {
+      "type": "pina-instagram",
+      "settings": {
+        "title": "Follow Us On Instagram",
+        "show_profile": true,
+        "timeline": "own",
+        "small": "2",
+        "medium": "3",
+        "large": "4",
+        "gutter": "2",
+        "count": "8",
+        "hashtags": "",
+        "container_class": "page-width",
+        "margin_top": "",
+        "margin_left": "",
+        "margin_bottom": "",
+        "margin_right": "",
+        "desktop_width": "",
+        "mobile_width": "",
+        "tablet_width": ""
+      }
+    },
+    "1692902524c4fd5975": {
+      "type": "apps",
+      "blocks": {
+        "0695bba3-ba4a-4958-8563-52f821f74306": {
+          "type": "shopify:\/\/apps\/track123-order-tracking-upsell\/blocks\/search2\/60c49c11-a7c0-49a0-861e-2f84d2f294e6",
+          "settings": {
+            "search_by": "by_order_number_or_by_tracking_number",
+            "date_format": "MMM D, YYYY",
+            "time_format": "hh:mm a",
+            "show_estimated_delivery_time": true,
+            "show_carrier_info": true,
+            "show_tracking_number": true,
+            "link_to_carrier_website": true,
+            "show_history": true,
+            "show_package_info": true,
+            "show_reorder_button": true,
+            "search_btn_label_color": "#68ffa8",
+            "search_btn_background_color": "#334fb4",
+            "search_btn_hover_color": "",
+            "title_text_color": "",
+            "order_detail_text_color": "rgba(0,0,0,0)",
+            "link_text_color": "",
+            "link_text_hover_color": "",
+            "eta_text_color": "",
+            "custom_css": ""
+          }
+        }
+      },
+      "block_order": [
+        "0695bba3-ba4a-4958-8563-52f821f74306"
+      ],
       "settings": {
         "include_margins": true
       }
     }
   },
   "order": [
-    "ce7eb5fb-44b3-49e8-8845-05104202437b",
-    "c0e615e1-a990-4ddc-bfb6-9ced9bb7f397",
-    "167548135556d65f77"
+    "167548135556d65f77",
+    "pagefly-home",
+    "pina-instagram",
+    "1692902524c4fd5975"
   ]
 }

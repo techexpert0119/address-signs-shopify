@@ -1,0 +1,120 @@
+
+    {% if isGpTemplate and (shop.metafields.gpGlobalConfigs.enableProductSchema == "true" or shop.metafields.gpGlobalConfigs.enableProductSchema == blank) %}
+      {% case request.page_type %}
+        {% when "page" %}
+        {% when "product" %}
+          <script type="application/ld+json">
+            {% if GEMPAGES and GEMPAGES['currentReviews'] %}
+              {%- assign g_review_count = 0 -%} {%- assign g_rating_value = 0 -%}
+              {% case GEMPAGES['currentReviews'] %}
+                {% when "JudgemeReviews" %}
+                  
+  {%- comment -%}
+    For Judge.me Reviews
+  {%- endcomment -%}
+  {%- if product.metafields.judgeme.badge -%}
+    {%- assign product_review_array="data-number-of-reviews,data-average-rating"|split:',' -%}
+    {%- capture review_data -%}{{product.metafields.judgeme.badge}}{%- endcapture -%}
+    {%- assign array_builder="" -%}
+
+    {%- for review_data_item in product_review_array -%}
+      {%- assign review_data1=review_data|split:review_data_item -%}
+      {%- assign review_data2=review_data1[1]|split:"=" -%}
+      {%- assign review_data3=review_data2[1]|split:"'" -%}
+      {%- assign review_data_value=review_data3[1]|plus:1|minus:1 -%}
+      {%- assign array_builder=array_builder|append:review_data_value|append:'_' -%}
+    {%- endfor -%}
+
+    {%- assign review_data_array=array_builder|split:'_' -%}
+    {%- assign g_review_count=review_data_array[0] -%}
+    {%- assign g_rating_value=review_data_array[1] -%}
+  {%- endif -%}
+
+                {% when "LooxReviews" %}
+                  
+  {%- comment -%}
+    For Loox Product Page + Stars
+  {%- endcomment -%}
+  {%- if product.metafields.loox.num_reviews -%}
+    {%- assign g_review_count=product.metafields.loox.num_reviews -%}
+    {%- assign g_rating_value=product.metafields.loox.avg_rating -%}
+  {%- endif -%}
+
+                {% when "ProductReviews" %}
+                  
+  {%- comment -%}
+    For Shopify Product Reviews
+  {%- endcomment -%}
+  {%- if product.metafields.spr.reviews -%}
+    {%- assign product_review_array="reviewCount,ratingValue"|split:',' -%}
+    {%- capture review_data -%}{{product.metafields.spr.reviews}}{%- endcapture -%}
+    {%- assign array_builder="" -%}
+
+    {%- for review_data_item in product_review_array -%}
+      {%- capture new_var -%}"{{ review_data_item }}"{%- endcapture -%}
+      {%- assign review_data1=review_data|split:new_var -%}
+      {%- assign review_data2=review_data1[1]|split:":" -%}
+      {%- assign review_data3=review_data2[1]|split:'"' -%}
+      {%- assign review_data_value=review_data3[1]|plus:1|minus:1 -%}
+      {%- assign array_builder=array_builder|append:review_data_value|append:'_' -%}
+    {%- endfor -%}
+
+    {%- assign review_data_array=array_builder|split:'_' -%}
+    {%- assign g_review_count=review_data_array[0] -%}
+    {%- assign g_rating_value=review_data_array[1] -%}
+  {%- endif -%}
+
+                {% when "Ryviu" %}
+                  
+  {%- comment -%}
+    For Ryviu
+  {%- endcomment -%}
+  {% assign ryviu = product.metafields.ryviu %}
+  {% if ryviu %}
+    {%- assign ryviuAggregateRating = ryviu.product_reviews_info | split: ";" -%}
+    {%- assign g_rating_value = ryviuAggregateRating[1] | plus: 0 -%}
+    {%- assign g_review_count = ryviuAggregateRating[0] | plus: 0 -%}
+  {% endif %}
+
+              {% endcase %}
+            {% endif %}
+            {%- assign cv_schema = product.selected_or_first_available_variant -%}
+            {
+              "@context":"http://schema.org/",
+              "@type":"Product",
+              
+    {%- if GEMPAGES and GEMPAGES['currentReviews'] and g_review_count != 0 -%}
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ g_rating_value }}",
+        "reviewCount": "{{ g_review_count }}"
+    },
+    {%- endif -%}
+              "name":{{product.title|json}},
+              "url":{{shop.url|append:product.url|json}},
+              {%- if product.featured_image -%}
+                {%- assign image_size=product.featured_image.width|append:'x' -%}
+                "image":[{{product.featured_image.src|img_url:image_size|prepend:"https:"|json}}],
+              {%- endif -%}
+              "description":{{product.description|strip_html|json}},
+              {%- if cv_schema.sku!=blank -%}
+                "sku":{{cv_schema.sku|json}},
+              {%- endif -%}
+              "brand":{"@type": "Brand","name":{{product.vendor|json}}},
+              "offers":{
+                "@type":"Offer",
+                "availability":"http://schema.org/{% if cv_schema.available %}InStock{% else %}OutOfStock{% endif %}",
+                "price":{{cv_schema.price|divided_by:100.00|json}},
+                "priceCurrency":{{cart.currency.iso_code|json}},
+                "priceValidUntil": "{{'now' | date: '%s' | plus: days_price_valid_until | date: '%Y-%m-%d'}}",
+                "url":{{shop.url|append:cv_schema.url|json}}
+              }
+            }
+          </script>
+        {% when "index" %}
+        {% when "collection" %}
+        {% when "article" %}
+        {% when "blog" %}
+      {% endcase %}
+    {% endif %}
+  

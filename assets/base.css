@@ -3062,3 +3062,9 @@ details-disclosure > details {
     outline: transparent solid 1px;
   }
 }
+.header__icon--search {
+    display: none;
+}
+.announcement-bar__message {
+    color: #68ffa8!important;
+}

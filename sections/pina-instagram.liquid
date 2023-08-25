@@ -1,0 +1,209 @@
+<style type="text/css">
+#pina-feed-{{ section.id }} {
+  {% if section.settings.margin_top %}
+  margin-top: {{ section.settings.margin_top }};
+  {% endif %}
+
+  {% if section.settings.margin_left %}
+  margin-left: {{ section.settings.margin_left }};
+  {% endif %}
+
+  {% if section.settings.margin_right %}
+  margin-right: {{ section.settings.margin_right }};
+  {% endif %}
+
+  {% if section.settings.margin_bottom %}
+  margin-bottom: {{ section.settings.margin_bottom }};
+  {% endif %}
+
+  {% if section.settings.desktop_width %}
+  max-width: {{ section.settings.desktop_width }};
+  {% endif %}
+}
+
+@media screen and (max-width: 639px) {
+  #pina-feed-{{ section.id }} {
+    {% if section.settings.mobile_width %}
+    max-width: {{ section.settings.mobile_width }};
+    {% endif %}
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+  #pina-feed-{{ section.id }} {
+    {% if section.settings.tablet_width %}
+    max-width: {{ section.settings.tablet_width }};
+    {% endif %}
+  }
+}
+
+</style>
+<div id="pina-feed-{{ section.id }}" class="{{ section.settings.container_class }}">
+  <div class="pina-instagram"
+    data-heading="{{ section.settings.title }}"
+    data-show-profile="{{ section.settings.show_profile }}"
+    data-timeline="{{ section.settings.timeline }}"
+    data-small="{{ section.settings.small }}"
+    data-medium="{{ section.settings.medium }}"
+    data-large="{{ section.settings.large }}"
+    data-gutter="{{ section.settings.gutter }}"
+    data-count="{{ section.settings.count }}"
+    data-hashtags="{{ section.settings.hashtags }}"
+  >
+    <a name="pinsta"></a>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Pina Instagram Feed",
+    "presets": [
+			{
+				"category": "Image",
+				"name": "Pina Instagram Feed"
+			}
+		],
+    "settings": [
+    {
+      "type": "header",
+      "content": {
+        "en": "Profile"
+      }
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Heading",
+      "default": "Follow Us On Instagram"
+    },
+    {
+      "id": "show_profile",
+      "type": "checkbox",
+      "label": "Show Profile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": {
+        "en": "Display"
+      }
+    },
+    {
+      "id": "timeline",
+      "type": "select",
+      "label": "Timeline",
+      "default": "own",
+      "options": [
+        {
+          "value": "own",
+          "label": "Only my posts"
+        },
+        {
+          "value": "other",
+          "label": "Only tagged posts"
+        },
+        {
+          "value": "all",
+          "label": "Both mine and tagged posts"
+        }
+      ]
+    },
+    {
+      "id": "small",
+      "type": "text",
+      "label": "Mobile Columns",
+      "default": "2"
+    },
+    {
+      "id": "medium",
+      "type": "text",
+      "label": "Tablet Columns",
+      "default": "3"
+    },
+    {
+      "id": "large",
+      "type": "text",
+      "label": "Desktop Columns",
+      "default": "4"
+    },
+    {
+      "id": "gutter",
+      "type": "text",
+      "label": "Gutter",
+      "default": "2"
+    },
+    {
+      "id": "count",
+      "type": "text",
+      "label": "Item Count",
+      "default": "8"
+    },
+    {
+      "id": "hashtags",
+      "type": "text",
+      "label": "Hashtags",
+      "placeholder": "#hash,#tag"
+    },
+    {
+      "id": "container_class",
+      "type": "text",
+      "label": "Container class",
+      "placeholder": "page-width",
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": {
+        "en": "Margins"
+      }
+    },
+    {
+      "id": "margin_top",
+      "type": "text",
+      "label": "Top",
+      "placeholder": "auto, none, 5px or 100%"
+    },
+    {
+      "id": "margin_left",
+      "type": "text",
+      "label": "Left",
+      "placeholder": "auto, none, 5px or 100%"
+    },
+    {
+      "id": "margin_bottom",
+      "type": "text",
+      "label": "Bottom",
+      "placeholder": "auto, none, 5px or 100%"
+    },
+    {
+      "id": "margin_right",
+      "type": "text",
+      "label": "Right",
+      "placeholder": "auto, none, 5px or 100%"
+    },
+    {
+      "type": "header",
+      "content": {
+        "en": "Width"
+      }
+    },
+    {
+      "id": "desktop_width",
+      "type": "text",
+      "label": "Default",
+      "placeholder": "auto, 5px or 100%"
+    },
+    {
+      "id": "mobile_width",
+      "type": "text",
+      "label": "Mobile",
+      "placeholder": "auto, 5px or 100%"
+    },
+    {
+      "id": "tablet_width",
+      "type": "text",
+      "label": "Tablet",
+      "placeholder": "auto, 5px or 100%"
+    }
+  ]
+  }
+{% endschema %}

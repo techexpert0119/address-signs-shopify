@@ -1,0 +1,346 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    max-width: 120rem;
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-left:5rem;
+      padding-right:5rem;
+    }
+  }
+
+  .ss-instafeed-container {
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+  }
+
+  .ss-ig-button {
+    height:100px;
+    width:120px;
+    border-radius:12px;
+    border: 0.2rem solid {{section.settings.text-color}};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: {{section.settings.text-color}};
+    padding:5px;
+  }
+
+  .ss-instafeed-header {
+    color:{{section.settings.text-color}};
+    font-size:{{section.settings.header_size}}px;
+    font-weight:800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin:0px;
+    line-height:1;
+  }
+
+  .ss-instafeed-hashtag {
+    color:{{section.settings.text-color}};
+    font-size: {{section.settings.hashtag_size}}px;
+    margin:0px;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  .ss-isntafeed-img-wrapper {
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin:0;
+    padding:0 {{section.settings.padding_image}}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    margin-top:30px;
+    justify-content: center;
+  }
+
+  .ss-gallery_all-item a img, .ss-gallery_all-item a svg {
+      max-width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+  }
+
+  .ss-gallery_all-item {
+     width: calc(25%); 
+     aspect-ratio: 1 / 1;
+     padding: {{section.settings.padding_image}}px;
+  }
+
+  .ss-gallery_all-item a {
+      display: block;
+      height: 100%;
+      position: relative;
+  }
+
+  .ss-ig-button p {
+    font-size: {{section.settings.handle_size}}px;
+    margin:6px 0 0 0;
+    line-height:1;
+    word-break: break-word;
+    text-align:center;
+  }
+
+  .ss-gallery_all-item:hover {
+    background-color: {{section.settings.background-color}};
+    opacity:0.6;
+  }
+
+  @media screen and (max-width: 750px) {
+     .ss-gallery_all-item {
+       width: calc(50%);
+     }
+    .ss-instafeed-hashtag {
+      font-size:{{ section.settings.hashtag_size | times: 0.75 | round: 0 }}px;
+    }
+
+    .ss-instafeed-header {
+      font-size:{{ section.settings.header_size | times: 0.75 | round: 0 }}px;
+    }
+    .ss-gallery_all-item {
+       padding: {{section.settings.padding_image | times: 0.75 | round: 0 }}px;
+    }
+
+    .ss-isntafeed-img-wrapper {
+      padding:0 {{section.settings.padding_image | times: 0.75 | round: 0 }}px;
+    }
+
+    .ss-ig-button {
+      height: 80px;
+      width: 100px;
+    }
+
+     .ss-gallery_all-item:nth-last-child(-n+{{section.settings.hide_image_mobile}}) {
+       display:none;
+     }
+  }
+
+  
+{%- endstyle -%}
+
+<div style="background-color:{{section.settings.background-color}};">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="ss-instafeed-container">
+      <div>
+        <p class="ss-instafeed-header">{{ section.settings.instafeed_title }}</p>
+        <p class="ss-instafeed-hashtag">{{ section.settings.hashtag_title }}</p>
+      </div>
+      <a class="ss-ig-button" href="{{ section.settings.insta_url }}" target="_blank">
+       <svg xmlns="http://www.w3.org/2000/svg" fill="{{section.settings.text-color}}" width="30" height="30" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <p>{{ section.settings.insta_handle }}</p>
+      </a>
+    </div>
+  </div>
+  <div class="ss-isntafeed-img-wrapper">
+    {% for block in section.blocks %}
+            <div class="ss-gallery_all-item">
+              <a href="{{block.settings.gallery_url}}">
+                {%- if block.settings.gallery_photo -%}
+                  {{ block.settings.gallery_photo | image_url: width: block.settings.gallery_photo.width | image_tag:  alt: block.settings.gallery_photo.alt }}
+                {%- else -%}
+                    {{ 'image' | placeholder_svg_tag }}
+                {%- endif -%}
+              </a>
+            </div>
+        {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "SS - Instafeed",
+	"class": "section",
+	"tag": "section",
+    "settings": [
+		{
+          "type": "header",
+          "content": "Colors"
+        },
+	    {
+		  "type": "color",
+		  "label": "Section background color",
+		  "id": "background-color",
+		  "default": "#002F30"
+		},
+        {
+		  "type": "color",
+		  "label": "Text + icon color",
+		  "id": "text-color",
+		  "default": "#FFFFFF"
+		},
+         {
+          "type": "header",
+          "content": "Other"
+        },
+        {
+          "type": "range",
+          "id": "hide_image_mobile",
+          "min": 0,
+          "max": 16,
+          "step": 2,
+          "label": "Hide last images on mobile",
+          "default": 0
+        },
+        {
+              "type": "url",
+              "id": "insta_url",
+              "label": "Instagram box url"
+        },
+        {
+          "type": "header",
+          "content": "Text"
+        },
+        {
+          "type": "text",
+          "id": "instafeed_title",
+          "label": "Instafeed title",
+          "default": "Join the movement"
+        },
+        {
+          "type": "text",
+          "id": "hashtag_title",
+          "label": "Hashtag",
+          "default": "#BrandHashtag"
+        },
+        {
+          "type": "text",
+          "id": "insta_handle",
+          "label": "Instagram handle",
+          "default": "@yourhandle"
+        },
+        {
+          "type": "header",
+          "content": "Font size"
+        },
+        {
+          "type": "range",
+          "id": "header_size",
+          "min": 12,
+          "max": 50,
+          "step": 2,
+          "unit": "px",
+          "label": "Instafeed title",
+          "default": 18
+        },
+        {
+          "type": "range",
+          "id": "hashtag_size",
+          "min": 12,
+          "max": 50,
+          "step": 2,
+          "unit": "px",
+          "label": "Instafeed title",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "handle_size",
+          "min": 8,
+          "max": 20,
+          "step": 2,
+          "unit": "px",
+          "label": "Handle",
+          "default": 12
+        },
+        {
+          "type": "header",
+          "content": "Section padding"
+        },
+        {
+          "type": "range",
+          "id": "padding_image",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Image padding",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 36
+        }
+	],
+     "blocks": [
+        {
+          "type": "image",
+          "name": "Gallery photo",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "gallery_photo",
+              "label": "Image"
+            },
+            {
+              "type": "url",
+              "id": "gallery_url",
+              "label": "Url"
+            }
+          ]
+        }
+    ],
+ 	"presets": [
+      {
+        "name": "SS - Instafeed",
+         "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          }
+        ]
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

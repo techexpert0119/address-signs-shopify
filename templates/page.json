@@ -1,66 +1,5 @@
 {
   "sections": {
-    "e616c00c-4b2d-4ef7-bb03-b4da3eaa0ed6": {
-      "type": "collapsible-content",
-      "blocks": {
-        "template--17712524394814__e616c00c-4b2d-4ef7-bb03-b4da3eaa0ed6-1675358433edd3fa8d-0": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "",
-            "page": ""
-          }
-        },
-        "template--17712524394814__e616c00c-4b2d-4ef7-bb03-b4da3eaa0ed6-1675358433edd3fa8d-1": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "",
-            "page": ""
-          }
-        },
-        "template--17712524394814__e616c00c-4b2d-4ef7-bb03-b4da3eaa0ed6-1675358433edd3fa8d-2": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "",
-            "page": ""
-          }
-        },
-        "template--17712524394814__e616c00c-4b2d-4ef7-bb03-b4da3eaa0ed6-1675358433edd3fa8d-3": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--17712524394814__e616c00c-4b2d-4ef7-bb03-b4da3eaa0ed6-1675358433edd3fa8d-0",
-        "template--17712524394814__e616c00c-4b2d-4ef7-bb03-b4da3eaa0ed6-1675358433edd3fa8d-1",
-        "template--17712524394814__e616c00c-4b2d-4ef7-bb03-b4da3eaa0ed6-1675358433edd3fa8d-2",
-        "template--17712524394814__e616c00c-4b2d-4ef7-bb03-b4da3eaa0ed6-1675358433edd3fa8d-3"
-      ],
-      "settings": {
-        "caption": "",
-        "heading": "Frequently Asked Questions",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "layout": "none",
-        "color_scheme": "background-1",
-        "container_color_scheme": "background-2",
-        "open_first_collapsible_row": false,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -68,10 +7,45 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "1692898758ebb5a400": {
+      "type": "apps",
+      "blocks": {
+        "cc75629c-157a-4092-a536-79e36ed4f378": {
+          "type": "shopify:\/\/apps\/maestrooo-section-feed\/blocks\/app-block\/43cd482b-515a-4e82-b170-05d391763cd2",
+          "settings": {
+            "title": "WALL OF ART",
+            "subheading": "<p>Tag us on Instagram <a href=\"https:\/\/www.instagram.com\/myhousenumber\/\" title=\"https:\/\/www.instagram.com\/myhousenumber\/\">@myhousenumber<\/a> or email us your photos or short videos.<\/p>",
+            "button_text": "",
+            "button_link": "",
+            "layout": "grid",
+            "image_size": "medium",
+            "add_spacing": true,
+            "rows_count": 3,
+            "show_author": false,
+            "show_caption": false,
+            "show_date": false,
+            "click_action": "open_instagram",
+            "heading_color": "#334fb4",
+            "subheading_color": "#334fb4",
+            "button_background": "#334fb4",
+            "button_color": "#ffffff",
+            "overlay_color": "#334fb4",
+            "overlay_text_color": "#ffffff",
+            "overlay_opacity": 65
+          }
+        }
+      },
+      "block_order": [
+        "cc75629c-157a-4092-a536-79e36ed4f378"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
-    "e616c00c-4b2d-4ef7-bb03-b4da3eaa0ed6",
-    "main"
+    "main",
+    "1692898758ebb5a400"
   ]
 }

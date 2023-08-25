@@ -1,0 +1,77 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "139bb59a-98fe-4e9f-a9db-559a65ce7008": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--20639886180670__139bb59a-98fe-4e9f-a9db-559a65ce7008-collapsible_row-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "template--20639886180670__139bb59a-98fe-4e9f-a9db-559a65ce7008-collapsible_row-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "template--20639886180670__139bb59a-98fe-4e9f-a9db-559a65ce7008-collapsible_row-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "template--20639886180670__139bb59a-98fe-4e9f-a9db-559a65ce7008-collapsible_row-4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--20639886180670__139bb59a-98fe-4e9f-a9db-559a65ce7008-collapsible_row-1",
+        "template--20639886180670__139bb59a-98fe-4e9f-a9db-559a65ce7008-collapsible_row-2",
+        "template--20639886180670__139bb59a-98fe-4e9f-a9db-559a65ce7008-collapsible_row-3",
+        "template--20639886180670__139bb59a-98fe-4e9f-a9db-559a65ce7008-collapsible_row-4"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Installation Tips",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "139bb59a-98fe-4e9f-a9db-559a65ce7008"
+  ]
+}

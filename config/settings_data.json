@@ -1,12 +1,12 @@
 {
   "current": {
-    "colors_solid_button_labels": "#ffffff",
-    "colors_accent_1": "#121212",
+    "colors_solid_button_labels": "#68ffa8",
+    "colors_accent_1": "#334fb4",
     "gradient_accent_1": "",
     "colors_accent_2": "#334fb4",
     "gradient_accent_2": "",
-    "colors_text": "#121212",
-    "colors_outline_button_labels": "#121212",
+    "colors_text": "#334fb4",
+    "colors_outline_button_labels": "#334fb4",
     "colors_background_1": "#ffffff",
     "gradient_background_1": "",
     "colors_background_2": "#f3f3f3",
@@ -128,7 +128,7 @@
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
-              "text": "Limited Time: 100% off your order with code: XHEROLOL",
+              "text": "Limited Time: 25% off orders of $250+ with code SZN2023",
               "text_alignment": "center",
               "color_scheme": "inverse",
               "link": ""
@@ -144,7 +144,7 @@
         "type": "header",
         "settings": {
           "color_scheme": "background-1",
-          "logo": "shopify:\/\/shop_images\/60eed739-bab6-40c8-acfc-08bab59a186a_1.jpg",
+          "logo": "shopify:\/\/shop_images\/Logo_3482dce2-f4f9-4254-a60d-e8efeb430560.png",
           "logo_width": 110,
           "logo_position": "middle-left",
           "menu": "main-menu",
@@ -166,38 +166,25 @@
               "heading": "Quick links",
               "menu": "footer"
             }
-          },
-          "footer-1": {
-            "type": "link_list",
-            "settings": {
-              "heading": "Info",
-              "menu": "footer"
-            }
-          },
-          "footer-2": {
-            "type": "text",
-            "settings": {
-              "heading": "Our mission",
-              "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
-            }
           }
         },
         "block_order": [
-          "footer-0",
-          "footer-1",
-          "footer-2"
+          "footer-0"
+        ],
+        "custom_css": [
+          "{color: #68ffa8;}"
         ],
         "settings": {
-          "color_scheme": "background-1",
-          "newsletter_enable": true,
-          "newsletter_heading": "Subscribe to our emails",
-          "show_social": true,
+          "color_scheme": "inverse",
+          "newsletter_enable": false,
+          "newsletter_heading": "Get exclusive access to new products and deals. Unsubscribe at any time.",
+          "show_social": false,
           "enable_country_selector": false,
           "enable_language_selector": false,
           "payment_enable": true,
           "margin_top": 48,
           "padding_top": 36,
-          "padding_bottom": 36
+          "padding_bottom": 0
         }
       },
       "main-password-header": {
@@ -213,9 +200,30 @@
         "settings": {
           "color_scheme": "background-1"
         }
+      },
+      "pina-instagram": {
+        "type": "pina-instagram",
+        "settings": {
+          "title": "Follow Us On Instagram",
+          "show_profile": true,
+          "small": "2",
+          "medium": "3",
+          "large": "4",
+          "gutter": "2",
+          "count": "8"
+        }
       }
     },
-    "content_for_index": []
+    "content_for_index": [
+      "pina-instagram"
+    ],
+    "blocks": {
+      "11082817785457682960": {
+        "type": "shopify:\/\/apps\/chatra-live-chat-chatbot\/blocks\/widget\/3617185a-5880-4550-b1d3-81cdb9d37290",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "presets": {
     "Default": {

@@ -514,3 +514,11 @@ noscript .localization-selector.link {
     }
   }
 }
+.copyright__content a, .footer-block__details-content .list-menu__item--link {color: #68ffa8;}
+.footer-block__heading{color: #68ffa8;}
+.newsletter-form__field-wrapper .field__input::placeholder {color: #68ffa8;}
+
+.list-social__link{color: #68ffa8;}
+.footer-block__details-content .list-menu__item--active {color: #68ffa8;}
+.copyright__content, .copyright__content a {color: #68ffa8;}
+.newsletter-form__field-wrapper {color: #68ffa8;}
