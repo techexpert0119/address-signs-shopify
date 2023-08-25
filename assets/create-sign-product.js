@@ -264,11 +264,21 @@ function countValue() {
       displayDesignText.style.color = valueLowCase;
       cartPreDesignText.style.color = valueLowCase;
       if (valueLowCase === "white") {
-        displayDesignText.style.textShadow = "3px 1px 1px #000";
-        cartPreDesignText.style.textShadow = "1px 1px 1px #000";
+        if (window.innerWidth >= 990) {
+          displayDesignText.style.textShadow = "3px 1px 1px #000";
+          cartPreDesignText.style.textShadow = "1px 1px 1px #000";
+        } else {
+          displayDesignText.style.textShadow = "1px 1px 0px #000";
+          cartPreDesignText.style.textShadow = "1px 1px 1px #000";
+        }
       } else {
-        displayDesignText.style.textShadow = "3px 1px 1px #fff";
-        cartPreDesignText.style.textShadow = "1px 1px 1px #fff";
+        if (window.innerWidth >= 990) {
+          displayDesignText.style.textShadow = "3px 1px 1px #fff";
+          cartPreDesignText.style.textShadow = "1px 1px 1px #fff";
+        } else {
+          displayDesignText.style.textShadow = "1px 1px 0px #fff";
+          cartPreDesignText.style.textShadow = "1px 1px 1px #fff";
+        }
       }
     }
   })
