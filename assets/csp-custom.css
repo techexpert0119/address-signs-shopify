@@ -361,7 +361,7 @@ body {
   transition: all 250ms ease-out;
 }
 .csp-font-item:hover {
-  box-shadow: 1px 1px 5px 0.5px #000;
+  box-shadow: 1px 1px 1px 0.5px #000;
   transition: all 100ms ease-in;
 }
 input.prevent-highlight {
@@ -457,14 +457,15 @@ input.prevent-highlight {
 }
 .cust-btn {
   max-width: 500px;
+  margin: 0 auto;
 }
 #csp-ruler-btn svg {
   transform: translate(0, 2px);
 }
-@media screen and (max-width: 778px) {
-  /* #csp-ruler-btn svg {
-    transform: translate(-4px, 2px);
-  } */
+@media screen and (max-width: 990px) {
+  .design-container {
+    padding-bottom: 100px;
+  }
   .measurement-text-box {
     left: 50%;
   }

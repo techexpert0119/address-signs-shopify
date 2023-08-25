@@ -147,6 +147,8 @@
 
 .product-form {
   display: block;
+  position: sticky;
+  bottom: 0;
 }
 
 .product-form__error-message-wrapper:not([hidden]) {
@@ -502,6 +504,14 @@ a.product__text {
 /* Product media */
 .product__media-list video {
   border-radius: calc(var(--media-radius) - var(--media-border-width));
+}
+@media screen and (max-width: 990px) {
+  .product-form {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
 }
 
 @media screen and (max-width: 749px) {
