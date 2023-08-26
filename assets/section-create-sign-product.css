@@ -147,6 +147,8 @@
 
 .product-form {
   display: block;
+}
+.pf-text-design {
   position: sticky;
   bottom: 0;
 }
@@ -506,7 +508,7 @@ a.product__text {
   border-radius: calc(var(--media-radius) - var(--media-border-width));
 }
 @media screen and (max-width: 990px) {
-  .product-form {
+  .pf-text-design {
     position: fixed;
     bottom: 0;
     right: 0;
