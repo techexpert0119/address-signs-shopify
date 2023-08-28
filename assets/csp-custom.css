@@ -183,6 +183,8 @@ body {
   color: lightgray;
 }
 .csp-inner-cont {
+  max-width: 2560px;
+  margin: 0 auto;
   display: flex;
   height: calc(100vh - 77.6px);
   overflow: hidden;
@@ -229,7 +231,7 @@ body {
 .csp-right-column {
   overflow-y: scroll;
   width: 25%;
-  max-width: 400px;
+  /* max-width: 400px; */
   min-width: 300px;
   position: relative;
   scrollbar-width: none; /* Firefox */
@@ -442,6 +444,7 @@ input.prevent-highlight {
   font-weight: 600;
   letter-spacing: 3px;
   cursor: pointer;
+  transform: translateY(1px);
 }
 .csp-cta-btn:hover {
   color: #68ffa8;
@@ -456,7 +459,7 @@ input.prevent-highlight {
   font-weight: 600;
 }
 .cust-btn {
-  max-width: 500px;
+  width: 100%;
   margin: 0 auto;
 }
 #csp-ruler-btn svg {
