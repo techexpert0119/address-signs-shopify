@@ -117,6 +117,7 @@
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
+    "favicon": "shopify:\/\/shop_images\/ICON.png",
     "currency_code_enabled": true,
     "cart_type": "notification",
     "show_vendor": false,
@@ -128,7 +129,7 @@
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
-              "text": "Limited Time: 25% off orders of $250+ with code SZN2023",
+              "text": "Limited Time: 20% off orders of $250+ with code SZN23",
               "text_alignment": "center",
               "color_scheme": "inverse",
               "link": ""
