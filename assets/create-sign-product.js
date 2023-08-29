@@ -138,6 +138,10 @@ rulerBtn.addEventListener("click", () => {
   changeRulerDisplay();
 });
 
+// window.addEventListener("load", () => {
+//   changeRulerDisplay();
+// });
+
 window.addEventListener("resize", () => {
   countValue();
   cartPreFontChange();
@@ -330,12 +334,140 @@ backgroundSwatches.forEach((swatch) => {
 fontGrid.style.display = "none";
 fontGridItem[0].style.backgroundColor = "#353eac";
 fontGridItem[0].style.color = "#68ffa8";
-
 fontSelector.addEventListener("click", function () {
   if (fontDropdownGrid.style.gridTemplateRows === "0fr") {
     fontGrid.style.display = "grid";
     fontDropdownGrid.style.gridTemplateRows = "1fr";
     iconCarat.style.transform = "rotate(180deg)";
+    for (let i = 0; i < fontGridItem.length; i++) {
+      // if (i === 0) {
+      //   fontGridItem[i].style.color = "#68ffa8";
+      //   fontGridItem[i].style.backgroundColor = "#353eac";
+      // }
+      fontGridItem[i].addEventListener("click", function (e) {
+        for (let x = 0; x < fontGridItem.length; x++) {
+          fontGridItem[x].style.color = "rgb(53, 62, 172)";
+          fontGridItem[x].style.backgroundColor = "transparent";
+        }
+        e.currentTarget.style.color = "#68ffa8";
+        e.currentTarget.style.backgroundColor = "#353eac";
+        let fontStr = e.currentTarget.style.fontFamily;
+        let modifiedStr = fontStr.split(",")[0].replaceAll('"', "");
+        fontInput.setAttribute("value", modifiedStr);
+        displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
+        cartPreDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
+        displayDesignText.style.fontSize = fontSizes[modifiedStr] + "px";
+        if (modifiedStr === "brush-script" || modifiedStr === "parsley")
+          displayDesignText.style.fontWeight = 500;
+        else displayDesignText.style.fontWeight = 700;
+
+        // THIS WORKS BUT NEED THE fontSizes TO BE THE CORRECT NAMES
+        console.log("Font: " + modifiedStr);
+
+        switch (modifiedStr) {
+          case "ballantine":
+            currentFontWidth = window.ballantineWidth;
+            currentFontHeight = window.ballantineHeight;
+            currentFont.innerHTML = "Baroque";
+            fontSelector.textContent = "Baroque";
+            displayDesignText.style.lineHeight = 0.9;
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "-2px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
+            break;
+          case "seashore":
+            currentFontWidth = window.seashoreWidth;
+            currentFontHeight = window.seashoreHeight;
+            currentFont.innerHTML = "Gemstone";
+            fontSelector.textContent = "Gemstone";
+            displayDesignText.style.lineHeight = 1.5;
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "-1px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
+            break;
+          case "brush-script":
+            currentFontWidth = window.brushScriptWidth;
+            currentFontHeight = window.brushScriptHeight;
+            currentFont.innerHTML = "Vintage";
+            fontSelector.textContent = "Vintage";
+            displayDesignText.style.lineHeight = 1.2;
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "0px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
+            break;
+          case "commercial-script":
+            currentFontWidth = window.commercialWidth;
+            currentFontHeight = window.commercialHeight;
+            currentFont.innerHTML = "Radiant";
+            fontSelector.textContent = "Radiant";
+            displayDesignText.style.lineHeight = 1.2;
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "-2.9px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
+            break;
+          case "parsley":
+            currentFontWidth = window.parsleyWidth;
+            currentFontHeight = window.parsleyHeight;
+            currentFont.innerHTML = "Regal";
+            fontSelector.textContent = "Regal";
+            displayDesignText.style.lineHeight = 1.0;
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "0px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
+            break;
+          case "petit-formal":
+            currentFontWidth = window.petitFormalWidth;
+            currentFontHeight = window.petitFormalHeight;
+            currentFont.innerHTML = "Contemporary";
+            fontSelector.textContent = "Contemporary";
+            displayDesignText.style.lineHeight = 1.6;
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "-2px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
+            break;
+          case "scriptmtbold":
+            currentFontWidth = window.scriptMTBoldWidth;
+            currentFontHeight = window.scriptMTBoldHeight;
+            currentFont.innerHTML = "Novel";
+            fontSelector.textContent = "Novel";
+            displayDesignText.style.lineHeight = 1.2;
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "-2px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
+            break;
+          case "vivace":
+            currentFontWidth = window.vivaceWidth;
+            currentFontHeight = window.vivaceHeight;
+            currentFont.innerHTML = "Vivace";
+            fontSelector.textContent = "Vivace";
+            displayDesignText.style.lineHeight = 1.2;
+            if (window.innerWidth <= 990) {
+              displayDesignText.style.letterSpacing = "-2px";
+            } else {
+              displayDesignText.style.letterSpacing = "normal";
+            }
+            break;
+        }
+
+        /**********************ROMEO'S WORK*************************/
+        countValue();
+        /***********************************************************/
+      });
+    }
   } else {
     iconCarat.style.transform = "rotate(0deg)";
     fontGrid.style.overflow = "hidden";
@@ -343,127 +475,6 @@ fontSelector.addEventListener("click", function () {
     fontGrid.style.display = "none";
   }
 });
-
-for (let i = 0; i < fontGridItem.length; i++) {
-  fontGridItem[i].addEventListener("click", function (e) {
-    for (let x = 0; x < fontGridItem.length; x++) {
-      fontGridItem[x].style.color = "rgb(53, 62, 172)";
-      fontGridItem[x].style.backgroundColor = "transparent";
-    }
-    e.currentTarget.style.color = "rgb(104, 255, 168)";
-    e.currentTarget.style.backgroundColor = "rgb(53, 62, 172";
-    let fontStr = e.currentTarget.style.fontFamily;
-    let modifiedStr = fontStr.split(",")[0].replaceAll('"', "");
-    fontInput.setAttribute("value", modifiedStr);
-    displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
-    cartPreDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
-    displayDesignText.style.fontSize = fontSizes[modifiedStr] + "px";
-    if (modifiedStr === "brush-script" || modifiedStr === "parsley")
-      displayDesignText.style.fontWeight = 500;
-    else displayDesignText.style.fontWeight = 700;
-
-    // THIS WORKS BUT NEED THE fontSizes TO BE THE CORRECT NAMES
-    switch (modifiedStr) {
-      case "ballantine":
-        currentFontWidth = window.ballantineWidth;
-        currentFontHeight = window.ballantineHeight;
-        currentFont.innerHTML = "Baroque";
-        fontSelector.textContent = "Baroque";
-        displayDesignText.style.lineHeight = 0.9;
-        if (window.innerWidth <= 990) {
-          displayDesignText.style.letterSpacing = "-2px";
-        } else {
-          displayDesignText.style.letterSpacing = "normal";
-        }
-        break;
-      case "seashore":
-        currentFontWidth = window.seashoreWidth;
-        currentFontHeight = window.seashoreHeight;
-        currentFont.innerHTML = "Gemstone";
-        fontSelector.textContent = "Gemstone";
-        displayDesignText.style.lineHeight = 1.5;
-        if (window.innerWidth <= 990) {
-          displayDesignText.style.letterSpacing = "-1px";
-        } else {
-          displayDesignText.style.letterSpacing = "normal";
-        }
-        break;
-      case "brush-script":
-        currentFontWidth = window.brushScriptWidth;
-        currentFontHeight = window.brushScriptHeight;
-        currentFont.innerHTML = "Vintage";
-        fontSelector.textContent = "Vintage";
-        displayDesignText.style.lineHeight = 1.2;
-        if (window.innerWidth <= 990) {
-          displayDesignText.style.letterSpacing = "0px";
-        } else {
-          displayDesignText.style.letterSpacing = "normal";
-        }
-        break;
-      case "commercial-script":
-        currentFontWidth = window.commercialWidth;
-        currentFontHeight = window.commercialHeight;
-        currentFont.innerHTML = "Radiant";
-        fontSelector.textContent = "Radiant";
-        displayDesignText.style.lineHeight = 1.2;
-        if (window.innerWidth <= 990) {
-          displayDesignText.style.letterSpacing = "-3px";
-        } else {
-          displayDesignText.style.letterSpacing = "normal";
-        }
-        break;
-      case "parsley":
-        currentFontWidth = window.parsleyWidth;
-        currentFontHeight = window.parsleyHeight;
-        currentFont.innerHTML = "Regal";
-        fontSelector.textContent = "Regal";
-        displayDesignText.style.lineHeight = 1.0;
-        if (window.innerWidth <= 990) {
-          displayDesignText.style.letterSpacing = "0px";
-        } else {
-          displayDesignText.style.letterSpacing = "normal";
-        }
-        break;
-      case "petit-formal":
-        currentFontWidth = window.petitFormalWidth;
-        currentFontHeight = window.petitFormalHeight;
-        currentFont.innerHTML = "Contemporary";
-        fontSelector.textContent = "Contemporary";
-        displayDesignText.style.lineHeight = 1.6;
-        if (window.innerWidth <= 990) {
-          displayDesignText.style.letterSpacing = "-2px";
-        } else {
-          displayDesignText.style.letterSpacing = "normal";
-        }
-        break;
-      case "scriptmtbold":
-        currentFontWidth = window.scriptMTBoldWidth;
-        currentFontHeight = window.scriptMTBoldHeight;
-        currentFont.innerHTML = "Novel";
-        fontSelector.textContent = "Novel";
-        displayDesignText.style.lineHeight = 1.2;
-        if (window.innerWidth <= 990) {
-          displayDesignText.style.letterSpacing = "-2px";
-        } else {
-          displayDesignText.style.letterSpacing = "normal";
-        }
-        break;
-      case "vivace":
-        currentFontWidth = window.vivaceWidth;
-        currentFontHeight = window.vivaceHeight;
-        currentFont.innerHTML = "Vivace";
-        fontSelector.textContent = "Vivace";
-        displayDesignText.style.lineHeight = 1.2;
-        if (window.innerWidth <= 990) {
-          displayDesignText.style.letterSpacing = "-2px";
-        } else {
-          displayDesignText.style.letterSpacing = "normal";
-        }
-        break;
-    }
-    countValue();
-  });
-}
 
 // FUNCTION DETECTS WHEN A NUMBER IS 60% OF SCREEN WIDTH
 // function checkScreenPercentage(num, percent) {

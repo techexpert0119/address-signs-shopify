@@ -12,7 +12,7 @@
 }
 @font-face {
   font-family: "commercial-script";
-  src: url("CommercialScriptComRegular.TTF");
+  src: url("Commercial-Script-Regular.woff") format("woff");
 }
 @font-face {
   font-family: "parsley";
@@ -3063,8 +3063,8 @@ details-disclosure > details {
   }
 }
 .header__icon--search {
-  display: none;
+    display: none;
 }
 .announcement-bar__message {
-  color: #68ffa8 !important;
+    color: #68ffa8!important;
 }
