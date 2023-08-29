@@ -27,6 +27,7 @@ body {
 }
 .design-container {
   padding: 20px 20px 10px;
+  height: 92%;
 }
 #csp-background-img {
   display: block !important;
@@ -186,7 +187,7 @@ body {
   max-width: 2560px;
   margin: 0 auto;
   display: flex;
-  height: calc(100vh - 77.6px);
+  height: calc(100vh - 74.6px);
   overflow: hidden;
 }
 .design-box {
@@ -436,7 +437,7 @@ input.prevent-highlight {
   border-radius: 7px !important;
 }
 .csp-cta-btn {
-  width: 100%;
+  width: 102%;
   height: 80px;
   background-color: #353eac;
   color: #fff;
@@ -444,7 +445,7 @@ input.prevent-highlight {
   font-weight: 600;
   letter-spacing: 3px;
   cursor: pointer;
-  transform: translateY(1px);
+  transform: translate(-2px, 2px);
 }
 .csp-cta-btn:hover {
   color: #68ffa8;
