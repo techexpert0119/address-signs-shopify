@@ -1,0 +1,75 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "722b3400-d7e0-4fd1-8e5d-1a2d576f07fc": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Screenshot_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "45b2e407-a6bc-4ddd-9bdc-27c13b55f7e3": {
+      "type": "rich-text",
+      "blocks": {
+        "template--20825679331646__45b2e407-a6bc-4ddd-9bdc-27c13b55f7e3-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Our Process<\/p>",
+            "heading_size": "h1"
+          }
+        },
+        "template--20825679331646__45b2e407-a6bc-4ddd-9bdc-27c13b55f7e3-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From our shop to your home we've been committed to the highest quality and standards for over 10 years. Our sign are made from the highest grade of Cast Acrylic which is made to last in any weather and will not fade. We pride ourselves in making numbers that will enhance your homes curb appeal and be something to admire whenever you come home.<\/p>"
+          }
+        },
+        "template--20825679331646__45b2e407-a6bc-4ddd-9bdc-27c13b55f7e3-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "Order Now",
+            "button_link": "shopify:\/\/pages\/create-a-sign",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--20825679331646__45b2e407-a6bc-4ddd-9bdc-27c13b55f7e3-heading-1",
+        "template--20825679331646__45b2e407-a6bc-4ddd-9bdc-27c13b55f7e3-text-1",
+        "template--20825679331646__45b2e407-a6bc-4ddd-9bdc-27c13b55f7e3-button-1"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "722b3400-d7e0-4fd1-8e5d-1a2d576f07fc",
+    "45b2e407-a6bc-4ddd-9bdc-27c13b55f7e3"
+  ]
+}

@@ -129,7 +129,7 @@
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
-              "text": "Limited Time: 20% off orders of $250+ with code SZN23",
+              "text": "Limited Time: 20% off orders of $100+ with code SZN2023",
               "text_alignment": "center",
               "color_scheme": "inverse",
               "link": ""
