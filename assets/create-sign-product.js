@@ -231,8 +231,20 @@ function countValue() {
   var quantityDisplay = document.getElementsByClassName("quantity__input")[0];
   quantityDisplay.value = 1;
 
+  let premiumFlag = false;
+  const currentFontText = currentFont.innerHTML;
+  if (
+    currentFontText == "Prestige" ||
+    currentFontText == "Mode" ||
+    currentFontText == "Chroma" ||
+    currentFontText == "Espresso"
+  )
+    premiumFlag = true;
+
   currentAddress.innerHTML = textInput.value;
-  currentProduct.innerHTML = `${strlength} letter`;
+  currentProduct.innerHTML = `${strlength} letter${
+    premiumFlag ? " premium" : ""
+  }`;
 
   // Control Font Size
   var container = document.getElementsByClassName("height-text-box")[0];
@@ -513,6 +525,7 @@ for (let i = 0; i < fontGridItem.length; i++) {
         break;
     }
     countValue();
+    getPrice();
   });
 }
 

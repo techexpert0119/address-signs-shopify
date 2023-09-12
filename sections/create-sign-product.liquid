@@ -943,25 +943,16 @@
 
 <script>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  let productsArr = [];
+  let productsArr = [], premium_productsArr = [];
   const currentSize = document.querySelector("#current-size");
 
 // Get Products Info
   {% for prodInfo in collections['number-of-letters-products'].products %};
-    productsArr.push({{ prodInfo | json }});{% endfor %}
+    productsArr.push({{ prodInfo | json }});
+  {% endfor %}
+  {% for prodInfo in collections['number-of-letters-products-premium'].products %};
+    premium_productsArr.push({{ prodInfo | json }});
+  {% endfor %}
 
 // Show Variant Price
   const getPrice = () => {
@@ -974,8 +965,16 @@
       .toString();
 
     const currentSizeValue = currentSize.innerHTML;
+    const currentFontText = document.querySelector("#current-font").innerHTML;
+    let premiumFlag = false;
+    let currentProduct;
 
-    const currentProduct = productsArr.filter(product => product.title.split(" ")[0] === length)[0]
+    if (currentFontText == "Prestige" || currentFontText == "Mode" || currentFontText == "Chroma" || currentFontText == "Espresso") premiumFlag = true;
+
+    if(premiumFlag)
+      currentProduct = premium_productsArr.filter(product => product.title.split(" ")[0] === length)[0];
+    else
+      currentProduct = productsArr.filter(product => product.title.split(" ")[0] === length)[0];
     if (! currentProduct) {
       return;
     }
@@ -1027,8 +1026,16 @@
       .filter((str) => str !== "\n" && str !== " ")
       .length
       .toString();
+    
+    let premiumFlag = false;
+    let currentProduct;
 
-    const currentProduct = productsArr.filter(product => product.title.split(" ")[0] === currentLength)[0]
+    if (currentFontText == "Prestige" || currentFontText == "Mode" || currentFontText == "Chroma" || currentFontText == "Espresso") premiumFlag = true;
+
+    if(premiumFlag)
+      currentProduct = premium_productsArr.filter(product => product.title.split(" ")[0] === currentLength)[0]
+    else
+      currentProduct = productsArr.filter(product => product.title.split(" ")[0] === currentLength)[0]
     if (! currentProduct) {
       comment.innerHTML = "Product doesn't exist!"
       comment.style.color = "red";
@@ -1088,9 +1095,6 @@
     window.location.href = "/cart";
   })
 
-
-
-
 </script>
 
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
@@ -1106,8 +1110,8 @@
 <script type="application/ld+json">
   {
   "@context": "http://schema.org/",
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    "@type": "Product",
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    "name": {{ product.title | json }},
+  "@type": "Product",
+  "name": {{ product.title | json }},
   "url": {{ request.origin | append: product.url | json }},
   {% if seo_media -%}
     "image": [
@@ -1120,7 +1124,7 @@
   {%- endif %}
   "brand": {
   "@type": "Brand",
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                      "name": {{ product.vendor | json }}
+  "name": {{ product.vendor | json }}
   },
   "offers": [
   {%- for variant in product.variants -%}
