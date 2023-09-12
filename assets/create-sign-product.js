@@ -56,11 +56,14 @@ let fontSizes = {
   "petit-formal": 80,
   vivace: 110,
   scriptmtbold: 100,
+  centurygothic: 90,
+  plaza: 105,
+  kanit: 100,
+  oswald: 100,
 };
 let currencyStatus = 0;
 let showMeasureBar = true;
 
-/*********************************ROMEO'S WORK**********************************/
 const cartPreFontChange = () => {
   var cartPreImageContainer = document.querySelector(".cart-pre-img-container");
   var fontStr = cartPreDesignText.style.fontFamily;
@@ -137,10 +140,6 @@ rulerBtn.addEventListener("click", () => {
   else showMeasureBar = true;
   changeRulerDisplay();
 });
-
-// window.addEventListener("load", () => {
-//   changeRulerDisplay();
-// });
 
 window.addEventListener("resize", () => {
   countValue();
@@ -232,8 +231,20 @@ function countValue() {
   var quantityDisplay = document.getElementsByClassName("quantity__input")[0];
   quantityDisplay.value = 1;
 
+  let premiumFlag = false;
+  const currentFontText = currentFont.innerHTML;
+  if (
+    currentFontText == "Prestige" ||
+    currentFontText == "Mode" ||
+    currentFontText == "Chroma" ||
+    currentFontText == "Espresso"
+  )
+    premiumFlag = true;
+
   currentAddress.innerHTML = textInput.value;
-  currentProduct.innerHTML = `${strlength} letter`;
+  currentProduct.innerHTML = `${strlength} letter${
+    premiumFlag ? " premium" : ""
+  }`;
 
   // Control Font Size
   var container = document.getElementsByClassName("height-text-box")[0];
@@ -291,7 +302,6 @@ function countValue() {
     }
   })
 );
-/*******************************************************************************/
 
 function filterInput() {
   var textInput = document.getElementById("textInput");
@@ -332,142 +342,14 @@ backgroundSwatches.forEach((swatch) => {
 });
 
 fontGrid.style.display = "none";
-fontGridItem[0].style.backgroundColor = "#353eac";
-fontGridItem[0].style.color = "#68ffa8";
+fontGridItem[0].style.backgroundColor = "#000000";
+fontGridItem[0].style.color = "#eeee33";
+
 fontSelector.addEventListener("click", function () {
   if (fontDropdownGrid.style.gridTemplateRows === "0fr") {
     fontGrid.style.display = "grid";
     fontDropdownGrid.style.gridTemplateRows = "1fr";
     iconCarat.style.transform = "rotate(180deg)";
-    for (let i = 0; i < fontGridItem.length; i++) {
-      // if (i === 0) {
-      //   fontGridItem[i].style.color = "#68ffa8";
-      //   fontGridItem[i].style.backgroundColor = "#353eac";
-      // }
-      fontGridItem[i].addEventListener("click", function (e) {
-        for (let x = 0; x < fontGridItem.length; x++) {
-          fontGridItem[x].style.color = "rgb(53, 62, 172)";
-          fontGridItem[x].style.backgroundColor = "transparent";
-        }
-        e.currentTarget.style.color = "#68ffa8";
-        e.currentTarget.style.backgroundColor = "#353eac";
-        let fontStr = e.currentTarget.style.fontFamily;
-        let modifiedStr = fontStr.split(",")[0].replaceAll('"', "");
-        fontInput.setAttribute("value", modifiedStr);
-        displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
-        cartPreDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
-        displayDesignText.style.fontSize = fontSizes[modifiedStr] + "px";
-        if (modifiedStr === "brush-script" || modifiedStr === "parsley")
-          displayDesignText.style.fontWeight = 500;
-        else displayDesignText.style.fontWeight = 700;
-
-        // THIS WORKS BUT NEED THE fontSizes TO BE THE CORRECT NAMES
-        console.log("Font: " + modifiedStr);
-
-        switch (modifiedStr) {
-          case "ballantine":
-            currentFontWidth = window.ballantineWidth;
-            currentFontHeight = window.ballantineHeight;
-            currentFont.innerHTML = "Baroque";
-            fontSelector.textContent = "Baroque";
-            displayDesignText.style.lineHeight = 0.9;
-            if (window.innerWidth <= 990) {
-              displayDesignText.style.letterSpacing = "-2px";
-            } else {
-              displayDesignText.style.letterSpacing = "normal";
-            }
-            break;
-          case "seashore":
-            currentFontWidth = window.seashoreWidth;
-            currentFontHeight = window.seashoreHeight;
-            currentFont.innerHTML = "Gemstone";
-            fontSelector.textContent = "Gemstone";
-            displayDesignText.style.lineHeight = 1.5;
-            if (window.innerWidth <= 990) {
-              displayDesignText.style.letterSpacing = "-1px";
-            } else {
-              displayDesignText.style.letterSpacing = "normal";
-            }
-            break;
-          case "brush-script":
-            currentFontWidth = window.brushScriptWidth;
-            currentFontHeight = window.brushScriptHeight;
-            currentFont.innerHTML = "Vintage";
-            fontSelector.textContent = "Vintage";
-            displayDesignText.style.lineHeight = 1.2;
-            if (window.innerWidth <= 990) {
-              displayDesignText.style.letterSpacing = "0px";
-            } else {
-              displayDesignText.style.letterSpacing = "normal";
-            }
-            break;
-          case "commercial-script":
-            currentFontWidth = window.commercialWidth;
-            currentFontHeight = window.commercialHeight;
-            currentFont.innerHTML = "Radiant";
-            fontSelector.textContent = "Radiant";
-            displayDesignText.style.lineHeight = 1.2;
-            if (window.innerWidth <= 990) {
-              displayDesignText.style.letterSpacing = "-2.9px";
-            } else {
-              displayDesignText.style.letterSpacing = "normal";
-            }
-            break;
-          case "parsley":
-            currentFontWidth = window.parsleyWidth;
-            currentFontHeight = window.parsleyHeight;
-            currentFont.innerHTML = "Regal";
-            fontSelector.textContent = "Regal";
-            displayDesignText.style.lineHeight = 1.0;
-            if (window.innerWidth <= 990) {
-              displayDesignText.style.letterSpacing = "0px";
-            } else {
-              displayDesignText.style.letterSpacing = "normal";
-            }
-            break;
-          case "petit-formal":
-            currentFontWidth = window.petitFormalWidth;
-            currentFontHeight = window.petitFormalHeight;
-            currentFont.innerHTML = "Contemporary";
-            fontSelector.textContent = "Contemporary";
-            displayDesignText.style.lineHeight = 1.6;
-            if (window.innerWidth <= 990) {
-              displayDesignText.style.letterSpacing = "-2px";
-            } else {
-              displayDesignText.style.letterSpacing = "normal";
-            }
-            break;
-          case "scriptmtbold":
-            currentFontWidth = window.scriptMTBoldWidth;
-            currentFontHeight = window.scriptMTBoldHeight;
-            currentFont.innerHTML = "Novel";
-            fontSelector.textContent = "Novel";
-            displayDesignText.style.lineHeight = 1.2;
-            if (window.innerWidth <= 990) {
-              displayDesignText.style.letterSpacing = "-2px";
-            } else {
-              displayDesignText.style.letterSpacing = "normal";
-            }
-            break;
-          case "vivace":
-            currentFontWidth = window.vivaceWidth;
-            currentFontHeight = window.vivaceHeight;
-            currentFont.innerHTML = "Vivace";
-            fontSelector.textContent = "Vivace";
-            displayDesignText.style.lineHeight = 1.2;
-            if (window.innerWidth <= 990) {
-              displayDesignText.style.letterSpacing = "-2px";
-            } else {
-              displayDesignText.style.letterSpacing = "normal";
-            }
-            break;
-        }
-
-        /**********************ROMEO'S WORK*************************/
-        countValue();
-        /***********************************************************/
-      });
-    }
   } else {
     iconCarat.style.transform = "rotate(0deg)";
     fontGrid.style.overflow = "hidden";
@@ -476,18 +358,176 @@ fontSelector.addEventListener("click", function () {
   }
 });
 
-// FUNCTION DETECTS WHEN A NUMBER IS 60% OF SCREEN WIDTH
-// function checkScreenPercentage(num, percent) {
-//   let screenWidth = designBox.offsetWidth;
-//   let decimalPercent = percent / 100;
-//   let limit = screenWidth * decimalPercent;
-//   if (num >= limit) {
-//     // Execute your code here
-//     console.log(num + " has reached " + percent + "% of the design width.");
-//   } else {
-//     console.log(num + " has NOT reached " + percent + "% of the design width.");
-//   }
-// }
+for (let i = 0; i < fontGridItem.length; i++) {
+  fontGridItem[i].addEventListener("click", function (e) {
+    for (let x = 0; x < fontGridItem.length; x++) {
+      fontGridItem[x].style.color = "rgb(0, 0, 0)";
+      fontGridItem[x].style.backgroundColor = "transparent";
+    }
+    e.currentTarget.style.color = "#eeee33";
+    e.currentTarget.style.backgroundColor = "#000000";
+    let fontStr = e.currentTarget.style.fontFamily;
+    let modifiedStr = fontStr.split(",")[0].replaceAll('"', "");
+    fontInput.setAttribute("value", modifiedStr);
+    displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
+    cartPreDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
+    displayDesignText.style.fontSize = fontSizes[modifiedStr] + "px";
+    if (modifiedStr === "brush-script" || modifiedStr === "parsley")
+      displayDesignText.style.fontWeight = 500;
+    else displayDesignText.style.fontWeight = 700;
+
+    // THIS WORKS BUT NEED THE fontSizes TO BE THE CORRECT NAMES
+
+    switch (modifiedStr) {
+      case "ballantine":
+        currentFontWidth = window.ballantineWidth;
+        currentFontHeight = window.ballantineHeight;
+        currentFont.innerHTML = "Baroque";
+        fontSelector.textContent = "Baroque";
+        displayDesignText.style.lineHeight = 0.9;
+        if (window.innerWidth <= 990) {
+          displayDesignText.style.letterSpacing = "-2px";
+        } else {
+          displayDesignText.style.letterSpacing = "normal";
+        }
+        break;
+      case "seashore":
+        currentFontWidth = window.seashoreWidth;
+        currentFontHeight = window.seashoreHeight;
+        currentFont.innerHTML = "Gemstone";
+        fontSelector.textContent = "Gemstone";
+        displayDesignText.style.lineHeight = 1.5;
+        if (window.innerWidth <= 990) {
+          displayDesignText.style.letterSpacing = "-1px";
+        } else {
+          displayDesignText.style.letterSpacing = "normal";
+        }
+        break;
+      case "brush-script":
+        currentFontWidth = window.brushScriptWidth;
+        currentFontHeight = window.brushScriptHeight;
+        currentFont.innerHTML = "Vintage";
+        fontSelector.textContent = "Vintage";
+        displayDesignText.style.lineHeight = 1.2;
+        if (window.innerWidth <= 990) {
+          displayDesignText.style.letterSpacing = "0px";
+        } else {
+          displayDesignText.style.letterSpacing = "normal";
+        }
+        break;
+      case "commercial-script":
+        currentFontWidth = window.commercialWidth;
+        currentFontHeight = window.commercialHeight;
+        currentFont.innerHTML = "Radiant";
+        fontSelector.textContent = "Radiant";
+        displayDesignText.style.lineHeight = 1.2;
+        if (window.innerWidth <= 990) {
+          displayDesignText.style.letterSpacing = "-3px";
+        } else {
+          displayDesignText.style.letterSpacing = "normal";
+        }
+        break;
+      case "parsley":
+        currentFontWidth = window.parsleyWidth;
+        currentFontHeight = window.parsleyHeight;
+        currentFont.innerHTML = "Regal";
+        fontSelector.textContent = "Regal";
+        displayDesignText.style.lineHeight = 1.0;
+        if (window.innerWidth <= 990) {
+          displayDesignText.style.letterSpacing = "0px";
+        } else {
+          displayDesignText.style.letterSpacing = "normal";
+        }
+        break;
+      case "petit-formal":
+        currentFontWidth = window.petitFormalWidth;
+        currentFontHeight = window.petitFormalHeight;
+        currentFont.innerHTML = "Contemporary";
+        fontSelector.textContent = "Contemporary";
+        displayDesignText.style.lineHeight = 1.6;
+        if (window.innerWidth <= 990) {
+          displayDesignText.style.letterSpacing = "-2px";
+        } else {
+          displayDesignText.style.letterSpacing = "normal";
+        }
+        break;
+      case "scriptmtbold":
+        currentFontWidth = window.scriptMTBoldWidth;
+        currentFontHeight = window.scriptMTBoldHeight;
+        currentFont.innerHTML = "Novel";
+        fontSelector.textContent = "Novel";
+        displayDesignText.style.lineHeight = 1.2;
+        if (window.innerWidth <= 990) {
+          displayDesignText.style.letterSpacing = "-2px";
+        } else {
+          displayDesignText.style.letterSpacing = "normal";
+        }
+        break;
+      case "vivace":
+        currentFontWidth = window.vivaceWidth;
+        currentFontHeight = window.vivaceHeight;
+        currentFont.innerHTML = "Vivace";
+        fontSelector.textContent = "Vivace";
+        displayDesignText.style.lineHeight = 1.1;
+        if (window.innerWidth <= 990) {
+          displayDesignText.style.letterSpacing = "-2px";
+        } else {
+          displayDesignText.style.letterSpacing = "normal";
+        }
+        break;
+      case "centurygothic":
+        currentFontWidth = window.centurygothicWidth;
+        currentFontHeight = window.centurygothicHeight;
+        currentFont.innerHTML = "Prestige";
+        fontSelector.textContent = "Prestige";
+        displayDesignText.style.lineHeight = 1.2;
+        if (window.innerWidth <= 990) {
+          displayDesignText.style.letterSpacing = "0px";
+        } else {
+          displayDesignText.style.letterSpacing = "normal";
+        }
+        break;
+      case "plaza":
+        currentFontWidth = window.plazaWidth;
+        currentFontHeight = window.plazaHeight;
+        currentFont.innerHTML = "Mode";
+        fontSelector.textContent = "Mode";
+        displayDesignText.style.lineHeight = 1.1;
+        if (window.innerWidth <= 990) {
+          displayDesignText.style.letterSpacing = "0px";
+        } else {
+          displayDesignText.style.letterSpacing = "normal";
+        }
+        break;
+      case "kanit":
+        currentFontWidth = window.kanitWidth;
+        currentFontHeight = window.kanitHeight;
+        currentFont.innerHTML = "Chroma";
+        fontSelector.textContent = "Chroma";
+        displayDesignText.style.lineHeight = 1.2;
+        if (window.innerWidth <= 990) {
+          displayDesignText.style.letterSpacing = "0px";
+        } else {
+          displayDesignText.style.letterSpacing = "normal";
+        }
+        break;
+      case "oswald":
+        currentFontWidth = window.oswaldWidth;
+        currentFontHeight = window.oswaldHeight;
+        currentFont.innerHTML = "Espresso";
+        fontSelector.textContent = "Espresso";
+        displayDesignText.style.lineHeight = 1.3;
+        if (window.innerWidth <= 990) {
+          displayDesignText.style.letterSpacing = "0px";
+        } else {
+          displayDesignText.style.letterSpacing = "normal";
+        }
+        break;
+    }
+    countValue();
+    getPrice();
+  });
+}
 
 // SELECT ALIGNMENT FUNCTIONALITY
 leftAlignBox.addEventListener("click", function () {

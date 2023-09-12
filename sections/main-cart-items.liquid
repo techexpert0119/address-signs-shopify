@@ -36,7 +36,7 @@
       {{ 'general.continue_shopping' | t }}
     </a>
 
-    {%- if shop.customer_accounts_enabled and customer == nil -%}
+    {%- if shop.customer_accounts_enabled and customer == null -%}
       <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
       <p class="cart__login-paragraph">
         {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
@@ -49,13 +49,23 @@
       <div class="js-contents">
         {%- if cart != empty -%}
           <table class="cart-items">
-            <caption class="visually-hidden">{{ 'sections.cart.title' | t }}</caption>
+            <caption class="visually-hidden">
+              {{ 'sections.cart.title' | t }}
+            </caption>
             <thead>
               <tr>
-                <th class="caption-with-letter-spacing" colspan="2" scope="col">{{ 'sections.cart.headings.product' | t }}</th>
-                <th class="medium-hide large-up-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
-                <th class="cart-items__heading--wide small-hide caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.quantity' | t }}</th>
-                <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
+                <th class="caption-with-letter-spacing" colspan="2" scope="col">
+                  {{ 'sections.cart.headings.product' | t }}
+                </th>
+                <th class="medium-hide large-up-hide right caption-with-letter-spacing" colspan="1" scope="col">
+                  {{ 'sections.cart.headings.total' | t }}
+                </th>
+                <th class="cart-items__heading--wide small-hide caption-with-letter-spacing" colspan="1" scope="col">
+                  {{ 'sections.cart.headings.quantity' | t }}
+                </th>
+                <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">
+                  {{ 'sections.cart.headings.total' | t }}
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -63,22 +73,30 @@
                 {%- for property in item.properties -%}
                   {% if property.first == 'Font' %}
                     {% case property.last %}
-                      {% when "Baroque" %}
-                        {% assign addressFont = "ballantine" %}
-                      {% when "Gemstone" %}
-                        {% assign addressFont = "seashore" %}
-                      {% when "Vintage" %}
-                        {% assign addressFont = "brush-script" %}
-                      {% when "Radiant" %}
-                        {% assign addressFont = "commercial-script" %}
-                      {% when "Regal" %}
-                        {% assign addressFont = "parsley" %}
-                      {% when "Contemporary" %}
-                        {% assign addressFont = "petit-formal" %}
-                      {% when "Novel" %}
-                        {% assign addressFont = "scriptmtbold" %}
+                      {% when 'Baroque' %}
+                        {% assign addressFont = 'ballantine' %}
+                      {% when 'Gemstone' %}
+                        {% assign addressFont = 'seashore' %}
+                      {% when 'Vintage' %}
+                        {% assign addressFont = 'brush-script' %}
+                      {% when 'Radiant' %}
+                        {% assign addressFont = 'commercial-script' %}
+                      {% when 'Regal' %}
+                        {% assign addressFont = 'parsley' %}
+                      {% when 'Contemporary' %}
+                        {% assign addressFont = 'petit-formal' %}
+                      {% when 'Novel' %}
+                        {% assign addressFont = 'scriptmtbold' %}
+                      {% when 'Prestige' %}
+                        {% assign addressFont = 'centurygothic' %}
+                      {% when 'Mode' %}
+                        {% assign addressFont = 'plaza' %}
+                      {% when 'Chroma' %}
+                        {% assign addressFont = 'kanit' %}
+                      {% when 'Espresso' %}
+                        {% assign addressFont = 'oswald' %}
                       {% else %}
-                        {% assign addressFont = "vivace" %}
+                        {% assign addressFont = 'vivace' %}
                     {% endcase %}
                   {% endif %}
                   {% if property.first == 'Address' %}
@@ -91,20 +109,21 @@
                 <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
                   <td class="cart-item__media">
                     {% if item.image %}
-                        {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
-                        <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
-                          <div class="cart-item__image-container gradient global-media-settings">
-                            <img src="{{ item.image | image_url: width: 300 }}"
-                              class="cart-item__image"
-                              alt="{{ item.image.alt | escape }}"
-                              loading="lazy"
-                              width="150"
-                              height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
-                            >
-                          </div>
+                      {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
+                      <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
+                      <div class="cart-item__image-container gradient global-media-settings">
+                        <img
+                          src="{{ item.image | image_url: width: 300 }}"
+                          class="cart-item__image"
+                          alt="{{ item.image.alt | escape }}"
+                          loading="lazy"
+                          width="150"
+                          height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
+                        >
+                      </div>
 
-                      {% else %}
-                        <h2 style="font-family: '{{addressFont}}';text-align:{{addressAlignment}};">{{addressSign}}</h2>
+                    {% else %}
+                      <h2 style="font-family: '{{addressFont}}';text-align:{{addressAlignment}};">{{ addressSign }}</h2>
                     {% endif %}
                   </td>
 
@@ -115,33 +134,38 @@
 
                     {% comment %} <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a> {% endcomment %}
 
-                    {% comment %} {%- if item.original_price != item.final_price -%}
-                      <div class="cart-item__discounted-prices">
-                        <span class="visually-hidden">
-                          {{ 'products.product.price.regular_price' | t }}
-                        </span>
-                        <s class="cart-item__old-price product-option">
-                          {{- item.original_price | money -}}
-                        </s>
-                        <span class="visually-hidden">
-                          {{ 'products.product.price.sale_price' | t }}
-                        </span>
-                        <strong class="cart-item__final-price product-option">
-                          {{ item.final_price | money }}
-                        </strong>
-                      </div>
-                    {%- else -%}
-                      <div class="product-option">
-                        {{ item.original_price | money }}
-                      </div>
-                    {%- endif -%} {% endcomment %}
+                    {% comment %}
+                      {%- if item.original_price != item.final_price -%}
+                        <div class="cart-item__discounted-prices">
+                          <span class="visually-hidden">
+                            {{ 'products.product.price.regular_price' | t }}
+                          </span>
+                          <s class="cart-item__old-price product-option">
+                            {{- item.original_price | money -}}
+                          </s>
+                          <span class="visually-hidden">
+                            {{ 'products.product.price.sale_price' | t }}
+                          </span>
+                          <strong class="cart-item__final-price product-option">
+                            {{ item.final_price | money }}
+                          </strong>
+                        </div>
+                      {%- else -%}
+                        <div class="product-option">
+                          {{ item.original_price | money }}
+                        </div>
+                      {%- endif -%}
+                    {% endcomment %}
 
-                    {%- if item.product.has_only_default_variant == false or item.properties.size != 0 or item.selling_plan_allocation != nil -%}
+                    {%- if item.product.has_only_default_variant == false
+                      or item.properties.size != 0
+                      or item.selling_plan_allocation != null
+                    -%}
                       <dl>
                         {%- if item.product.has_only_default_variant == false -%}
                           {%- for option in item.options_with_values -%}
                             <div class="product-option">
-                              <dt>{{ option.name }}: </dt>
+                              <dt>{{ option.name }}:</dt>
                               <dd>{{ option.value }}</dd>
                             </div>
                           {%- endfor -%}
@@ -151,7 +175,8 @@
                           {%- assign property_first_char = property.first | slice: 0 -%}
                           {%- if property.last != blank and property_first_char != '_' -%}
                             <div class="product-option">
-                              <dt style="font-weight:bold;">{{ property.first }}: </dt><br>
+                              <dt style="font-weight:bold;">{{ property.first }}:</dt>
+                              <br>
                               <dd>
                                 {%- if property.last contains '/uploads/' -%}
                                   <a href="{{ property.last }}" class="link" target="_blank">
@@ -182,7 +207,14 @@
                   <td class="cart-item__totals right medium-hide large-up-hide">
                     <div class="loading-overlay hidden">
                       <div class="loading-overlay__spinner">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          role="presentation"
+                          class="spinner"
+                          viewBox="0 0 66 66"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
                           <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                         </svg>
                       </div>
@@ -216,7 +248,9 @@
                           <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
                           {{ item.variant.unit_price | money }}
                           <span aria-hidden="true">/</span>
-                          <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
+                          <span class="visually-hidden"
+                            >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
+                          >
                           {%- if item.variant.unit_price_measurement.reference_value != 1 -%}
                             {{- item.variant.unit_price_measurement.reference_value -}}
                           {%- endif -%}
@@ -233,10 +267,13 @@
                       </label>
                       <quantity-input class="quantity">
                         <button class="quantity__button no-js-hidden" name="minus" type="button">
-                          <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
+                          <span class="visually-hidden">
+                            {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
+                          </span>
                           {% render 'icon-minus' %}
                         </button>
-                        <input class="quantity__input"
+                        <input
+                          class="quantity__input"
                           type="number"
                           name="updates[]"
                           value="{{ item.quantity }}"
@@ -246,20 +283,35 @@
                           data-index="{{ item.index | plus: 1 }}"
                         >
                         <button class="quantity__button no-js-hidden" name="plus" type="button">
-                          <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
+                          <span class="visually-hidden">
+                            {{- 'products.product.quantity.increase' | t: product: item.product.title | escape -}}
+                          </span>
                           {% render 'icon-plus' %}
                         </button>
                       </quantity-input>
 
-                      <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
-                        <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                      <cart-remove-button
+                        id="Remove-{{ item.index | plus: 1 }}"
+                        data-index="{{ item.index | plus: 1 }}"
+                      >
+                        <a
+                          href="{{ item.url_to_remove }}"
+                          class="button button--tertiary"
+                          aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                        >
                           {% render 'icon-remove' %}
                         </a>
                       </cart-remove-button>
                     </div>
                     <div class="cart-item__error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert">
                       <small class="cart-item__error-text"></small>
-                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        role="presentation"
+                        class="icon icon-error"
+                        viewBox="0 0 13 13"
+                      >
                         <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
                         <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
                         <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
@@ -271,7 +323,14 @@
                   <td class="cart-item__totals right small-hide">
                     <div class="loading-overlay hidden">
                       <div class="loading-overlay__spinner">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          role="presentation"
+                          class="spinner"
+                          viewBox="0 0 66 66"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
                           <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                         </svg>
                       </div>
@@ -306,7 +365,9 @@
                           <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
                           {{ item.variant.unit_price | money }}
                           <span aria-hidden="true">/</span>
-                          <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
+                          <span class="visually-hidden"
+                            >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
+                          >
                           {%- if item.variant.unit_price_measurement.reference_value != 1 -%}
                             {{- item.variant.unit_price_measurement.reference_value -}}
                           {%- endif -%}
@@ -324,7 +385,9 @@
     </div>
 
     <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
-    <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
+    <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">
+      {{ 'accessibility.loading' | t }}
+    </p>
   </form>
 </cart-items>
 

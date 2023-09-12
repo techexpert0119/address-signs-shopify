@@ -12,7 +12,7 @@
 }
 @font-face {
   font-family: "commercial-script";
-  src: url("Commercial-Script-Regular.woff") format("woff");
+  src: url("CommercialScriptComRegular.TTF");
 }
 @font-face {
   font-family: "parsley";
@@ -26,10 +26,26 @@
   font-family: "vivace";
   src: url("Vivace.woff") format("woff");
 }
-
 @font-face {
   font-family: "scriptmtbold";
   src: url("https://res.cloudinary.com/dcqzhsbcc/raw/upload/v1678650342/Talal_Fonts/ScriptMTBold_owebd9.ttf");
+}
+
+@font-face {
+  font-family: "centurygothic";
+  src: url("Century Gothic.ttf");
+}
+@font-face {
+  font-family: "plaza";
+  src: url("Plaza.otf");
+}
+@font-face {
+  font-family: "kanit";
+  src: url("Kanit-Regular.ttf");
+}
+@font-face {
+  font-family: "oswald";
+  src: url("Oswald-Regular.ttf");
 }
 
 /* @font-face {
@@ -3063,8 +3079,8 @@ details-disclosure > details {
   }
 }
 .header__icon--search {
-    display: none;
+  display: none;
 }
 .announcement-bar__message {
-    color: #68ffa8!important;
+  color: #68ffa8 !important;
 }

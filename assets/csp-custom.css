@@ -347,15 +347,15 @@ body {
 }
 .csp-font-grid {
   overflow: hidden;
-  padding: 15px 0 0 0;
+  padding: 15px 1px 1px 1px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
-  gap: 10px;
+  gap: 6px;
 }
 .csp-font-item {
-  color: rgb(53, 62, 172);
-  border: 1px solid rgb(53, 62, 172);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
   text-align: center;
   height: 40px;
   font-weight: 600;
