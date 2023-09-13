@@ -75,7 +75,7 @@
           <div class="height-text-box">
             <div class="measure-height-cont">
               <div class="mearsurement-numbers design-box-text-shadow">
-                <span> <span id="heightDisplay">0</span>in</span>
+                <span><span id="heightDisplay">0</span>in</span>
               </div>
               <div class="height-hr-box">
                 <span class="height-measure-end"></span>
@@ -94,7 +94,7 @@
               <hr class="measurement-endings">
             </div>
             <div class="count-display-box design-box-text-shadow">
-              <span class="mearsurement-numbers"> <span id="widthDisplay">0</span>in</span>
+              <span class="mearsurement-numbers"><span id="widthDisplay">0</span>in</span>
             </div>
           </div>
         </div>
@@ -259,7 +259,7 @@
                   </div>
                   <div
                     style="font-family: 'centurygothic',sans serif; font-size: 18px; line-height: 40px; letter-spacing: 0;"
-                    class="csp-font-item"
+                    class="csp-font-item csp-font-item-premium"
                   >
                     Prestige
                   </div>
@@ -277,7 +277,7 @@
                   </div>
                   <div
                     style="font-family: 'plaza',sans serif; font-size: 20px; line-height: 40px; letter-spacing: 0;"
-                    class="csp-font-item"
+                    class="csp-font-item csp-font-item-premium"
                   >
                     Mode
                   </div>
@@ -295,7 +295,7 @@
                   </div>
                   <div
                     style="font-family: 'kanit',sans serif; font-size: 20ox; line-height: 40px; letter-spacing: 0;"
-                    class="csp-font-item"
+                    class="csp-font-item csp-font-item-premium"
                   >
                     Chroma
                   </div>
@@ -313,7 +313,7 @@
                   </div>
                   <div
                     style="font-family: 'oswald',sans serif; font-size: 18px; line-height: 40px; letter-spacing: 0;"
-                    class="csp-font-item"
+                    class="csp-font-item csp-font-item-premium"
                   >
                     Espresso
                   </div>
@@ -328,7 +328,7 @@
               <p>Which color do you want your sign to be?</p>
             </div>
 
-            <fieldset class="js product-form__input cust-var-input">
+            <fieldset class="js product-form__input cust-var-input" style="justify-content: space-between">
               <div class="csp-color-btns">
                 <input
                   id="color-radio-black"
@@ -338,7 +338,7 @@
                   name="properties[color]"
                   checked="true"
                 >
-                <label for="color-radio-black">
+                <label for="color-radio-black" style="width: 100%;">
                   <span class="black-variant"></span>
                   <span>BLACK</span>
                 </label>
@@ -352,7 +352,7 @@
                   form="{{ product_form_id }}"
                   name="properties[color]"
                 >
-                <label for="color-radio-white">
+                <label for="color-radio-white" style="width: 100%;">
                   <span class="white-variant"></span>
                   <span>WHITE</span>
                 </label>
@@ -366,7 +366,7 @@
               <p>Choose what finish your sign will have</p>
             </div>
 
-            <fieldset class="js product-form__input cust-var-input">
+            <fieldset class="js product-form__input cust-var-input" style="justify-content: space-between">
               <div class="csp-variant-btns">
                 <input
                   id="material-radio-matte"
@@ -376,7 +376,7 @@
                   name="properties[material]"
                   checked="true"
                 >
-                <label for="material-radio-matte"> MATTE </label>
+                <label for="material-radio-matte" style="width: 100%;"> MATTE </label>
               </div>
 
               <div class="csp-variant-btns">
@@ -387,7 +387,7 @@
                   form="{{ product_form_id }}"
                   name="properties[material]"
                 >
-                <label for="material-radio-glossy"> GLOSSY </label>
+                <label for="material-radio-glossy" style="width: 100%;"> GLOSSY </label>
               </div>
             </fieldset>
 
@@ -601,7 +601,10 @@
                             <div class="csp-size-selection-box">
                               <h3 class="csp-custom-h3"><span class="csp-form-label">3</span>SIZE</h3>
                             </div>
-                            <fieldset class="js product-form__input cust-var-input">
+                            <fieldset
+                              class="js product-form__input cust-var-input"
+                              style="justify-content: space-between;"
+                            >
                               <legend class="form__label"></legend>
                               {%- for value in option.values -%}
                                 {%- capture measurements -%}
@@ -615,7 +618,7 @@
                                   <span id="size-large">0.0×0.0in</span>
                                 {%- endcase -%}
                               {%- endcapture -%}
-                                <div class="csp-variant-btns">
+                                <div class="csp-variant-btns" style="width: 32%">
                                   <input
                                     type="radio"
                                     class="size-radio-btn"
@@ -628,7 +631,10 @@
                                       checked
                                     {% endif %}
                                   >
-                                  <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                  <label
+                                    for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                    style="width: 100%;"
+                                  >
                                     <div class="csp-value-box">
                                       {{ value }}
                                       <span>{{ measurements }}</span>
@@ -943,6 +949,15 @@
 
 <script>
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
   let productsArr = [], premium_productsArr = [];
   const currentSize = document.querySelector("#current-size");
 
@@ -1094,6 +1109,15 @@
   viewCartbtn.addEventListener('click', function(event) {
     window.location.href = "/cart";
   })
+
+
+
+
+
+
+
+
+
 
 </script>
 

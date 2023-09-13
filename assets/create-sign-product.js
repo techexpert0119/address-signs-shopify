@@ -56,10 +56,10 @@ let fontSizes = {
   "petit-formal": 80,
   vivace: 110,
   scriptmtbold: 100,
-  centurygothic: 90,
-  plaza: 105,
-  kanit: 100,
-  oswald: 100,
+  centurygothic: 80,
+  plaza: 95,
+  kanit: 90,
+  oswald: 90,
 };
 let currencyStatus = 0;
 let showMeasureBar = true;
@@ -342,8 +342,8 @@ backgroundSwatches.forEach((swatch) => {
 });
 
 fontGrid.style.display = "none";
-fontGridItem[0].style.backgroundColor = "#000000";
-fontGridItem[0].style.color = "#eeee33";
+fontGridItem[0].style.backgroundColor = "#353eac";
+fontGridItem[0].style.color = "#68ffa8";
 
 fontSelector.addEventListener("click", function () {
   if (fontDropdownGrid.style.gridTemplateRows === "0fr") {
@@ -358,16 +358,35 @@ fontSelector.addEventListener("click", function () {
   }
 });
 
+const isPremiumFont = (font) => {
+  return (
+    font == "centurygothic" ||
+    font == "plaza" ||
+    font == "kanit" ||
+    font == "oswald"
+  );
+};
+
 for (let i = 0; i < fontGridItem.length; i++) {
   fontGridItem[i].addEventListener("click", function (e) {
-    for (let x = 0; x < fontGridItem.length; x++) {
-      fontGridItem[x].style.color = "rgb(0, 0, 0)";
-      fontGridItem[x].style.backgroundColor = "transparent";
-    }
-    e.currentTarget.style.color = "#eeee33";
-    e.currentTarget.style.backgroundColor = "#000000";
     let fontStr = e.currentTarget.style.fontFamily;
     let modifiedStr = fontStr.split(",")[0].replaceAll('"', "");
+
+    for (let x = 0; x < fontGridItem.length; x++) {
+      const fontStr = fontGridItem[x].style.fontFamily;
+      const modifiedStr = fontStr.split(",")[0].replaceAll('"', "");
+      if (isPremiumFont(modifiedStr))
+        fontGridItem[x].style.color = "rgb(0, 0, 0)";
+      else fontGridItem[x].style.color = "rgb(53, 62, 172)";
+      fontGridItem[x].style.backgroundColor = "transparent";
+    }
+    if (isPremiumFont(modifiedStr)) {
+      e.currentTarget.style.color = "#eeee33";
+      e.currentTarget.style.backgroundColor = "#000000";
+    } else {
+      e.currentTarget.style.color = "#68ffa8";
+      e.currentTarget.style.backgroundColor = "#353eac";
+    }
     fontInput.setAttribute("value", modifiedStr);
     displayDesignText.style.fontFamily = e.currentTarget.style.fontFamily;
     cartPreDesignText.style.fontFamily = e.currentTarget.style.fontFamily;

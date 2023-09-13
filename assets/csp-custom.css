@@ -354,14 +354,18 @@ body {
   gap: 6px;
 }
 .csp-font-item {
-  color: rgb(0, 0, 0);
-  border: 1px solid rgb(0, 0, 0);
+  color: rgb(53, 62, 172);
+  border: 1px solid rgb(53, 62, 172);
   text-align: center;
   height: 40px;
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
   transition: all 250ms ease-out;
+}
+.csp-font-item-premium {
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
 }
 .csp-font-item:hover {
   box-shadow: 0px 0px 1px 0.5px #000;
@@ -375,7 +379,7 @@ input.prevent-highlight {
 }
 
 .csp-color-btns {
-  width: 50%;
+  width: 49%;
 }
 .csp-color-btns label {
   display: flex !important;
@@ -403,7 +407,7 @@ input.prevent-highlight {
 }
 .cust-var-input {
   flex-wrap: nowrap !important;
-  justify-content: unset !important;
+  /* justify-content: unset !important; */
 }
 .black-variant {
   background-color: black;
@@ -425,7 +429,7 @@ input.prevent-highlight {
   font-weight: bold;
 }
 .csp-variant-btns {
-  width: 50%;
+  width: 49%;
 }
 .csp-variant-btns label {
   display: flex !important;
