@@ -73,7 +73,7 @@ const cartPreFontChange = () => {
 
   while (
     cartPreDesignText.scrollWidth >
-      (cartPreImageContainer.clientWidth - 20) * 0.8 &&
+    (cartPreImageContainer.clientWidth - 20) * 0.8 &&
     fontSize > 0
   ) {
     fontSize--;
@@ -192,6 +192,7 @@ function countValue() {
   var textWidthDislay = document.getElementById("widthDisplay");
   var textHeightDislay = document.getElementById("heightDisplay");
   var dynamicSize = document.getElementById("csp-design-static-size");
+  var dynamicSize2 = document.getElementById("csp-design-static-size-2");
   var smallSizeDisplay = document.getElementById("size-small");
   var mediumSizeDisplay = document.getElementById("size-medium");
   var largeSizeDisplay = document.getElementById("size-large");
@@ -212,6 +213,7 @@ function countValue() {
     }
   }
   dynamicSize.textContent = `${height} × ${width}in`;
+  dynamicSize2.textContent = `${height} × ${width}`;
   currentWidthHeight.textContent = `(${height} × ${width}in)`;
   smallSizeDisplay.textContent = `${(maxHeight * 0.8).toFixed(1)}×${(
     maxWidth * 0.8
@@ -242,9 +244,8 @@ function countValue() {
     premiumFlag = true;
 
   currentAddress.innerHTML = textInput.value;
-  currentProduct.innerHTML = `${strlength} letter${
-    premiumFlag ? " premium" : ""
-  }`;
+  currentProduct.innerHTML = `${strlength} letter${premiumFlag ? " premium" : ""
+    }`;
 
   // Control Font Size
   var container = document.getElementsByClassName("height-text-box")[0];
