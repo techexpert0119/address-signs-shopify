@@ -441,13 +441,13 @@ input.prevent-highlight {
   border-radius: 7px !important;
 }
 .csp-cta-btn {
-  width: 102%;
+  width: 100%;
   height: 80px;
   background-color: #353eac;
   color: #fff;
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   cursor: pointer;
   transform: translate(-2px, 2px);
 }
@@ -631,6 +631,9 @@ input.prevent-highlight {
   margin-bottom: 10px;
   font-size: 20px;
 }
+.csp-cta-details {
+  display: none;
+}
 
 @media screen and (max-width: 778px) {
   .cart-pre-closeBtn {
@@ -713,4 +716,57 @@ input.prevent-highlight {
   .measure-height-cont {
     display: none;
   }
+  .cust-btn {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(138, 251, 109);
+    padding: 0px 10px;
+    padding-left: 15px;
+  }
+  .csp-cta-btn {
+    width: 40%;
+    min-width: 220px;
+    border-radius: 1000px;
+    font-size: 17px;
+    letter-spacing: 0px;
+    height: 60px;
+    border: 0;
+    color: white;
+  }
+  .csp-cta-details {
+    display: block;
+    text-align: left;
+    font-weight: 700;
+    line-height: 0px;
+    color: #353eac;
+    letter-spacing: 0px;
+  }
+  .header {
+    display: none;
+  }
+}
+
+/* @media screen and (max-width: 640px) {
+  .cust-btn {
+    padding: 0px 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cust-btn {
+    padding: 0px 10px;
+    padding-left: 15px;
+  }
+} */
+
+.csp-design-static-currency-2 {
+  font-size: 36px;
+  line-height: 51px;
+}
+
+.csp-design-static-size-2 {
+  letter-spacing: -1px;
+  margin-top: 8px;
 }

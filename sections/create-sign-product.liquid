@@ -842,7 +842,7 @@
                               value="{{ product.selected_or_first_available_variant.id }}"
                               disabled
                             >
-                            <div class="product-form__buttons cust-btn">
+                            <div class="product-form__buttons">
                               <button
                                 id="add-to-cart-btn"
                                 class="cart-pre-notification-btn"
@@ -875,13 +875,15 @@
                             </div>
                           {%- endform -%}
                         </product-form>
-                        <button
-                          id="view-cart-btn"
-                          class="cart-pre-notification-btn"
-                          style="display: none;"
-                        >
-                          VIEW CART
-                        </button>
+                        {% comment %}
+                          <button
+                            id="view-cart-btn"
+                            class="cart-pre-notification-btn"
+                            style="display: none;"
+                          >
+                            VIEW CART
+                          </button>
+                        {% endcomment %}
                       </div>
                     </div>
                   </div>
@@ -890,8 +892,17 @@
           </div>
           <div class="product-form pf-text-design">
             <div class="cust-btn">
+              <div class="csp-cta-details">
+                from
+                <div class="csp-design-static-currency-2">
+                  <span>$<span id="csp-design-static-currency-2">0.0</span> </span>
+                </div>
+                <div class="csp-design-static-size-2">
+                  <span><span id="csp-design-static-size-2">0.0</span>in</span>
+                </div>
+              </div>
               <button id="done-btn" class="csp-cta-btn">
-                <div>DONE</div>
+                <div>REVIEW YOUR ORDER</div>
               </button>
             </div>
           </div>
@@ -948,16 +959,16 @@
 </section>
 
 <script>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
   let productsArr = [], premium_productsArr = [];
   const currentSize = document.querySelector("#current-size");
 
@@ -998,8 +1009,10 @@
       return;
     }
     const staticPrice = document.querySelector("#csp-design-static-currency");
+    const staticPrice2 = document.querySelector("#csp-design-static-currency-2");
     const headerPrice = document.querySelector("#cart-pre-price");
     staticPrice.innerHTML = (+ currentVariant.price / 100.0).toFixed(2);
+    staticPrice2.innerHTML = (+ currentVariant.price / 100.0).toFixed(1);
     headerPrice.innerHTML = `$${
       (+ currentVariant.price / 100.0).toFixed(2)
     }`;
@@ -1023,7 +1036,7 @@
 
 // Add done-btn handler
   const addToCartBtn = document.querySelector("#add-to-cart-btn");
-  const viewCartbtn = document.querySelector("#view-cart-btn");
+  // const viewCartbtn = document.querySelector("#view-cart-btn");
 
   addToCartBtn.addEventListener("click", () => {
     const comment = document.querySelector("#cart-pre-comment");
@@ -1041,7 +1054,7 @@
       .filter((str) => str !== "\n" && str !== " ")
       .length
       .toString();
-    
+
     let premiumFlag = false;
     let currentProduct;
 
@@ -1092,8 +1105,9 @@
         comment.style.color = "green"
         comment.innerHTML = "You successfully added product to cart!"
 
-        addToCartBtn.style.display = "none";
-        viewCartbtn.style.display = "block";
+        // addToCartBtn.style.display = "none";
+        // viewCartbtn.style.display = "block";
+        window.location.href = "/cart";
 
       })
       .catch(error => {
@@ -1106,19 +1120,9 @@
       })
   })
 
-  viewCartbtn.addEventListener('click', function(event) {
-    window.location.href = "/cart";
-  })
-
-
-
-
-
-
-
-
-
-
+  // viewCartbtn.addEventListener('click', function(event) {
+  //   window.location.href = "/cart";
+  // })
 </script>
 
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
